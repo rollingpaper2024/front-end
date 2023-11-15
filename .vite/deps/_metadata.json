@@ -1,35 +1,47 @@
 {
-  "hash": "974e4437",
-  "browserHash": "254d6b4a",
+  "hash": "57117de4",
+  "browserHash": "9ded45a8",
   "optimized": {
     "react": {
       "src": "../../../AppData/Local/Yarn/Berry/cache/react-npm-18.2.0-1eae08fee2-10c0.zip/node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "4d307bdc",
+      "fileHash": "ea1d49ec",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../../AppData/Local/Yarn/Berry/cache/react-npm-18.2.0-1eae08fee2-10c0.zip/node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "16a97a2b",
+      "fileHash": "bf7fccd1",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../../AppData/Local/Yarn/Berry/cache/react-npm-18.2.0-1eae08fee2-10c0.zip/node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "7200d0dd",
+      "fileHash": "2aa535ea",
       "needsInterop": true
+    },
+    "jotai": {
+      "src": "../../.yarn/__virtual__/jotai-virtual-ad410f3c07/2/AppData/Local/Yarn/Berry/cache/jotai-npm-2.5.1-5d13f04b9d-10c0.zip/node_modules/jotai/esm/index.mjs",
+      "file": "jotai.js",
+      "fileHash": "b93d3c73",
+      "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../.yarn/__virtual__/react-dom-virtual-f81c5f5a7f/2/AppData/Local/Yarn/Berry/cache/react-dom-npm-18.2.0-dd675bca1c-10c0.zip/node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "584e0d68",
+      "fileHash": "0c419687",
       "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../.yarn/__virtual__/react-router-dom-virtual-27a168ea2b/2/AppData/Local/Yarn/Berry/cache/react-router-dom-npm-6.18.0-72373ba9f8-10c0.zip/node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "ac1f5066",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-WOZEUDGU": {
-      "file": "chunk-WOZEUDGU.js"
+    "chunk-FNE3RDCM": {
+      "file": "chunk-FNE3RDCM.js"
     }
   }
 }

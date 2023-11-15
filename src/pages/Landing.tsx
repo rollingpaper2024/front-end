@@ -1,9 +1,6 @@
-import React from 'react'
+const LandingPage: React.FC = () => {
+  // JSX 반환
+  return <div>Landing Page Content</div>;
+};
 
-function LandingPage() {
-  return (
-    <div>LandingPage</div>
-  )
-}
-
-export default LandingPage
+export default LandingPage;

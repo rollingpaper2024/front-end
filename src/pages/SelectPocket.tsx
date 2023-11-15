@@ -1,9 +1,9 @@
 import React from 'react'
 
-function SelectPoket() {
+function SelectPocket() {
   return (
     <div>SelectPoket</div>
   )
 }
 
-export default SelectPoket
+export default SelectPocket

@@ -11,16 +11,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@remix-run/router": "^1.11.0",
     "@types/ol": "^7.0.0",
     "jotai": "^2.5.1",
     "ol": "^8.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.18.0",
     "styled-components": "^6.1.1"
   },
   "devDependencies": {
+    "@types/node": "^20.9.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.30",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",

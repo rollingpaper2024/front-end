@@ -1,7 +1,7 @@
 import {
   __commonJS,
   require_react
-} from "./chunk-WOZEUDGU.js";
+} from "./chunk-FNE3RDCM.js";
 
 // ../AppData/Local/Yarn/Berry/cache/scheduler-npm-0.23.0-a379a6bc3b-10c0.zip/node_modules/scheduler/cjs/scheduler.development.js
 var require_scheduler_development = __commonJS({
