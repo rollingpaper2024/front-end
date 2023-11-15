@@ -780,6 +780,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-toastify@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@types/react-toastify@npm:4.1.0"
+  dependencies:
+    react-toastify: "npm:*"
+  checksum: 1bf8312896d4a47bbb44d469b7ccb16999ce69b9f5271ab7f5cb2c63c2e66f247eb52edd575211b8414fbc2ee39e9322ac3c8ec60b2d7368b89d48be9e8d3fb8
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*, @types/react@npm:^18.2.37":
   version: 18.2.37
   resolution: "@types/react@npm:18.2.37"
@@ -1325,6 +1334,13 @@ __metadata:
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
   checksum: 1f90262d5f6230a17e27d0c190b09d47ebe7efdd76a03b5a1127863f7b3c9aec4c3e6c8bb3a7bbf81d553d56a1fd35728f5a8ef4c63f867ac8d690109742a8c1
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^1.1.1":
+  version: 1.2.1
+  resolution: "clsx@npm:1.2.1"
+  checksum: 34dead8bee24f5e96f6e7937d711978380647e936a22e76380290e35486afd8634966ce300fc4b74a32f3762c7d4c0303f442c3e259f4ce02374eb0c82834f27
   languageName: node
   linkType: hard
 
@@ -3733,6 +3749,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-toastify@npm:*, react-toastify@npm:^9.1.3":
+  version: 9.1.3
+  resolution: "react-toastify@npm:9.1.3"
+  dependencies:
+    clsx: "npm:^1.1.1"
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 51de1e51e9357a24773fbcd45a4db18bf74b8ec40d86a2bfb4a4fee23ca4f9fffdac5dfb7a3c21baea39971f72f72dfcdc79403a6de006f74d69e7bc12f8b3e0
+  languageName: node
+  linkType: hard
+
 "react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -3844,6 +3872,7 @@ __metadata:
     "@types/react": "npm:^18.2.37"
     "@types/react-dom": "npm:^18.2.15"
     "@types/react-router-dom": "npm:^5.3.3"
+    "@types/react-toastify": "npm:^4.1.0"
     "@types/styled-components": "npm:^5.1.30"
     "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
     "@typescript-eslint/parser": "npm:^6.0.0"
@@ -3860,6 +3889,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-router-dom: "npm:^6.18.0"
+    react-toastify: "npm:^9.1.3"
     styled-components: "npm:^6.1.1"
     styled-normalize: "npm:^8.1.0"
     typescript: "npm:^5.0.2"

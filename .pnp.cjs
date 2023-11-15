@@ -32,6 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.2.37"],\
           ["@types/react-dom", "npm:18.2.15"],\
           ["@types/react-router-dom", "npm:5.3.3"],\
+          ["@types/react-toastify", "npm:4.1.0"],\
           ["@types/styled-components", "npm:5.1.30"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
           ["@typescript-eslint/parser", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
@@ -48,6 +49,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:18.2.0"],\
           ["react-router-dom", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.18.0"],\
+          ["react-toastify", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:9.1.3"],\
           ["styled-components", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.1.1"],\
           ["styled-normalize", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:8.1.0"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
@@ -1027,6 +1029,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/react-toastify", [\
+      ["npm:4.1.0", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/@types-react-toastify-npm-4.1.0-5a0103c138-10c0.zip/node_modules/@types/react-toastify/",\
+        "packageDependencies": [\
+          ["@types/react-toastify", "npm:4.1.0"],\
+          ["react-toastify", "virtual:5a0103c138907631ef579e50d91ccf8b771e3c50333edbeb31d8e56d441a609a338eeac1c428f0e71c19f931292999f5bb70995ac7b7ed82b8288feb583176fa#npm:9.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/scheduler", [\
       ["npm:0.16.6", {\
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/@types-scheduler-npm-0.16.6-73b5b0836b-10c0.zip/node_modules/@types/scheduler/",\
@@ -1721,6 +1733,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/clean-stack-npm-2.2.0-a8ce435a5c-10c0.zip/node_modules/clean-stack/",\
         "packageDependencies": [\
           ["clean-stack", "npm:2.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["clsx", [\
+      ["npm:1.2.1", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/clsx-npm-1.2.1-77792dc182-10c0.zip/node_modules/clsx/",\
+        "packageDependencies": [\
+          ["clsx", "npm:1.2.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4467,6 +4488,51 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-toastify", [\
+      ["npm:9.1.3", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/react-toastify-npm-9.1.3-2f82dd0b41-10c0.zip/node_modules/react-toastify/",\
+        "packageDependencies": [\
+          ["react-toastify", "npm:9.1.3"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:9.1.3", {\
+        "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-3198276064/2/AppData/Local/Yarn/Berry/cache/react-toastify-npm-9.1.3-2f82dd0b41-10c0.zip/node_modules/react-toastify/",\
+        "packageDependencies": [\
+          ["react-toastify", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:9.1.3"],\
+          ["@types/react", "npm:18.2.37"],\
+          ["@types/react-dom", "npm:18.2.15"],\
+          ["clsx", "npm:1.2.1"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:5a0103c138907631ef579e50d91ccf8b771e3c50333edbeb31d8e56d441a609a338eeac1c428f0e71c19f931292999f5bb70995ac7b7ed82b8288feb583176fa#npm:9.1.3", {\
+        "packageLocation": "./.yarn/__virtual__/react-toastify-virtual-50b4596426/2/AppData/Local/Yarn/Berry/cache/react-toastify-npm-9.1.3-2f82dd0b41-10c0.zip/node_modules/react-toastify/",\
+        "packageDependencies": [\
+          ["react-toastify", "virtual:5a0103c138907631ef579e50d91ccf8b771e3c50333edbeb31d8e56d441a609a338eeac1c428f0e71c19f931292999f5bb70995ac7b7ed82b8288feb583176fa#npm:9.1.3"],\
+          ["@types/react", null],\
+          ["@types/react-dom", null],\
+          ["clsx", "npm:1.2.1"],\
+          ["react", null],\
+          ["react-dom", null]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["reflect.getprototypeof", [\
       ["npm:1.0.4", {\
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/reflect.getprototypeof-npm-1.0.4-fa901640c3-10c0.zip/node_modules/reflect.getprototypeof/",\
@@ -4564,6 +4630,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.2.37"],\
           ["@types/react-dom", "npm:18.2.15"],\
           ["@types/react-router-dom", "npm:5.3.3"],\
+          ["@types/react-toastify", "npm:4.1.0"],\
           ["@types/styled-components", "npm:5.1.30"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
           ["@typescript-eslint/parser", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
@@ -4580,6 +4647,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:18.2.0"],\
           ["react-router-dom", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.18.0"],\
+          ["react-toastify", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:9.1.3"],\
           ["styled-components", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.1.1"],\
           ["styled-normalize", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:8.1.0"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
