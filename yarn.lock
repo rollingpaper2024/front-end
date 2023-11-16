@@ -660,6 +660,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@tanstack/query-core@npm:5.8.3"
+  checksum: cc2cc74f63b73dfda241de0c468e81be1db32e601783dafe599ce678b5e2697b6cedac42118d0e4b5aa7abfca2a6534065494157905dffd46446290b24587827
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.8.4":
+  version: 5.8.4
+  resolution: "@tanstack/react-query@npm:5.8.4"
+  dependencies:
+    "@tanstack/query-core": "npm:5.8.3"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 495a36b774b063cabe44e2b61c62185fe25c4b6cd4b1d86a1c6b494560981a25534beb8341557559b785a186dcefe99fb6478091a96a51f7337e419d8c42b045
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:^7.20.3":
   version: 7.20.4
   resolution: "@types/babel__core@npm:7.20.4"
@@ -3867,6 +3892,7 @@ __metadata:
   resolution: "rollingpaper@workspace:."
   dependencies:
     "@remix-run/router": "npm:^1.11.0"
+    "@tanstack/react-query": "npm:^5.8.4"
     "@types/node": "npm:^20.9.0"
     "@types/ol": "npm:^7.0.0"
     "@types/react": "npm:^18.2.37"
