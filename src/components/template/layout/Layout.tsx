@@ -1,9 +1,9 @@
-import React from 'react'
+import { ReactNode } from "react";
 import * as Styled from "./layout.styled" 
 
-function Layout() {
+function Layout({ children }: { children: ReactNode }) {
   return (
-    <Styled.SLayout>Layout</Styled.SLayout>
+    <Styled.SLayout>{children}</Styled.SLayout>
   )
 }
 
