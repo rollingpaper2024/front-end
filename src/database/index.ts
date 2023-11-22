@@ -1,4 +1,8 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, FirebaseApp, getApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+export let app: FirebaseApp;
+
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -10,4 +14,14 @@ const firebaseConfig = {
   };
 
   
-  const app = initializeApp(firebaseConfig);
+  try {
+    app = getApp("app");
+  } catch (e) {
+    app = initializeApp(firebaseConfig, "app");
+  }
+  
+  const firebase = initializeApp(firebaseConfig);
+  
+  export const db = getFirestore(app);
+  
+  export default firebase;
