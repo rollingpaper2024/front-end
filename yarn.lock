@@ -1474,6 +1474,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/uuid@npm:^9.0.7":
+  version: 9.0.7
+  resolution: "@types/uuid@npm:9.0.7"
+  checksum: b329ebd4f9d1d8e08d4f2cc211be4922d70d1149f73d5772630e4a3acfb5170c6d37b3d7a39a0412f1a56e86e8a844c7f297c798b082f90380608bf766688787
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:^6.0.0":
   version: 6.11.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.11.0"
@@ -4654,6 +4661,7 @@ __metadata:
     "@types/react-router-dom": "npm:^5.3.3"
     "@types/react-toastify": "npm:^4.1.0"
     "@types/styled-components": "npm:^5.1.30"
+    "@types/uuid": "npm:^9.0.7"
     "@typescript-eslint/eslint-plugin": "npm:^6.0.0"
     "@typescript-eslint/parser": "npm:^6.0.0"
     "@vitejs/plugin-react": "npm:^4.0.3"
@@ -4674,6 +4682,7 @@ __metadata:
     styled-components: "npm:^6.1.1"
     styled-normalize: "npm:^8.1.0"
     typescript: "npm:^5.0.2"
+    uuid: "npm:^9.0.1"
     vite: "npm:^4.5.0"
   languageName: unknown
   linkType: soft
@@ -5294,6 +5303,15 @@ __metadata:
   dependencies:
     punycode: "npm:^2.1.0"
   checksum: 4ef57b45aa820d7ac6496e9208559986c665e49447cb072744c13b66925a362d96dd5a46c4530a6b8e203e5db5fe849369444440cb22ecfc26c679359e5dfa3c
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "uuid@npm:9.0.1"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 1607dd32ac7fc22f2d8f77051e6a64845c9bce5cd3dd8aa0070c074ec73e666a1f63c7b4e0f4bf2bc8b9d59dc85a15e17807446d9d2b17c8485fbc2147b27f9b
   languageName: node
   linkType: hard
 

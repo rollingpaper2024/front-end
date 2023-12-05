@@ -35,6 +35,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-router-dom", "npm:5.3.3"],\
           ["@types/react-toastify", "npm:4.1.0"],\
           ["@types/styled-components", "npm:5.1.30"],\
+          ["@types/uuid", "npm:9.0.7"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
           ["@typescript-eslint/parser", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
           ["@vitejs/plugin-react", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:4.1.1"],\
@@ -55,6 +56,7 @@ const RAW_RUNTIME_STATE =
           ["styled-components", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.1.1"],\
           ["styled-normalize", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:8.1.0"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
+          ["uuid", "npm:9.0.1"],\
           ["vite", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:4.5.0"]\
         ],\
         "linkType": "SOFT"\
@@ -2267,6 +2269,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/@types-stylis-npm-4.2.3-fad00ef54c-10c0.zip/node_modules/@types/stylis/",\
         "packageDependencies": [\
           ["@types/stylis", "npm:4.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/uuid", [\
+      ["npm:9.0.7", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/@types-uuid-npm-9.0.7-c380bb8654-10c0.zip/node_modules/@types/uuid/",\
+        "packageDependencies": [\
+          ["@types/uuid", "npm:9.0.7"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5988,6 +5999,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react-router-dom", "npm:5.3.3"],\
           ["@types/react-toastify", "npm:4.1.0"],\
           ["@types/styled-components", "npm:5.1.30"],\
+          ["@types/uuid", "npm:9.0.7"],\
           ["@typescript-eslint/eslint-plugin", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
           ["@typescript-eslint/parser", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.11.0"],\
           ["@vitejs/plugin-react", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:4.1.1"],\
@@ -6008,6 +6020,7 @@ const RAW_RUNTIME_STATE =
           ["styled-components", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:6.1.1"],\
           ["styled-normalize", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:8.1.0"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
+          ["uuid", "npm:9.0.1"],\
           ["vite", "virtual:3a8d71c3309dbd3baefb777c0d14f2d07e031e34695d64477aaceea9b422e6f7af7343676b67825400a19ef0ac2a049bab1efffcac056d9e51bb04dc90e52d43#npm:4.5.0"]\
         ],\
         "linkType": "SOFT"\
@@ -6742,6 +6755,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["uri-js", "npm:4.4.1"],\
           ["punycode", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["uuid", [\
+      ["npm:9.0.1", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/uuid-npm-9.0.1-39a8442bc6-10c0.zip/node_modules/uuid/",\
+        "packageDependencies": [\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\

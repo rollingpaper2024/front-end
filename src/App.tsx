@@ -6,7 +6,7 @@ import { GlobalStyle } from './style/GlobalStyle'
 function App() {
   return (
     <>
-    <GlobalStyle/>
+      <GlobalStyle/>
       <RouterProvider router={routers} />
     </>
   )

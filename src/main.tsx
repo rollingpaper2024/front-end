@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import './index.css'
 import { Provider } from 'jotai'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ToastContainer } from 'react-toastify'
