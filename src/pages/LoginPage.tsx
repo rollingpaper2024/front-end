@@ -1,41 +1,36 @@
-import React from 'react'
 import { onClickSocialLogin } from '@/api'
-
+import KakaoLogin from 'react-kakao-login'
 
 declare global {
   interface Window {
-    Kakao: any;
+    Kakao: any
   }
 }
-  
-const Login = () => {
-  if (!window.Kakao.isInitialized()) {
-    window.Kakao.init(import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY);
-  }
-
-  return (...);
-}
-
-
-const onLoginWithKakao = () => {
-  const redirectUri = `${location.origin}/callback/kakaotalk`;
-  const scope = [
-    KAKAO_SCOPE_NICKNAME,
-
-  ].join(",");
-
-  window.Kakao.Auth.authorize({
-    redirectUri,
-    scope,
-  });
-};
 
 function LoginPage() {
+  if (!window.Kakao.isInitialized()) {
+    window.Kakao.init(import.meta.env.VITE_APP_KAKAO_JAVASCRIPT_KEY)
+  }
+
+  const kakaoClientId = import.meta.env.VITE_APP_KAKAO_JAVASCRIPT_KEY
+  const kakaoOnSuccess = async (data: any) => {
+    console.log(data)
+    const idToken = data.response.access_token // 엑세스 토큰 백엔드로 전달
+  }
+  const kakaoOnFailure = (error: any) => {
+    console.log(error)
+  }
+
   return (
-    <div><button name="google" onClick={onClickSocialLogin}>google</button></div>
-    <button onClick={onLoginWithKakao}>카카오 로그인</button>
+    <>
+      <div>
+        <button name="google" onClick={onClickSocialLogin}>
+          google
+        </button>
+      </div>
+      <KakaoLogin token={kakaoClientId} onSuccess={kakaoOnSuccess} onFail={kakaoOnFailure} />
+    </>
   )
 }
 
 export default LoginPage
-
