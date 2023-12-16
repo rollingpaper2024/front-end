@@ -1,13 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 import { RouterProvider } from 'react-router-dom'
-import { routers } from './router/router'
+import { routers } from './router/router.ts'
 import { GlobalStyle } from './style/GlobalStyle'
 
+
 function App() {
+
+
   return (
     <>
-      <GlobalStyle/>
-      <RouterProvider router={routers} />
+    <GlobalStyle/>
+     <RouterProvider router={routers} /> 
     </>
   )
 }
