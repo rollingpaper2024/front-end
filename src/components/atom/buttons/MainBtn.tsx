@@ -1,18 +1,24 @@
-import { primaryColor, textColor, palette } from '../../../style/Color';
+import { black, orange, yellow } from '../../../style/Color';
 import styled from 'styled-components';
 
-const MainBtn = styled.button`
+const MainBtnstyle  = styled.button`
     width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    background-color: ${primaryColor};
-    color: ${textColor};
-    font-size: 16px;
+    height: 52px;
+    border: 2px solid ${black};
+    background-color: ${black};
+    color: ${yellow};
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     &:hover {
-        background-color: ${palette.hoverColor};
+        background-color: ${orange};
     }
     `;
+
+
+    function MainBtn() {
+  return (
+    <MainBtnstyle>덕담 보내기</MainBtnstyle>
+  )
+}
 export default MainBtn;
