@@ -3,7 +3,6 @@ import LandingPage from "@/pages/Landing"
 import Main from "@/pages/Main"
 import MessageList from "@/pages/MessageList";
 import SelectPocket from "@/pages/SelectPocket";
-import SendLandingPage from "@/pages/SendLanding";
 import SharePage from "@/pages/SharePage";
 import WriteMessage from "@/pages/WriteMessage";
 import LoginPage from "@/pages/LoginPage";
@@ -39,24 +38,18 @@ export const routerData: RouterElement[] = [
   },
   {
     id: 4,
-    path: '/sendlandingpage',
-    element: <Layout isUser={true}><SendLandingPage/></Layout>,
-    withAuth: true
-  },
-  {
-    id: 5,
     path: '/sharepage',
     element: <Layout isUser={true}><SharePage/></Layout>,
     withAuth: true
   },
   {
-    id: 6,
+    id: 5,
     path: '/writemessage',
     element: <Layout isUser={true}><WriteMessage/></Layout>,
     withAuth: true
   },
   {
-    id: 7,
+    id: 6,
     path: '/login',
     element: <Layout isUser={false}><LoginPage/></Layout>,
     withAuth: false
