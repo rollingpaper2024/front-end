@@ -1,9 +1,9 @@
 import React from 'react'
-import { onClickSocialLogin } from '@/api'
+import Login from '@/components/template/login/Login'
 
 function LoginPage() {
   return (
-    <div><button name="google" onClick={onClickSocialLogin}>google</button></div>
+    <div><Login/></div>
   )
 }
 

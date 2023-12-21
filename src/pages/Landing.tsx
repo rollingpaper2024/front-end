@@ -1,9 +1,12 @@
 import React from 'react'
+import Landing from '@/components/template/landing/Landing'
 
 
 function main() {
   return (
-    <div>main</div>
+    <div>
+      <Landing/>
+    </div>
   )
 }
 
