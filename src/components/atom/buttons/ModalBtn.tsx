@@ -1,5 +1,5 @@
 import React from 'react'
-import * as Styled from './mainbtn.styled'
+import * as Styled from './modalbtn.styled'
 
 interface ModalBtnProps {
   title: string

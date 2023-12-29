@@ -16,6 +16,6 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
   }
 
   &:active {
-    background-color: ${(props) => (!props.$isDisabled ? color.yellow[300] : color.gray[200])};
+    background-color: ${(props) => (!props.$isDisabled ? color.gray[600] : color.gray[200])};
   }
 `
