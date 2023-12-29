@@ -32,6 +32,8 @@ ${normalize}
   html,
   body {
     height: 100%;
+    font-family: "Pretendard";
+    font-weight: 300;
   }
 
   img,

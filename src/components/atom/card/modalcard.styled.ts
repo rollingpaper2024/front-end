@@ -22,7 +22,8 @@ export const ModalTitle = styled.div`
   text-align: center;
   font-size: ${font.Large};
   position: relative;
-  top: 24px;
+  top: -24px;
+  font-weight: 600;
 `
 
 export const ModalContent = styled.div`
@@ -42,25 +43,25 @@ export const ModalBtnWrapper = styled.div`
   position: relative;
 `
 export const ModalLeftUp = styled.div`
-  position: absolute;
-  left: 14%;
-  top: 166px;
+  position: relative;
+  left: -46%;
+  top: 6px;
 `
 export const ModalRightUp = styled.div`
-  position: absolute;
-  top: 166px;
-  right: 28.5%;
+  position: relative;
+  top: -18px;
+  right: -46%;
   transform: rotate(90deg);
 `
 export const ModalLeftDown = styled.div`
-  position: absolute;
+  position: relative;
   transform: rotate(270deg);
-  top: 478px;
-  left: 14%;
+  top: 68px;
+  left: -46%;
 `
 export const ModalRightDown = styled.div`
-  position: absolute;
-  top: 478px;
-  left: 68%;
+  position: relative;
+  top: 42px;
+  right: -46%;
   transform: rotate(180deg);
 `

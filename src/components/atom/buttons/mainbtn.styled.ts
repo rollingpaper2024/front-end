@@ -7,7 +7,7 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
   height: 56px;
   width: 80%;
   color: ${color.yellow[300]}};
-  font-size: ${font.Middle};
+  font-size: ${font.Small};
   border: 2px solid ${color.gray[600]};
 
   // 버튼이 비활성화 상태가 아닐 때 hover 및 active 스타일 적용
