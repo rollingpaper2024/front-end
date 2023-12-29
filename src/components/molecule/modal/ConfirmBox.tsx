@@ -1,4 +1,3 @@
-import React from 'react'
 import ModalBtn from '@/components/atom/buttons/ModalBtn'
 
 function ConfirmBox() {

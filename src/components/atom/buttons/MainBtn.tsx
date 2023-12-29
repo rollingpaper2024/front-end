@@ -1,4 +1,3 @@
-import React from 'react'
 import * as Styled from './mainbtn.styled'
 import BtnBgLeft from '@/img/BtnBgLeft'
 import BtnBgRight from '@/img/BtnBgRight'

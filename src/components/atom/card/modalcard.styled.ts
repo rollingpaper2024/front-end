@@ -1,7 +1,6 @@
-import React from 'react'
 import color from '../../../style/color'
 import styled from 'styled-components'
-import font from '../../../style/font'
+import font from '@/style/font'
 
 export const SModal = styled.div`
   display: flex;
