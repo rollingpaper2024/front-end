@@ -6,7 +6,7 @@ export const Alert = styled.button`
   background-color: ${color.gray[600]};
   height: 68px;
   width: 80%;
-  color: ${color.white}};
+  color: ${color.white};
   font-size: ${font.Small};
   border-radius: 20px;
   font-weight: 600;

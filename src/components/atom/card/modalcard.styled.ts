@@ -10,7 +10,7 @@ export const SModal = styled.div`
   height: 356px;
   width: 80%;
   border: 2px solid ${color.yellow[300]};
-  color: ${color.white}};
+  color: ${color.white};
   font-size: ${font.Small};
   border-radius: 20px;
   position:absolute;
