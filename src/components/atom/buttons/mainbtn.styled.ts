@@ -6,7 +6,7 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
   background-color: ${(props) => (props.$isDisabled ? color.gray[500] : color.gray[600])};
   height: 56px;
   width: 80%;
-  color: ${color.yellow[300]}};
+  color: ${color.yellow[300]};
   font-size: ${font.Small};
   border: 2px solid ${color.gray[600]};
 
@@ -19,10 +19,15 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
     background-color: ${(props) => (!props.$isDisabled ? color.gray[800] : color.gray[500])};
   }
 `
+export const LeftBtn = styled.div`
+  position: relative;
+  top: -2px;
+`
+
 export const RightBtn = styled.div`
   position: relative;
   left: 88.2%;
-  top: -56px;
+  top: -58px;
 `
 
 export const BtnText = styled.div`

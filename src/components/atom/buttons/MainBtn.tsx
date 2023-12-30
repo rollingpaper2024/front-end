@@ -11,7 +11,9 @@ function MainBtn({ title, isDisabled }: MainBtnProps) {
   return (
     <>
       <Styled.SBtn $isDisabled={isDisabled}>
-        <BtnBgLeft />
+        <Styled.LeftBtn>
+          <BtnBgLeft />
+        </Styled.LeftBtn>
         <Styled.RightBtn>
           <BtnBgRight />
         </Styled.RightBtn>
