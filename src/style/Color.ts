@@ -1,4 +1,4 @@
-const color = {
+const Color = {
   white: '#FFFFFF',
   black: '#000000',
   pointColor: '#EF961C',
@@ -28,4 +28,4 @@ const color = {
   },
 }
 
-export default color
+export default Color

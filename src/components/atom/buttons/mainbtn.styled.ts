@@ -1,4 +1,4 @@
-import color from '../../../style/color'
+import color from '@/style/color'
 import styled from 'styled-components'
 import font from '@/style/font'
 
@@ -34,4 +34,5 @@ export const BtnText = styled.div`
   text-align: center;
   position: relative;
   top: -92px;
+  font-weight: 600;
 `

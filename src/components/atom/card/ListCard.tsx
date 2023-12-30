@@ -1,5 +1,5 @@
 import * as Styled from './listcard.styled'
-import ListCardIcn from '@/img/ListCardIcn'
+import ListIcnLeft from '@/img/ListICNLeft'
 
 interface ListCardProps {
   color: string
@@ -8,19 +8,22 @@ interface ListCardProps {
   message: string
 }
 
-function ModalCard({ color, name, date, message }: ListCardProps) {
+function ListCard({ color, name, date, message }: ListCardProps) {
   return (
     <Styled.SList>
-      <Styled.ListIcnWrapper>
-        <ListCardIcn color={color} />
-      </Styled.ListIcnWrapper>
-      <Styled.ListWrapper>
+      <Styled.ListWrapper color={color}>
         <Styled.ListTitle>{name}</Styled.ListTitle>
         <Styled.ListDate>{date}</Styled.ListDate>
         <Styled.ListText>{message}</Styled.ListText>
       </Styled.ListWrapper>
+      <Styled.ListIcnLeft>
+        <ListIcnLeft color={color} />
+      </Styled.ListIcnLeft>
+      <Styled.ListIcnRight>
+        <ListIcnLeft color={color} />
+      </Styled.ListIcnRight>
     </Styled.SList>
   )
 }
 
-export default ModalCard
+export default ListCard
