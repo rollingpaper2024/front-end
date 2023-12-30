@@ -16,7 +16,7 @@ export const ListWrapper = styled.div<{ color: string }>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 6px 20px;
+  padding: 6px 28px;
   flex-wrap: wrap;
   position: relative;
   align-items: center;
@@ -44,6 +44,9 @@ export const ListText = styled.div`
   font-size: ${font.Small};
   font-weight: 500;
   width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `
 
 export const ListIcnLeft = styled.div`

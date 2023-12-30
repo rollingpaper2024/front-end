@@ -17,6 +17,18 @@ function components() {
         date={'어제'}
         message={'미리 보기 글자 가로는 286으로 고정하세...'}
       />
+      <ListCard
+        color={color.cashColor[500]}
+        name={'양나무늘보'}
+        date={'어제'}
+        message={'미리 보기 글자 가로는 286으로 고정하세...'}
+      />
+      <ListCard
+        color={color.cashColor[400]}
+        name={'양나무늘보'}
+        date={'어제'}
+        message={'미리 보기 글자 가로는 286으로 고정하세...'}
+      />
     </>
   )
 }
