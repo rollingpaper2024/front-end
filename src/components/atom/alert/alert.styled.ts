@@ -12,7 +12,6 @@ export const Alert = styled.button`
   border-radius: 20px;
   min-width: 334px;
   position: relative;
-  margin: 0 auto;
 `
 export const AlertWrapper = styled.div`
   display: flex;

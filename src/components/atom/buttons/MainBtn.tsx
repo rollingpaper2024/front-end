@@ -14,10 +14,10 @@ function MainBtn({ title, isDisabled }: MainBtnProps) {
         <Styled.LeftBtn>
           <BtnBgLeft />
         </Styled.LeftBtn>
-        <Styled.RightBtn>
-          <BtnBgRight />
-        </Styled.RightBtn>
         <Styled.BtnText>{title}</Styled.BtnText>
+        <Styled.RightBtn>
+          <BtnBgLeft />
+        </Styled.RightBtn>
       </Styled.SBtn>
     </>
   )

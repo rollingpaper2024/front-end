@@ -9,6 +9,8 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
   color: ${color.yellow[300]};
   font-size: ${font.Small};
   border: 2px solid ${color.gray[600]};
+  min-width: 334px;
+  overflow: hidden;
 
   // 버튼이 비활성화 상태가 아닐 때 hover 및 active 스타일 적용
   &:hover {
@@ -25,6 +27,14 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
 
   &:active {
     background-color: ${(props) => (!props.$isDisabled ? color.gray[800] : color.gray[500])};
+    #circle1,
+    #circle2,
+    #circle3,
+    #circle4,
+    #circle5,
+    #circle6 {
+      fill: ${color.gray[800]};
+    }
   }
 `
 export const LeftBtn = styled.div`
@@ -33,14 +43,16 @@ export const LeftBtn = styled.div`
 `
 
 export const RightBtn = styled.div`
+  transform: rotate(180deg);
+  top: -76px;
   position: relative;
-  left: 88.2%;
-  top: -58px;
 `
 
 export const BtnText = styled.div`
   text-align: center;
   position: relative;
-  top: -92px;
+  top: -55%;
   font-weight: 600;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
