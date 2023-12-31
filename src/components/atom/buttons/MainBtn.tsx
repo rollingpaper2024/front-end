@@ -5,12 +5,13 @@ import BtnBgRight from '@/img/BtnBgRight'
 interface MainBtnProps {
   title: string
   isDisabled: boolean
+  onClick?: () => void
 }
 
-function MainBtn({ title, isDisabled }: MainBtnProps) {
+function MainBtn({ title, isDisabled, onClick  }: MainBtnProps) {
   return (
     <>
-      <Styled.SBtn $isDisabled={isDisabled}>
+      <Styled.SBtn $isDisabled={isDisabled} onClick={onClick}>
         <BtnBgLeft />
         <Styled.RightBtn>
           <BtnBgRight />
