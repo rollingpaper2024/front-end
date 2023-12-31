@@ -1,0 +1,16 @@
+interface ListCardBgProps {
+  color: string
+}
+
+const ListIcnLeft = ({ color }: ListCardBgProps) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" viewBox="0 0 28 26" fill="none">
+      <path
+        d="M2.05693 15.1102H6.42792V21.6232H14.9128V15.1102H21.3407V6.51303H14.9128V2.08417H27.9957V0H12.8558V6.51303H8.48485V0H0V8.59719H6.42792V13.0261H0V26H2.05693V15.1102ZM14.9128 8.59719H19.2837V13.0261H14.9128V8.59719ZM8.48485 8.59719H12.8558V13.0261H8.48485V8.59719ZM8.48485 15.1102H12.8558V19.5391H8.48485V15.1102ZM2.05693 6.51303V2.08417H6.42792V6.51303H2.05693Z"
+        fill={color}
+      />
+    </svg>
+  )
+}
+
+export default ListIcnLeft

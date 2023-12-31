@@ -41,9 +41,23 @@ const BtnBgLeft = () => {
         fill="#FFF8E7"
         stroke="#2F2F31"
       />
-      <circle cx="35" cy="28" r="13" transform="rotate(180 35 28)" fill="#2F2F31" />
-      <circle cx="37.5" cy="0.5" r="19.5" transform="rotate(180 37.5 0.5)" fill="#2F2F31" />
-      <circle cx="37.5" cy="55.5" r="19.5" transform="rotate(180 37.5 55.5)" fill="#2F2F31" />
+      <circle id="circle1" cx="35" cy="28" r="13" transform="rotate(180 35 28)" fill="#2F2F31" />
+      <circle
+        id="circle2"
+        cx="37.5"
+        cy="0.5"
+        r="19.5"
+        transform="rotate(180 37.5 0.5)"
+        fill="#2F2F31"
+      />
+      <circle
+        id="circle3"
+        cx="37.5"
+        cy="55.5"
+        r="19.5"
+        transform="rotate(180 37.5 55.5)"
+        fill="#2F2F31"
+      />
     </svg>
   )
 }

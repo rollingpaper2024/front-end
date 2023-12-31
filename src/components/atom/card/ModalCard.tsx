@@ -1,4 +1,4 @@
-import ModalBtn from '@/components/atom/buttons/ModalBtn'
+import ModalBtn from '@/components/atom/buttons/modalbtn'
 import * as Styled from './modalcard.styled'
 import ModalBorder from '@/img/ModalBorder'
 

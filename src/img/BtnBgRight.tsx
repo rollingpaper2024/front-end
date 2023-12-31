@@ -27,9 +27,9 @@ const BtnBgRight = () => {
         fill="#FFF8E7"
         stroke="#2F2F31"
       />
-      <circle cx="22" cy="28" r="13" fill="#2F2F31" />
-      <circle cx="19.5" cy="55.5" r="19.5" fill="#2F2F31" />
-      <circle cx="19.5" cy="0.5" r="19.5" fill="#2F2F31" />
+      <circle id="circle4" cx="22" cy="28" r="13" fill="#2F2F31" />
+      <circle id="circle5" cx="19.5" cy="55.5" r="19.5" fill="#2F2F31" />
+      <circle id="circle6" cx="19.5" cy="0.5" r="19.5" fill="#2F2F31" />
     </svg>
   )
 }

@@ -1,4 +1,4 @@
-import color from '../../../style/color'
+import color from '../../../style/Color'
 import styled from 'styled-components'
 import font from '@/style/font'
 
@@ -12,11 +12,9 @@ export const SModal = styled.div`
   border: 2px solid ${color.yellow[300]};
   color: ${color.white};
   font-size: ${font.Small};
-  border-radius: 20px;
-  position:absolute;
-  
+  max-width: 400px;
+  min-width: 334px;
 `
-
 export const ModalTitle = styled.div`
   text-align: center;
   font-size: ${font.Large};
@@ -28,7 +26,6 @@ export const ModalTitle = styled.div`
 export const ModalContent = styled.div`
   text-align: center;
   position: relative;
-  top: 16px;
   font-size: ${font.Small};
 `
 
@@ -43,24 +40,24 @@ export const ModalBtnWrapper = styled.div`
 `
 export const ModalLeftUp = styled.div`
   position: relative;
-  left: -46%;
+  left: -44%;
   top: 6px;
 `
 export const ModalRightUp = styled.div`
   position: relative;
   top: -18px;
-  right: -46%;
+  right: -44%;
   transform: rotate(90deg);
 `
 export const ModalLeftDown = styled.div`
   position: relative;
   transform: rotate(270deg);
-  top: 68px;
-  left: -46%;
+  top: 42px;
+  left: -44%;
 `
 export const ModalRightDown = styled.div`
   position: relative;
-  top: 42px;
-  right: -46%;
+  top: 18px;
+  right: -44%;
   transform: rotate(180deg);
 `
