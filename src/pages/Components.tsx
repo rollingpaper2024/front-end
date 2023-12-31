@@ -2,7 +2,7 @@ import MainBtn from '@/components/atom/buttons/MainBtn'
 import ModalCard from '@/components/atom/card/ModalCard'
 import Alert from '@/components/atom/alert/Alert'
 import ListCard from '@/components/atom/card/ListCard'
-import color from '@/style/color'
+import color from '@/style/Color'
 
 function components() {
   return (

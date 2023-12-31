@@ -65,4 +65,5 @@ ${normalize}
     list-style: none;
     margin: 0px;
     padding: 0px;
+  }
 `
