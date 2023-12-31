@@ -1,12 +1,12 @@
-import color from '../../../style/Color'
+import Color from '@/style/Color'
 import styled from 'styled-components'
 import font from '@/style/font'
 
 export const Alert = styled.button`
-  background-color: ${color.gray[600]};
+  background-color: ${Color.gray[600]};
   height: 68px;
   width: 80%;
-  color: ${color.white};
+  color: ${Color.white};
   font-size: ${font.Small};
   font-weight: 600;
   border-radius: 20px;
