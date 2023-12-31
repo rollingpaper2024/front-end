@@ -1,4 +1,4 @@
-import color from '../../../style/Color'
+import Color from '../../../style/Color'
 import styled from 'styled-components'
 import font from '@/style/font'
 
@@ -6,11 +6,11 @@ export const SModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${color.gray[600]};
+  background-color: ${Color.gray[600]};
   height: 356px;
   width: 80%;
-  border: 2px solid ${color.yellow[300]};
-  color: ${color.white};
+  border: 2px solid ${Color.yellow[300]};
+  color: ${Color.white};
   font-size: ${font.Small};
   max-width: 400px;
   min-width: 334px;

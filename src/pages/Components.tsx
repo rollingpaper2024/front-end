@@ -7,8 +7,6 @@ import color from '@/style/color'
 function components() {
   return (
     <>
-      <div>main</div>
-
       <ModalCard />
       <Alert number={100} />
       <ListCard

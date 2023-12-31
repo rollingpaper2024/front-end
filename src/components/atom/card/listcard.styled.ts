@@ -1,12 +1,12 @@
-import color from '../../../style/color'
+import Color from '@/style/Color'
 import styled from 'styled-components'
 import font from '@/style/font'
 
 export const SList = styled.div`
   width: 80%;
-  border: 2px solid ${color.yellow[400]};
+  border: 2px solid ${Color.yellow[400]};
   height: 88px;
-  background: ${color.yellow[200]};
+  background: ${Color.yellow[200]};
   position: relative;
   display: flex;
   align-items: center;
@@ -22,9 +22,8 @@ export const ListWrapper = styled.div<{ color: string }>`
   align-items: center;
   width: 96%;
   margin: auto;
-  border: 2px solid ${(props) => props.color};
   height: 70px;
-  color: ${color.gray[600]};
+  color: ${Color.gray[600]};
 `
 export const ListTitle = styled.div`
   font-size: ${font.Small};
@@ -50,14 +49,14 @@ export const ListText = styled.div`
 `
 
 export const ListIcnLeft = styled.div`
-  background-color: ${color.yellow[200]};
+  background-color: ${Color.yellow[200]};
   position: absolute;
   top: 7px;
   left: 2%;
 `
 export const ListIcnRight = styled.div`
   transform: rotate(180deg);
-  background-color: ${color.yellow[200]};
+  background-color: ${Color.yellow[200]};
   position: absolute;
   right: 2%;
   bottom: 7px;

@@ -12,7 +12,10 @@ function MainBtn({ title, isDisabled, onClick  }: MainBtnProps) {
   return (
     <>
       <Styled.SBtn $isDisabled={isDisabled} onClick={onClick}>
-        <BtnBgLeft />
+        <Styled.LeftBtn>
+          <BtnBgLeft />
+        </Styled.LeftBtn>
+        <Styled.BtnText>{title}</Styled.BtnText>
         <Styled.RightBtn>
           <BtnBgLeft />
         </Styled.RightBtn>

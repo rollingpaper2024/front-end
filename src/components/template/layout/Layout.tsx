@@ -6,6 +6,7 @@ import { app } from "@/database";
 import Loader from "@/components/atom/loader/Loader";
 
 
+
 interface GeneralLayoutProps {
   children: React.ReactNode;
   isUser?: boolean;
@@ -34,7 +35,7 @@ const Layout: React.FC<GeneralLayoutProps> = ({ children, isUser }) => {
 
 
   return <Styled.SLayout>
-    
-    {children}</Styled.SLayout>;
+    {children}
+    </Styled.SLayout>;
 }
 export default Layout

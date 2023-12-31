@@ -1,39 +1,39 @@
-import color from '@/style/Color'
+import Color from '@/style/Color'
 import styled from 'styled-components'
 import font from '@/style/font'
 
 export const SBtn = styled.button<{ $isDisabled: boolean }>`
-  background-color: ${(props) => (props.$isDisabled ? color.gray[500] : color.gray[600])};
+  background-color: ${(props) => (props.$isDisabled ? Color.gray[500] : Color.gray[600])};
   height: 56px;
   width: 80%;
-  color: ${color.yellow[300]};
+  color: ${Color.yellow[300]};
   font-size: ${font.Small};
-  border: 2px solid ${color.gray[600]};
+  border: 2px solid ${Color.gray[600]};
   min-width: 334px;
   overflow: hidden;
 
   // 버튼이 비활성화 상태가 아닐 때 hover 및 active 스타일 적용
   &:hover {
-    background-color: ${(props) => (!props.$isDisabled ? color.gray[800] : color.gray[500])};
+    background-color: ${(props) => (!props.$isDisabled ? Color.gray[800] : Color.gray[500])};
     #circle1,
     #circle2,
     #circle3,
     #circle4,
     #circle5,
     #circle6 {
-      fill: ${color.gray[800]};
+      fill: ${Color.gray[800]};
     }
   }
 
   &:active {
-    background-color: ${(props) => (!props.$isDisabled ? color.gray[800] : color.gray[500])};
+    background-color: ${(props) => (!props.$isDisabled ? Color.gray[800] : Color.gray[500])};
     #circle1,
     #circle2,
     #circle3,
     #circle4,
     #circle5,
     #circle6 {
-      fill: ${color.gray[800]};
+      fill: ${Color.gray[800]};
     }
   }
 `
