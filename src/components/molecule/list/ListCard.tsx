@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 function ListCard() {
   return (
-    <div>ListCard</div>
+    <div></div>
   )
 }
 

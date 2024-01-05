@@ -1,8 +1,11 @@
-import React from 'react'
+import Main from '@/components/template/main'
+
 
 function main() {
   return (
-    <div>main</div>
+    <>
+      <Main/>
+    </>
   )
 }
 

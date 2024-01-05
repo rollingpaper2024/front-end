@@ -1,6 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { RouterProvider } from 'react-router-dom'
-import { routers } from './router/router'
+import { routers } from './router/router.ts'
 import { GlobalStyle } from './style/GlobalStyle'
 import { useEffect } from 'react'
 

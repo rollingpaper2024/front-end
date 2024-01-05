@@ -1,63 +1,95 @@
-import { UserAccessibleRouterElement } from "@/types";
-import LandingPage from "@/pages/Landing"
-import Main from "@/pages/Main"
-import MessageList from "@/pages/MessageList";
-import SelectPocket from "@/pages/SelectPocket";
-import SendLandingPage from "@/pages/SendLanding";
-import SharePage from "@/pages/SharePage";
-import WriteMessage from "@/pages/WriteMessage";
-import LoginPage from "@/pages/LoginPage";
+import { UserAccessibleRouterElement } from '@/types'
+import LandingPage from '@/pages/Landing'
+import Main from '@/pages/Main'
+import MessageList from '@/pages/MessageList'
+import SelectPocket from '@/pages/SelectPocket'
+import SharePage from '@/pages/SharePage'
+import WriteMessage from '@/pages/WriteMessage'
+import LoginPage from '@/pages/LoginPage'
+import Layout from '@/components/template/layout/Layout'
+import Components from '@/pages/Components'
 
 type RouterElement = UserAccessibleRouterElement
 
 export const routerData: RouterElement[] = [
-    {
-      id: 0,
-      path: '/',
-      element: <LandingPage/>,
-      withAuth:false
-    },
-    {
-      id: 1,
-      path: '/main',
-      element:<Main/>,
-      withAuth:false
-    },
-    {
-      id: 2,
-      path: '/messagelist',
-      element:<MessageList/>,
-      withAuth:false
-    },
-    {
-      id: 3,
-      path: '/selectpocket',
-      element:<SelectPocket/>,
-      withAuth:true
-    },
-    {
-      id: 4,
-      path: '/sendlandingpage',
-      element:<SendLandingPage/>,
-      withAuth:true
-    },
-    {
-      id: 5,
-      path: '/sharepage',
-      element:<SharePage/>,
-      withAuth:true
-    },
-    {
-      id: 6,
-      path: '/writemessage',
-      element:<WriteMessage/>,
-      withAuth:true
-    },
-    {
-      id: 6,
-      path: '/login',
-      element:<LoginPage/>,
-      withAuth:false
-    },
-  ]
-  
+  {
+    id: 0,
+    path: '/',
+    element: (
+      <Layout isUser={false}>
+        <LandingPage />
+      </Layout>
+    ),
+    withAuth: false,
+  },
+  {
+    id: 1,
+    path: '/main',
+    element: (
+      <Layout isUser={false}>
+        <Main />
+      </Layout>
+    ),
+    withAuth: false,
+  },
+  {
+    id: 2,
+    path: '/messagelist',
+    element: (
+      <Layout isUser={false}>
+        <MessageList />
+      </Layout>
+    ),
+    withAuth: false,
+  },
+  {
+    id: 3,
+    path: '/selectpocket',
+    element: (
+      <Layout isUser={true}>
+        <SelectPocket />
+      </Layout>
+    ),
+    withAuth: true,
+  },
+  {
+    id: 4,
+    path: '/sharepage',
+    element: (
+      <Layout isUser={true}>
+        <SharePage />
+      </Layout>
+    ),
+    withAuth: true,
+  },
+  {
+    id: 5,
+    path: '/writemessage',
+    element: (
+      <Layout isUser={true}>
+        <WriteMessage />
+      </Layout>
+    ),
+    withAuth: true,
+  },
+  {
+    id: 6,
+    path: '/login',
+    element: (
+      <Layout isUser={false}>
+        <LoginPage />
+      </Layout>
+    ),
+    withAuth: false,
+  },
+  {
+    id: 7,
+    path: '/components',
+    element: (
+      <Layout isUser={false}>
+        <Components />
+      </Layout>
+    ),
+    withAuth: false,
+  },
+]

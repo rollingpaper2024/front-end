@@ -1,6 +1,13 @@
-const LandingPage: React.FC = () => {
-  // JSX 반환
-  return <div>Landing Page Content</div>;
-};
+import React from 'react'
+import Landing from '@/components/template/landing/Landing'
 
-export default LandingPage;
+
+function main() {
+  return (
+    <div>
+      <Landing/>
+    </div>
+  )
+}
+
+export default main

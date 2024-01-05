@@ -1,3 +1,4 @@
+import Login from '@/components/template/login/Login'
 import { onClickSocialLogin } from '@/api'
 import KakaoLogin from 'react-kakao-login'
 
@@ -23,6 +24,9 @@ function LoginPage() {
 
   return (
     <>
+      <div>
+        <Login />
+      </div>
       <div>
         <button name="google" onClick={onClickSocialLogin}>
           google
