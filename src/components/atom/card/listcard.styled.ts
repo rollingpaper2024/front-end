@@ -24,6 +24,7 @@ export const ListWrapper = styled.div<{ color: string }>`
   margin: auto;
   height: 70px;
   color: ${Color.gray[600]};
+  border: 2px solid ${(props) => props.color};
 `
 export const ListTitle = styled.div`
   font-size: ${Font.Fontsize.Small};
