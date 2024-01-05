@@ -1,13 +1,14 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
-import font from '@/style/font'
+import * as Font from '@/style/Font'
 
 export const SBtn = styled.button<{ $isDisabled: boolean }>`
   background-color: ${(props) => (props.$isDisabled ? Color.gray[500] : Color.gray[600])};
   height: 56px;
   width: 80%;
   color: ${Color.yellow[300]};
-  font-size: ${font.Small};
+  font-size: ${Font.Fontsize.Small};
+  font-weight: ${Font.Fontweight.Bold};
   border: 2px solid ${Color.gray[600]};
   min-width: 334px;
   overflow: hidden;
