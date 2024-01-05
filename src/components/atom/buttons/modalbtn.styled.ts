@@ -1,4 +1,4 @@
-import Color from '../../../style/Color'
+import Color from '@/style/Color'
 import styled from 'styled-components'
 import * as Font from '@/style/Font'
 
