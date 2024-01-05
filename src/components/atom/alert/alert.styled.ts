@@ -1,15 +1,15 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
-import font from '@/style/font'
+import * as Font from '@/style/Font'
 
 export const Alert = styled.button`
   background-color: ${Color.gray[600]};
   height: 68px;
   width: 80%;
   color: ${Color.white};
-  font-size: ${font.Small};
+  font-size: ${Font.Fontsize.Small};
   font-weight: 600;
-  border-radius: 20px;
+  border-radius: 8px;
   min-width: 334px;
   position: relative;
 `
@@ -41,12 +41,12 @@ export const AlertTextWrapper = styled.div`
 `
 export const AlertTitle = styled.div`
   position: relative;
-  font-size: ${font.Small};
+  font-size: ${Font.Fontsize.Small};
   font-weight: 600;
 `
 export const AlertText = styled.div`
   position: relative;
-  font-size: ${font.Tiny};
+  font-size: ${Font.Fontsize.Tiny};
   font-weight: 300;
 `
 

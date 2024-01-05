@@ -1,6 +1,6 @@
 import Color from '../../../style/Color'
 import styled from 'styled-components'
-import font from '@/style/font'
+import * as Font from '@/style/Font'
 
 export const SModal = styled.div`
   display: flex;
@@ -11,22 +11,24 @@ export const SModal = styled.div`
   width: 80%;
   border: 2px solid ${Color.yellow[300]};
   color: ${Color.white};
-  font-size: ${font.Small};
+  font-size: ${Font.Fontsize.Small};
+  font-weight: ${Font.Fontweight.Medium};
   max-width: 400px;
   min-width: 334px;
 `
 export const ModalTitle = styled.div`
   text-align: center;
-  font-size: ${font.Large};
+  font-size: ${Font.Fontsize.Large};
   position: relative;
   top: -24px;
-  font-weight: 600;
+  font-weight: ${Font.Fontweight.Bold};
 `
 
 export const ModalContent = styled.div`
   text-align: center;
   position: relative;
-  font-size: ${font.Small};
+  font-size: ${Font.Fontsize.Small};
+  font-weight: ${Font.Fontweight.Medium};
 `
 
 export const ModalBtnWrapper = styled.div`

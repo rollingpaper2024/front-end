@@ -1,6 +1,6 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
-import font from '@/style/font'
+import * as Font from '@/style/Font'
 
 export const SList = styled.div`
   width: 80%;
@@ -26,22 +26,22 @@ export const ListWrapper = styled.div<{ color: string }>`
   color: ${Color.gray[600]};
 `
 export const ListTitle = styled.div`
-  font-size: ${font.Small};
-  font-weight: 600;
+  font-size: ${Font.Fontsize.Small};
+  font-weight: ${Font.Fontweight.Bold};
   width: 80%;
   z-index: 1;
 `
 
 export const ListDate = styled.div`
-  font-size: ${font.Small};
-  font-weight: 500;
+  font-size: ${Font.Fontsize.Small};
+  font-weight: ${Font.Fontweight.Medium};
   width: 20%;
   text-align: right;
 `
 
 export const ListText = styled.div`
-  font-size: ${font.Small};
-  font-weight: 500;
+  font-size: ${Font.Fontsize.Small};
+  font-weight: ${Font.Fontweight.Medium};
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
