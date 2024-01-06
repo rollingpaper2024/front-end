@@ -1,9 +1,12 @@
-import React from 'react'
 import { onClickSocialLogin } from '@/api'
 
 function Login() {
   return (
-    <div><button name="google" onClick={onClickSocialLogin}>google</button></div>
+    <div>
+      <button name="google" onClick={onClickSocialLogin}>
+        google
+      </button>
+    </div>
   )
 }
 
