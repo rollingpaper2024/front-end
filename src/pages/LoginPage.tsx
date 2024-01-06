@@ -1,6 +1,8 @@
 import Login from '@/components/template/login/Login'
 import { onClickSocialLogin } from '@/api'
 import KakaoLogin from 'react-kakao-login'
+import { getAuth, createUserWithEmailAndPassword, FirebaseError } from 'firebase/auth'
+import { app } from '@/database'
 
 declare global {
   interface Window {
@@ -12,14 +14,33 @@ function LoginPage() {
   if (!window.Kakao.isInitialized()) {
     window.Kakao.init(import.meta.env.VITE_APP_KAKAO_JAVASCRIPT_KEY)
   }
-
   const kakaoClientId = import.meta.env.VITE_APP_KAKAO_JAVASCRIPT_KEY
-  const kakaoOnSuccess = async (data: any) => {
-    console.log(data)
-    const idToken = data.response.access_token // 엑세스 토큰 백엔드로 전달
-  }
   const kakaoOnFailure = (error: any) => {
     console.log(error)
+  }
+  /*
+  const kakaoOnSuccess = async (data: any) => {
+    console.log(data)
+    console.log(data.profile.kakao_account.email)
+    console.log(data.response.access_token)
+    const idToken = data.response.access_token // 엑세스 토큰 백엔드로 전달
+  }
+  */
+
+  const kakaoOnSuccess = async (data: any) => {
+    console.log(data)
+    console.log(data.profile.kakao_account.email)
+    console.log(data.response.access_token)
+    // const idToken = data.response.access_token // 엑세스 토큰 백엔드로 전달
+    try {
+      const auth = getAuth(app)
+      await createUserWithEmailAndPassword(auth, data.profile.kakao_account.email, data.profile.id)
+      //toast.success('성공적으로 회원가입이 완료 되었습니다.')
+    } catch (error: FirebaseError) {
+      console.log(error)
+      const errorMessage = error?.message
+      console.log('errorMessage', errorMessage)
+    }
   }
 
   return (
@@ -33,6 +54,9 @@ function LoginPage() {
         </button>
       </div>
       <KakaoLogin token={kakaoClientId} onSuccess={kakaoOnSuccess} onFail={kakaoOnFailure} />
+      {/*<button name="kakao" onClick={onClickKakaoLogin}>
+        kakao
+  </button>*/}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import {
+/*import {
   getAuth,
   GoogleAuthProvider,
   GithubAuthProvider,
@@ -16,7 +16,7 @@ const onClickSocialLogin = async (e: React.MouseEvent<HTMLButtonElement, MouseEv
   let provider
   const auth = getAuth(app)
 
-  if (name === 'google') {
+  if (name === 'kakao') {
     provider = new GoogleAuthProvider()
   } else {
     // 지원되지 않는 프로바이더인 경우 처리
@@ -37,4 +37,4 @@ const onClickSocialLogin = async (e: React.MouseEvent<HTMLButtonElement, MouseEv
     })
 }
 
-export { onClickSocialLogin }
+export { onClickSocialLogin }*/
