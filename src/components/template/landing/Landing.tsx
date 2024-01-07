@@ -1,12 +1,14 @@
 import React from 'react'
-import BtnArea from '@/components/molecule/button/BtnArea'
-import {useRouter} from "@/hooks/useRouter"
-
+import BtnArea from '@/components/molecule/layout/BtnArea'
+import { useRouter } from "@/hooks/useRouter"
+import MainItemLayout from '../layout/MainItemLayout'
+import MainTitle from '@/components/molecule/title/MainTitle'
 function Landing() {
   const { routeTo } = useRouter()
   return (
     <div>
-      <div style={{width:"100%",height:"527.41px"}}>Landing</div>
+      <MainTitle title="" desc=''/>
+      <MainItemLayout>Landing</MainItemLayout>
       <BtnArea title='시작하기' isDisabled={false} onClick={() => routeTo('/main')}/>
     </div>
   )
