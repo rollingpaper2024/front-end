@@ -12,7 +12,6 @@ function SelectPocket() {
   return (
     <>
       <MainTitle title="복주머니 컬러를 선택하세요" desc='한번만 결정할 수 있으니 신중하게 선택하세요'/>
-      {/* <div style={{height:"118px"}}></div> */}
       <MainItemLayout>
         <PocketIcon icon={EmptyPocketIconImg} />
       </MainItemLayout>

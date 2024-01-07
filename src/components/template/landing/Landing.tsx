@@ -1,4 +1,3 @@
-import React from 'react'
 import BtnArea from '@/components/molecule/layout/BtnArea'
 import { useRouter } from "@/hooks/useRouter"
 import MainItemLayout from '../layout/MainItemLayout'
