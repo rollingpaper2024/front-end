@@ -4,9 +4,9 @@ import Landing from '@/components/template/landing/Landing'
 
 function main() {
   return (
-    <div>
+    <>
       <Landing/>
-    </div>
+    </>
   )
 }
 

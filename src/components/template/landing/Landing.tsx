@@ -6,11 +6,11 @@ import MainTitle from '@/components/molecule/title/MainTitle'
 function Landing() {
   const { routeTo } = useRouter()
   return (
-    <div>
+    <>
       <MainTitle title="" desc=''/>
       <MainItemLayout>Landing</MainItemLayout>
       <BtnArea title='시작하기' isDisabled={false} onClick={() => routeTo('/main')}/>
-    </div>
+    </>
   )
 }
 
