@@ -32,7 +32,7 @@ ${normalize}
   html,
   body {
     height: 100%;
-    font-family: "Pretendard";
+    font-family: "Pretendard", 'sans-serif';
     font-weight: 300;
   }
 

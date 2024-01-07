@@ -1,7 +1,12 @@
 import Login from '@/components/template/login/Login'
 import { onClickSocialLogin } from '@/api'
 import KakaoLogin from 'react-kakao-login'
-import { getAuth, createUserWithEmailAndPassword, FirebaseError } from 'firebase/auth'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithCustomToken,
+  FirebaseError,
+} from 'firebase/auth'
 import { app } from '@/database'
 
 declare global {
@@ -35,7 +40,10 @@ function LoginPage() {
     try {
       const auth = getAuth(app)
       await createUserWithEmailAndPassword(auth, data.profile.kakao_account.email, data.profile.id)
+      //const customToken = await getCustomToken()
+      //await signInWithCustomToken(auth, customToken)
       //toast.success('성공적으로 회원가입이 완료 되었습니다.')
+      alert('회원가입 성공')
     } catch (error: FirebaseError) {
       console.log(error)
       const errorMessage = error?.message
