@@ -3,7 +3,7 @@ import SelectPocketColor from '@/components/organism/selectpocket/SelectPocketCo
 
 function index() {
   return (
-    <div><SelectPocketColor/></div>
+    <><SelectPocketColor/></>
   )
 }
 
