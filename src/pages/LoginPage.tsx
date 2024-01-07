@@ -3,7 +3,7 @@ import Login from '@/components/template/login/Login'
 
 function LoginPage() {
   return (
-    <div><Login/></div>
+    <><Login/></>
   )
 }
 

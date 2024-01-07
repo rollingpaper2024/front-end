@@ -4,6 +4,7 @@ import { useRouter } from "@/hooks/useRouter";
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import { app } from "@/database";
 import Loader from "@/components/atom/loader/Loader";
+import Header from '@/components/template/header' 
 
 
 
@@ -35,7 +36,8 @@ const Layout: React.FC<GeneralLayoutProps> = ({ children, isUser }) => {
 
 
   return <Styled.SLayout>
-    {children}
-    </Styled.SLayout>;
+           <Header/>
+         {children}
+      </Styled.SLayout>;
 }
 export default Layout

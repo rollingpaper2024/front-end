@@ -1,18 +1,19 @@
-import { db } from "@/database"
-import { collection, getDocs } from "firebase/firestore"
-import { Data } from "@/types";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "@/database";
 
-async function getData(collectionName:string){
-    try {
-        const querySnapshot = await getDocs(collection(db, collectionName));
-        const dataList: Data[] = [];
-        querySnapshot.forEach((doc) => {
-          dataList.push({ id: doc.id, ...doc.data() });
-        });
-        return dataList;
-      } catch (error) {
-        console.error("Error getting documents: ", error);
-      }
+// 특정 사용자의 방명록만 가져오는 함수
+async function getUserMessages(collectionName:string, userId:string) {
+  try {
+    const q = query(collection(db, collectionName), where("uid", "==", userId));
+    const querySnapshot = await getDocs(q);
+    const messages: any[] = [];
+    querySnapshot.forEach((doc: { data: () => any; }) => {
+      messages.push(doc.data());
+    });
+    return messages;
+  } catch (err) {
+    console.error("Error getting documents: ", err);
+  }
 }
 
-export  {getData}
+export {getUserMessages}

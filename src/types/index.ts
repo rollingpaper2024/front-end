@@ -2,4 +2,5 @@
 
 export type { default as UserAccessibleRouterElement } from "./router";
 
-export type {default as Data} from "./data"
+export type { default as Data } from "./data"
+

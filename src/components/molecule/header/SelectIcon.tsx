@@ -8,7 +8,6 @@ function SelectIcon() {
     <Styled.SLayout>
       <HeaderIcon icon={<ActiveHeaderIcon />} />
       <HeaderIcon icon={<ActiveHeaderIcon />} />
-      <HeaderIcon icon={<ActiveHeaderIcon />} />
       {/* 추후 아이콘 확정되면 바뀔예정 */}
     </Styled.SLayout>
   )
