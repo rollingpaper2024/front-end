@@ -1,5 +1,6 @@
 import React from 'react'
 import { getData } from '@/api'
+import List from '@/components/template/list/List'
 
 
 function MessageList() {
@@ -10,7 +11,9 @@ function MessageList() {
     console.log("Message",data)
   }
   return (
-    <div><button onClick={()=>{test()}}>test</button></div>
+    <div>
+      <List/>
+      <button onClick={() => { test() }}>test</button></div>
   )
 }
 
