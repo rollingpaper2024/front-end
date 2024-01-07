@@ -11,7 +11,7 @@ function MessageList() {
   const [userId, setUserId] = useState(''); // 현재 로그인한 사용자의 ID 상태
 
   useEffect(() => {
-    // 현재 로그인한 사용자 확인
+
     const unsubscribe = onAuthStateChanged(auth, (user: User )  => {
       if (user) {
         setUserId(user.uid);

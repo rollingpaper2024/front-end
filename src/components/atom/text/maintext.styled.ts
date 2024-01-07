@@ -12,4 +12,6 @@ line-height: 32px;
 letter-spacing: -0.24px;
 text-transform: capitalize;
 white-space: nowrap;
+margin:0px;
+margin-bottom: 5px;
 `
