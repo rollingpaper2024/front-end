@@ -16,7 +16,7 @@
     "@types/ol": "^7.0.0",
     "@types/styled-components": "^5.1.30",
     "@types/uuid": "^9.0.7",
-    "firebase": "^10.6.0",
+    "firebase": "^10.7.1",
     "jotai": "^2.6.0",
     "ol": "^8.2.0",
     "react": "^18.2.0",
