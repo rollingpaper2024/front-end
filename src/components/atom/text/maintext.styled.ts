@@ -14,4 +14,5 @@ text-transform: capitalize;
 white-space: nowrap;
 margin:0px;
 margin-bottom: 5px;
+margin-left:24px;
 `
