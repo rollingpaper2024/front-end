@@ -8,6 +8,7 @@ import {
   FirebaseError,
 } from 'firebase/auth'
 import { app } from '@/database'
+import {onLoginWithKakao} from '@/api/onClickKakaologin'
 
 declare global {
   interface Window {
@@ -34,8 +35,6 @@ function LoginPage() {
 
   const kakaoOnSuccess = async (data: any) => {
     console.log(data)
-    console.log(data.profile.kakao_account.email)
-    console.log(data.response.access_token)
     // const idToken = data.response.access_token // 엑세스 토큰 백엔드로 전달
     try {
       const auth = getAuth(app)
@@ -62,9 +61,9 @@ function LoginPage() {
         </button>
       </div>
       <KakaoLogin token={kakaoClientId} onSuccess={kakaoOnSuccess} onFail={kakaoOnFailure} />
-      {/*<button name="kakao" onClick={onClickKakaoLogin}>
+      <button name="kakao" onClick={onLoginWithKakao}>
         kakao
-  </button>*/}
+  </button>
     </>
   )
 }
