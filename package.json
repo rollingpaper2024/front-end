@@ -49,3 +49,55 @@
   },
   "packageManager": "yarn@4.0.1"
 }
+
+{
+  "name": "rollingpaper",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@remix-run/router": "^1.11.0",
+    "@tanstack/react-query": "^5.8.4",
+    "@types/ol": "^7.0.0",
+    "@types/styled-components": "^5.1.30",
+    "@types/uuid": "^9.0.7",
+    "firebase": "^10.7.1",
+    "jotai": "^2.6.0",
+    "ol": "^8.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.18.0",
+    "react-toastify": "^9.1.3",
+    "styled-components": "^6.1.1",
+    "styled-normalize": "^8.1.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-toastify": "^4.1.0",
+    "@types/styled-components": "^5.1.30",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.5.0"
+  },
+  "packageManager": "yarn@4.0.1"
+}
