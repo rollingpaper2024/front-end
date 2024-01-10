@@ -4498,15 +4498,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-kakao-login@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "react-kakao-login@npm:2.1.1"
-  peerDependencies:
-    react: ">= 15.3.0"
-  checksum: 696ae174e3dd77f38eebfeace99f39b795725958c9412191926ef31b8d757d0d10c85acc5f5b52150b75f7443140e6015d1676142afe924f5eb770719fa1ba2d
-  languageName: node
-  linkType: hard
-
 "react-refresh@npm:^0.14.0":
   version: 0.14.0
   resolution: "react-refresh@npm:0.14.0"
@@ -4514,7 +4505,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.21.1":
+"react-router-dom@npm:^6.18.0":
   version: 6.21.1
   resolution: "react-router-dom@npm:6.21.1"
   dependencies:
@@ -4687,8 +4678,7 @@ __metadata:
     prettier: "npm:^3.1.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    react-kakao-login: "npm:^2.1.1"
-    react-router-dom: "npm:^6.21.1"
+    react-router-dom: "npm:^6.18.0"
     react-toastify: "npm:^9.1.3"
     styled-components: "npm:^6.1.1"
     styled-normalize: "npm:^8.1.0"
