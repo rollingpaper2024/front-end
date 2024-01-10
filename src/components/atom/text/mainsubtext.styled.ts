@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Fontsize } from '@/style/Font';
+import { Fontsize } from '@/style/font';
 
 export const SDesc = styled.p`
 color: #2F2F31;
