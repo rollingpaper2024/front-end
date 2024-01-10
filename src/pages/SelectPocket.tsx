@@ -1,4 +1,3 @@
-import React from 'react'
 import SelectPocket from "@/components/template/selectpocket"
 
 

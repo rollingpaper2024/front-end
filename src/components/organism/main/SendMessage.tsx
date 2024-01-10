@@ -1,9 +1,6 @@
-import React from 'react'
 import PocketIcon from '@/components/atom/icon/pocket/PocketIcon'
-import MainBtn from '@/components/atom/buttons/MainBtn'
 // import PocketIconImg from '@/img/PocketIcon';
 import PocketIconImg from "@/assets/복주머니.png"
-import * as Styled from "./sendmessage.styled"
 import BtnArea from '@/components/molecule/layout/BtnArea';
 import { useRouter } from "@/hooks/useRouter"
 import MainItemLayout from "@/components/template/layout/MainItemLayout"
