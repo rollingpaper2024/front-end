@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Fontsize,Fontweight } from '@/style/Font';
+import { Fontsize,Fontweight } from '@/style/font';
 
 
 export const STitleH1= styled.h1`

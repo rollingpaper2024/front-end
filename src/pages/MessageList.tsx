@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { getUserMessages } from '@/api';
 import List from '@/components/template/list/List';
-import { onAuthStateChanged,getAuth,User } from "firebase/auth";
+import { onAuthStateChanged,getAuth } from "firebase/auth";
 import { app } from "@/database";
 
 function MessageList() {
    const auth = getAuth(app);
-  const [messages, setMessages] = useState([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [messages, setMessages] = useState<any[]>([]);
   const [messageCount, setMessageCount] = useState(0);
   const [userId, setUserId] = useState(''); // 현재 로그인한 사용자의 ID 상태
 
   useEffect(() => {
 
-    const unsubscribe = onAuthStateChanged(auth, (user: User )  => {
+    const unsubscribe = onAuthStateChanged(auth, (user )  => {
       if (user) {
         setUserId(user.uid);
       } else {
@@ -30,6 +31,7 @@ function MessageList() {
   }, [userId]);
 
   async function fetchMessages() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data = await getUserMessages('Message', userId);
     if (data) {
       setMessages(data);

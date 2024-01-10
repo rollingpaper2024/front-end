@@ -2,8 +2,7 @@ import {
     getAuth,
     GoogleAuthProvider,
     GithubAuthProvider,
-    signInWithPopup,
-    FirebaseError 
+    signInWithPopup
 } from "firebase/auth";
 
 import { app } from "@/database";
@@ -32,7 +31,7 @@ const onClickSocialLogin = async (
         ).then(() => {
             alert("로그인 성공"); 
             // 추후 toastify로 변경 예정
-        }).catch((error: FirebaseError) => { 
+        }).catch((error) => { 
             console.log(error);
             const errorMessage = error?.message;
             console.log("errorMessage",errorMessage);
