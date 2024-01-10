@@ -5,7 +5,6 @@ import backgroundImg from "@/assets/backgroundLayout.jpg"
 export const SLayout = styled.main`
   margin: auto;
   max-width: 500px;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
