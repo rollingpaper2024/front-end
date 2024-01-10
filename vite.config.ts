@@ -1,18 +1,21 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path';
+import { defineConfig, loadEnv } from "vite";
+import react from "@vitejs/plugin-react";
 
-export default defineConfig({
-  plugins: [react()],
-  define: {
-    'process.env': process.env
-  },
-  cacheDir: './.vite',  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@/pages': path.resolve(__dirname, './src/pages'),
-      '@components': path.resolve(__dirname, './src/components')
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
 
-    }
-  }
-})
+  return {
+    plugins: [react()],
+    server: {
+      proxy: {
+        "/api": {
+          target: env.API_URL,
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/api/, ""),
+        },
+      },
+    },
+  };
+});
