@@ -1,6 +1,6 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
-import * as Font from '@/style/Font'
+import * as Font from '@/style/font'
 
 export const Alert = styled.button`
   background-color: ${Color.gray[600]};
