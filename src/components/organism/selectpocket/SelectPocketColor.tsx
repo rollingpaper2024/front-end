@@ -9,21 +9,26 @@ import { useState,useEffect } from 'react'
 import { onAuthStateChanged,getAuth } from "firebase/auth";
 import { app } from "@/database";
 import * as Styled from "./selectpocket.styled"
-import GreenPocket from '@/img/GreenPocket'
-import PinkPocket from '@/img/PinkPocket'
-import BluePocket from '@/img/BluePocket'
-import BlackPocket from '@/img/BlackPocket'
+import GreenPocketIcon from '@/img/GreenPocket'
+import PinkPocketIcon from '@/img/PinkPocket'
+import BluePocketIcon from '@/img/BluePocket'
+import BlackPocketIcon from '@/img/BlackPocket'
+import Pocket from "@/assets/복주머니.webp"
 
-
+type PocketColor = 'black' | 'pink' | 'blue' | 'green' | '';
 
 function SelectPocket() {
   const auth = getAuth(app);
-  const [selectedPocket, setSelectedPocket] = useState({ pocket: 'black', uid: '' });
+  const [selectedPocket, setSelectedPocket] = useState({ pocket: '', uid: '' });
+
+  const {pocket} =selectedPocket
+
+
   const pocketArr = [
-    { component: <BlackPocket />, color: 'black' },
-    { component: <PinkPocket />, color: 'pink' },
-    { component: <BluePocket />, color: 'blue' },
-    { component: <GreenPocket />, color: 'green' }
+    { component: <BlackPocketIcon />, color: 'black' },
+    { component: <PinkPocketIcon />, color: 'pink' },
+    { component: <BluePocketIcon />, color: 'blue' },
+    { component: <GreenPocketIcon />, color: 'green' }
   ];
 
   useEffect(() => {
@@ -52,15 +57,26 @@ function SelectPocket() {
       ...prev,
       pocket:color
     }))
-    
       // postData('Pocket',  selectedPocket)    
   }
+
+  const changePocket = () => {
+    const mapper: { [key in PocketColor]: JSX.Element } = {
+      'black': <PocketIcon icon={Pocket} />,
+      'pink': <PocketIcon icon={Pocket} />,
+      'blue': <PocketIcon icon={Pocket} />,
+      'green': <PocketIcon icon={Pocket} />,
+      '': <PocketIcon icon={EmptyPocketIconImg} />
+    };
+  
+    return mapper[pocket as PocketColor];
+  };
   
   return (
     <>
       <MainTitle title="복주머니 컬러를 선택하세요" desc='한번만 결정할 수 있으니 신중하게 선택하세요'/>
       <MainItemLayout>
-        <PocketIcon icon={EmptyPocketIconImg} />
+        {changePocket()}
         <Styled.SSelectLayout>
           {
             pocketArr.map((item) => {
