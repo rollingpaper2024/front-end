@@ -56,4 +56,8 @@ export const BtnText = styled.div`
   font-weight: 600;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media ${Device.tablet} {
+    position: relative;
+  }
 `
