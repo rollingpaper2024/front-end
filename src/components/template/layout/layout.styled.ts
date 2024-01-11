@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import backgroundImg from "@/assets/backgroundLayout.jpg"
+import backgroundImg from "@/assets/backgroundLayout.webp"
 
 
 export const SLayout = styled.main`

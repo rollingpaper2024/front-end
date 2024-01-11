@@ -1,6 +1,6 @@
 import PocketIcon from '@/components/atom/icon/pocket/PocketIcon'
 // import PocketIconImg from '@/img/PocketIcon';
-import PocketIconImg from "@/assets/복주머니.png"
+import PocketIconImg from "@/assets/복주머니.webp"
 import BtnArea from '@/components/molecule/layout/BtnArea';
 import { useRouter } from "@/hooks/useRouter"
 import MainItemLayout from "@/components/template/layout/MainItemLayout"
