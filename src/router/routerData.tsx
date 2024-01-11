@@ -8,6 +8,7 @@ import WriteMessage from '@/pages/WriteMessage'
 import LoginPage from '@/pages/LoginPage'
 import Layout from '@/components/template/layout/Layout'
 import Components from '@/pages/Components'
+import CompletePocketPage from '@/pages/CompletePocketPage'
 
 type RouterElement = UserAccessibleRouterElement
 
@@ -88,6 +89,16 @@ export const routerData: RouterElement[] = [
     element: (
       <Layout isUser={false}>
         <Components />
+      </Layout>
+    ),
+    withAuth: false,
+  },
+  {
+    id: 8,
+    path: '/completepocket',
+    element: (
+      <Layout isUser={true}>
+        <CompletePocketPage />
       </Layout>
     ),
     withAuth: false,

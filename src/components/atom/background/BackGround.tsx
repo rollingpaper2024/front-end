@@ -1,8 +1,12 @@
-import React from 'react'
+import * as Styled from "./background.styled"
 
-function BackGround() {
+interface BackGroundProps {
+  children: React.ReactNode; 
+}
+
+function BackGround({children}:BackGroundProps) {
   return (
-    <div>BackGround</div>
+    <Styled.SLayout>{children}</Styled.SLayout>
   )
 }
 
