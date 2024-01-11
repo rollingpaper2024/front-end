@@ -1,9 +1,7 @@
-import React from 'react'
-import * as Styled from "./selectpocket.styled"
 import MainItemLayout from '@/components/template/layout/MainItemLayout'
 // import EmptyPocket from '@/img/EmptyPocket'
 import PocketIcon from '@/components/atom/icon/pocket/PocketIcon'
-import EmptyPocketIconImg from "@/assets/emptyPocket.png"
+import EmptyPocketIconImg from "@/assets/emptyPocket.webp"
 import BtnArea from '@/components/molecule/layout/BtnArea'
 import MainTitle from '@/components/molecule/title/MainTitle'
 
