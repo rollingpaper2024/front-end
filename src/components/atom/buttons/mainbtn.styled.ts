@@ -1,6 +1,7 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
 import * as Font from '@/style/font'
+import { Devices } from '@/style/Device'
 
 export const SBtn = styled.button<{ $isDisabled: boolean }>`
   background-color: ${(props) => (props.$isDisabled ? Color.gray[500] : Color.gray[600])};
@@ -10,7 +11,7 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Bold};
   border: 2px solid ${Color.gray[600]};
-  min-width: 334px;
+  min-width: 180px;
   overflow: hidden;
 
   // 버튼이 비활성화 상태가 아닐 때 hover 및 active 스타일 적용
@@ -40,20 +41,23 @@ export const SBtn = styled.button<{ $isDisabled: boolean }>`
 `
 export const LeftBtn = styled.div`
   position: relative;
-  top: -2px;
 `
 
 export const RightBtn = styled.div`
   transform: rotate(180deg);
-  top: -76px;
+  top: -70px;
   position: relative;
 `
 
 export const BtnText = styled.div`
   text-align: center;
   position: relative;
-  top: -55%;
+  top: -50%;
   font-weight: 600;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media ${Devices.tablet} {
+    position: relative;
+  }
 `

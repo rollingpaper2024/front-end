@@ -1,7 +1,6 @@
-import React from 'react'
-import * as Styled from "./selecticon.styled"
+import * as Styled from './selecticon.styled'
 import HeaderIcon from '@/components/atom/icon/header/HeaderIcon'
-import ActiveHeaderIcon from "@/img/HeaderIcon"
+import ActiveHeaderIcon from '@/img/HeaderIcon'
 
 function SelectIcon() {
   return (

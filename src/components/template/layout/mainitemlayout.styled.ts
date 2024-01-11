@@ -1,12 +1,15 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
+import { Devices } from '@/style/Device'
 
 export const SLayout = styled.main`
- width:100%;
- height:409.41px;
- display: flex;
- align-items: center;
- justify-content: center;
- flex-direction: column;
+  width: 100%;
+  height: 42vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
+  @media ${Devices.tablet} {
+    height: 42vh;
+  }
 `

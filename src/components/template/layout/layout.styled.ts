@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import backgroundImg from "@/assets/backgroundLayout.webp"
-
+import backgroundImg from '@/assets/backgroundLayout.webp'
 
 export const SLayout = styled.main`
   margin: auto;
@@ -12,4 +11,6 @@ export const SLayout = styled.main`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
+  height: 100vh;
+  overflow: hidden;
 `
