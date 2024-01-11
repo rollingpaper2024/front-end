@@ -1,8 +1,8 @@
-import React from 'react'
+import CreateComplete from "@/components/template/createcompletepage/CreateComplete"
 
 function CreateCompletePage() {
   return (
-    <div>CreateCompletePage</div>
+    <CreateComplete/>
   )
 }
 
