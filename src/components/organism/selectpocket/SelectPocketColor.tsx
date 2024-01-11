@@ -6,8 +6,6 @@ import BtnArea from '@/components/molecule/layout/BtnArea'
 import MainTitle from '@/components/molecule/title/MainTitle'
 import { postData } from '@/api'
 import { useState, useEffect } from 'react'
-import { onAuthStateChanged, getAuth } from 'firebase/auth'
-import { app } from '@/database'
 import * as Styled from './selectpocket.styled'
 import GreenPocketIcon from '@/img/GreenPocket'
 import PinkPocketIcon from '@/img/PinkPocket'
@@ -17,16 +15,21 @@ import Pocket from '@/assets/복주머니.webp'
 import MainModal from '../modal/MainModal'
 import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid';
+import { useAtom } from 'jotai';
+import { userAtom } from '@/store/user'
 
 type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
 function SelectPocket() {
-  const auth = getAuth(app)
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [user, setUser] = useAtom(userAtom);
   const [selectedPocket, setSelectedPocket] = useState({ pocket: '', uid: '' })
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const { pocket } = selectedPocket
 
+  const { pocket } = selectedPocket
+ 
   const pocketArr = [
     { component: <BlackPocketIcon />, color: 'black' },
     { component: <PinkPocketIcon />, color: 'pink' },
@@ -35,7 +38,6 @@ function SelectPocket() {
   ]
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setSelectedPocket((prev) => ({
           ...prev,
@@ -47,17 +49,14 @@ function SelectPocket() {
           uid: '',
         }))
       }
-    })
+  }, [user])
 
-    return () => unsubscribe()
-  }, [])
 
   function setColor({ color }: { color: string }) {
     setSelectedPocket((prev) => ({
       ...prev,
       pocket: color,
     }))
-    // postData('Pocket',  selectedPocket)
   }
 
   const PostPocket = async () => {
@@ -65,7 +64,6 @@ function SelectPocket() {
       await postData('Pocket', selectedPocket);
     } catch (error) {
       console.error(error);
-      // 에러 처리 로직 추가
     }
   };
 

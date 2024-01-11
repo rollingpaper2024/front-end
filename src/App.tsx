@@ -1,16 +1,33 @@
-
+import React, { useEffect } from 'react'
+import { useAtom } from 'jotai'
+import { userAtom } from './store/user.ts'
+import { onAuthStateChanged, getAuth } from 'firebase/auth'
+import { app } from '@/database'
 import { RouterProvider } from 'react-router-dom'
 import { routers } from './router/router.ts'
 import { GlobalStyle } from './style/GlobalStyle'
 
-
 function App() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [user, setUser] = useAtom(userAtom)
+  const auth = getAuth(app)
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        setUser({ uid: firebaseUser.uid })
+      } else {
+        setUser({ uid: '' })
+      }
+    })
+
+    return () => unsubscribe()
+  }, [auth, setUser])
 
   return (
     <>
       <GlobalStyle/>
-     <RouterProvider router={routers} /> 
+      <RouterProvider router={routers} /> 
     </>
   )
 }
