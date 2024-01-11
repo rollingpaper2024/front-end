@@ -8,5 +8,5 @@ width: 100%;
  /* display: flex;
 flex-direction: column;
 align-items: center; */
-padding-left: 24px;
+// padding-left: 24px;
 `

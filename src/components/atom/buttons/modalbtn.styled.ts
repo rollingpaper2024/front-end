@@ -1,6 +1,6 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
-import * as Font from '@/style/Font'
+import * as Font from '@/style/font'
 
 export const SBtn = styled.button<{ $isDisabled: boolean }>`
   background-color: ${(props) => (props.$isDisabled ? Color.yellow[200] : Color.gray[600])};

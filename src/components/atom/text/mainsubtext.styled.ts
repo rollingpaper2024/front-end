@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Fontsize } from '@/style/Font';
+import { Fontsize } from '@/style/font';
 
 export const SDesc = styled.p`
 color: #2F2F31;
@@ -11,4 +11,5 @@ line-height: 24px; /* 150% */
 letter-spacing: -0.16px;
 text-transform: capitalize;
 white-space: nowrap;
+margin-left:24px;
 `

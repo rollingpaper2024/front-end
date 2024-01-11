@@ -1,4 +1,4 @@
-import ModalBtn from '@/components/atom/buttons/modalbtn'
+import ModalBtn from "@/components/atom/buttons/ModalBtn"
 
 function ConfirmBox() {
   return (

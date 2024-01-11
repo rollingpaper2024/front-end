@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-    <GlobalStyle/>
+      <GlobalStyle/>
      <RouterProvider router={routers} /> 
     </>
   )

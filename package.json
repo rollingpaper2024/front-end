@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@remix-run/router": "^1.11.0",
+    "@remix-run/router": "^1.14.1",
     "@tanstack/react-query": "^5.8.4",
     "@types/ol": "^7.0.0",
     "@types/styled-components": "^5.1.30",

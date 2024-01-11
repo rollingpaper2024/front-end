@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Fontsize,Fontweight } from '@/style/Font';
+import { Fontsize,Fontweight } from '@/style/font';
 
 
 export const STitleH1= styled.h1`
@@ -14,4 +14,5 @@ text-transform: capitalize;
 white-space: nowrap;
 margin:0px;
 margin-bottom: 5px;
+margin-left:24px;
 `
