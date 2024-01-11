@@ -1,49 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { getUserMessages } from '@/api';
 import List from '@/components/template/list/List';
-import { onAuthStateChanged,getAuth } from "firebase/auth";
-import { app } from "@/database";
+import { useAtom } from 'jotai';
+import { userAtom } from '@/store/user'
 
 function MessageList() {
-   const auth = getAuth(app);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [user, setUser] = useAtom(userAtom);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [messages, setMessages] = useState<any[]>([]);
   const [messageCount, setMessageCount] = useState(0);
-  const [userId, setUserId] = useState(''); // 현재 로그인한 사용자의 ID 상태
+
 
   useEffect(() => {
-
-    const unsubscribe = onAuthStateChanged(auth, (user )  => {
-      if (user) {
-        setUserId(user.uid);
-      } else {
-        setUserId('');
-      }
-    });
-
-    return () => unsubscribe(); 
-  }, []);
-
-  useEffect(() => {
-    if (userId) {
+    if (user) {
       fetchMessages();
     }
-  }, [userId]);
+  }, [user]);
 
   async function fetchMessages() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const data = await getUserMessages('Message', userId);
+    const data = await getUserMessages('Message', user.uid);
     if (data) {
       setMessages(data);
       setMessageCount(data.length);
     }
   }
-  console.log("test",userId,messages)
 
   return (
-    <div>
+    <>
       <List messageCount={messageCount} />
-    </div>
+    </>
   );
 }
 

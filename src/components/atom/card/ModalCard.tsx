@@ -8,7 +8,7 @@ interface ModalType {
   PostPocket?: () => Promise<void>;
 }
 function ModalCard({setIsModalOpen,PostPocket}:ModalType) {
-  const router =useRouter()
+  const { routeTo } = useRouter()
 
   return (
     <Styled.SModal>
@@ -27,7 +27,7 @@ function ModalCard({setIsModalOpen,PostPocket}:ModalType) {
       <Styled.ModalBtnWrapper>
         <ModalBtn title="네" isDisabled={true} onClick={()=>{  if (PostPocket) {
             PostPocket();
-            router.routeTo('/main')
+            routeTo('/completepocket')
           }
           if (setIsModalOpen) {
             setIsModalOpen(true);
