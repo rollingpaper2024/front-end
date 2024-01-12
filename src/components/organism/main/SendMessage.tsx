@@ -11,6 +11,7 @@ import { getUserMessages } from '@/api'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user.ts'
+import { useNavigate } from 'react-router-dom'
 
 function SendMessage() {
   const { routeTo } = useRouter()
@@ -38,7 +39,7 @@ function SendMessage() {
     } else {
       return
     }
-  }, [id])
+  }, [id,isPocket])
 
   async function fetchMessages(userId: string) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -48,11 +49,12 @@ function SendMessage() {
     if (messageData) {
       setMessageCount(messageData.length)
     }
-    if (pocketData) {
+    if (pocketData&&pocketData.length>0) {
+      
       setIsPocket(true)
     }
   }
-
+  console.log("테스트",isPocket)
   const generateBtnText = () => {
     console.log('1')
     if (user.uid !== 'no-user') {
