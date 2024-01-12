@@ -90,6 +90,7 @@ function SendMessage() {
       setTitle('나만의 복주머니를 만들어보세요.')
       setDesc('복주머니를 만들어 따뜻한 덕담을 주고 받아볼까요?')
       setBtnMessage('시작하기')
+      setParameter('/selectpocket')
     }
   }
 
