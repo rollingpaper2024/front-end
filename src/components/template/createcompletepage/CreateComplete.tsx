@@ -10,6 +10,7 @@ import { userAtom } from '@/store/user'
 function index() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { routeTo } = useRouter()
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [user, setUser] = useAtom(userAtom);
   return (
     <>
