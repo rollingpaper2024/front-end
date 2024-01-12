@@ -8,7 +8,6 @@ export const SLayout = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   @media ${Devices.tablet} {
     height: 42vh;
   }

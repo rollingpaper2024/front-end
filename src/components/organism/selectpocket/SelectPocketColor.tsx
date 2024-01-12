@@ -87,7 +87,7 @@ function SelectPocket() {
   }
   return (
     <>
-      <MainModal
+        <MainModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         PostPocket={PostPocket}
@@ -120,6 +120,7 @@ function SelectPocket() {
         title="선택 완료"
         isDisabled={pocket.length > 0 ? false : true}
       />
+
     </>
   )
 }

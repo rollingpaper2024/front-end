@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const SSelectLayout = styled.div`
 width:340px;
-height:64px;
-margin-top:34px;
+height:10vh;
+margin-top:24px;
 display: flex;
 gap:28px;
 `
