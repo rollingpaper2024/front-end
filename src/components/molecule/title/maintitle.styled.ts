@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Devices } from '@/style/Device'
 
-export const SLayout = styled.div`
+export const SLayout = styled.section`
   width: 100%;
   height: 118px;
   margin-top: 24px;

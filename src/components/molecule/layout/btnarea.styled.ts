@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-export const SLayout = styled.div`
+export const SLayout = styled.section`
   width: 100%;
-  height: 32vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 14vh;
 `

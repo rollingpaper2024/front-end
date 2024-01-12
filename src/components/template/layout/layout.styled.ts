@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import backgroundImg from '@/assets/backgroundLayout.webp'
 
 export const SLayout = styled.main`
-  margin: auto;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -13,4 +12,6 @@ export const SLayout = styled.main`
   background-position: center;
   height: 100vh;
   overflow: hidden;
+  position: relative;
+  margin: 0 auto;
 `
