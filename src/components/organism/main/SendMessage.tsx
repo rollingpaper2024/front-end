@@ -11,7 +11,7 @@ import { getUserMessages } from '@/api'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user.ts'
-import { useNavigate } from 'react-router-dom'
+
 
 function SendMessage() {
   const { routeTo } = useRouter()

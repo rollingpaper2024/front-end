@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import  { useEffect, useState } from 'react';
 import { getUserMessages } from '@/api';
 import List from '@/components/template/list/List';
@@ -6,7 +7,7 @@ import { userAtom } from '@/store/user'
 
 function MessageList() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [user, setUser] = useAtom(userAtom);
+    const [user] = useAtom(userAtom);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [messages, setMessages] = useState<any[]>([]);
   const [messageCount, setMessageCount] = useState(0);
