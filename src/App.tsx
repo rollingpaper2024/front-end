@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { useAtom } from 'jotai'
 import { userAtom } from './store/user.ts'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
@@ -6,6 +6,7 @@ import { app } from '@/database'
 import { RouterProvider } from 'react-router-dom'
 import { routers } from './router/router.ts'
 import { GlobalStyle } from './style/GlobalStyle'
+
 
 function App() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -17,9 +18,10 @@ function App() {
       if (firebaseUser) {
         setUser({ uid: firebaseUser.uid })
       } else {
-        setUser({ uid: '' })
+        setUser({ uid: 'no-user' })
       }
     })
+    
 
     return () => unsubscribe()
   }, [auth, setUser])

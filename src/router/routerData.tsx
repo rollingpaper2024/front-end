@@ -25,7 +25,7 @@ export const routerData: RouterElement[] = [
   },
   {
     id: 1,
-    path: '/main',
+    path: '/main/:id',
     element: (
       <Layout isUser={false}>
         <Main />
@@ -35,7 +35,7 @@ export const routerData: RouterElement[] = [
   },
   {
     id: 2,
-    path: '/messagelist',
+    path: '/messagelist/:id',
     element: (
       <Layout isUser={false}>
         <MessageList />
@@ -65,7 +65,7 @@ export const routerData: RouterElement[] = [
   },
   {
     id: 5,
-    path: '/writemessage',
+    path: '/writemessage/:id',
     element: (
       <Layout isUser={true}>
         <WriteMessage />

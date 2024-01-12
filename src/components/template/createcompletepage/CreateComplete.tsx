@@ -4,10 +4,13 @@ import PocketIcon from '@/components/atom/icon/pocket/PocketIcon'
 import Pocket from '@/assets/복주머니.webp'
 import BtnArea from '@/components/molecule/layout/BtnArea'
 import { useRouter } from "@/hooks/useRouter"
+import { useAtom } from 'jotai';
+import { userAtom } from '@/store/user'
 
 function index() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { routeTo } = useRouter()
+    const [user, setUser] = useAtom(userAtom);
   return (
     <>
         <MainTitle
@@ -17,7 +20,7 @@ function index() {
         <MainItemLayout><PocketIcon icon={Pocket}/></MainItemLayout>
         <BtnArea
         onClick={() => {
-            routeTo('/main')
+            routeTo(`/main/${user.uid}`)
         }}
         title="메인으로"
         isDisabled={false}

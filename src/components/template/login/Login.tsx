@@ -1,17 +1,27 @@
+import React, { useEffect } from 'react';
 import { onClickSocialLogin } from '@/api'
 import MainTitle from '@/components/molecule/title/MainTitle'
 import { useNavigate } from 'react-router-dom';
+import { useAtom } from 'jotai';
+import { userAtom } from '@/store/user'
 
 function Login() {
   const router = useNavigate();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [user, setUser] = useAtom(userAtom);
+
+    useEffect(() => {
+      if (user.uid && user.uid !== 'no-user') {
+        router(`/main/${user.uid}`)
+      }
+    }, [user, router]);
+
     const handleSocialLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const result = await onClickSocialLogin(e);
-    if (result === true) {
-      router(-1)
-      // 포켓이 있는유저는 list페이지로, 포켓이 없는 유저는 /selectpocket페이지로 이동하게끔 바꿔야됨
-    } else {
+    if (result === false) {
+      console.log("테스트",user)
       console.log("Login failed", result);
-    }
+    } 
   };
   return (
     <>
