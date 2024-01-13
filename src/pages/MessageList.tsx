@@ -17,6 +17,7 @@ function MessageList() {
   const { routeTo } = useRouter()
   const [loading, setLoading] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const [listindex, setListIndex] = useState(6)
 
   useEffect(() => {
     if (user) {
@@ -26,25 +27,32 @@ function MessageList() {
 
   //무한스크롤
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !loading) {
-          fetchMessages()
-        }
-      },
-      { threshold: 0.5 },
-    )
+    const handleScroll = () => {
+      const { scrollHeight, scrollTop, clientHeight } = containerRef.current || {}
+
+      if (
+        scrollTop + clientHeight >= scrollHeight - 1 &&
+        !loading &&
+        messages.length < messageCount
+      ) {
+        setListIndex((listIndex) => listIndex + 6)
+      }
+    }
 
     if (containerRef.current) {
-      observer.observe(containerRef.current)
+      containerRef.current.addEventListener('scroll', handleScroll)
     }
 
     return () => {
       if (containerRef.current) {
-        observer.unobserve(containerRef.current)
+        containerRef.current.removeEventListener('scroll', handleScroll)
       }
     }
-  }, [containerRef, loading])
+  }, [containerRef, loading, messages, messageCount])
+
+  useEffect(() => {
+    fetchMessages()
+  }, [listindex])
 
   async function fetchMessages() {
     try {
@@ -66,7 +74,7 @@ function MessageList() {
     <>
       <List messageCount={messageCount} />
       <Styled.SLayout ref={containerRef}>
-        {messages.map((message) => (
+        {messages.slice(0, listindex).map((message) => (
           <ListCard
             key={uuid()}
             color="#FFC44F"
@@ -76,6 +84,7 @@ function MessageList() {
           />
         ))}
         {loading && <p>Loading...</p>}
+        {!loading && messages.length === messageCount && <p>모든 덕담리스트를 확인했습니다.</p>}
       </Styled.SLayout>
       {/*<BtnArea
         onClick={() => {
