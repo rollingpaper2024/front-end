@@ -1,38 +1,104 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import  { useEffect, useState } from 'react';
-import { getUserMessages } from '@/api';
-import List from '@/components/template/list/List';
-import { useAtom } from 'jotai';
+import { useEffect, useState, useRef } from 'react'
+import { getUserMessages } from '@/api'
+import List from '@/components/template/list/List'
+import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user'
+import { useRouter } from '@/hooks/useRouter'
+import ListCard from '@/components/atom/card/ListCard'
+import uuid from 'react-uuid'
+import * as Styled from '@/components/organism/list/Listlayer.styled'
+import { useParams } from 'react-router-dom'
 
 function MessageList() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [user] = useAtom(userAtom);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [messages, setMessages] = useState<any[]>([]);
-  const [messageCount, setMessageCount] = useState(0);
-
+  const [user] = useAtom(userAtom)
+  const [messages, setMessages] = useState<any[]>([])
+  const [messageCount, setMessageCount] = useState(0)
+  const { routeTo } = useRouter()
+  const [loading, setLoading] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [listindex, setListIndex] = useState(6)
+  const { id } = useParams()
 
   useEffect(() => {
     if (user) {
-      fetchMessages();
+      fetchMessages()
     }
-  }, [user]);
+  }, [user])
+
+  //무한스크롤
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollHeight, scrollTop, clientHeight } = containerRef.current || {}
+
+      if (
+        scrollTop + clientHeight >= scrollHeight - 1 &&
+        !loading &&
+        messages.length < messageCount
+      ) {
+        setListIndex((listIndex) => listIndex + 6)
+      }
+    }
+
+    if (containerRef.current) {
+      containerRef.current.addEventListener('scroll', handleScroll)
+    }
+
+    return () => {
+      if (containerRef.current) {
+        containerRef.current.removeEventListener('scroll', handleScroll)
+      }
+    }
+  }, [containerRef, loading, messages, messageCount])
+
+  useEffect(() => {
+    fetchMessages()
+  }, [listindex])
 
   async function fetchMessages() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const data = await getUserMessages('Message', user.uid);
-    if (data) {
-      setMessages(data);
-      setMessageCount(data.length);
+    try {
+      setLoading(true)
+      const data = await getUserMessages('Message', id, listindex)
+      const allData = await getUserMessages('Message', id)
+
+      if (data && allData) {
+        // setMessages((prevMessages) => [...prevMessages, ...data])
+        setMessages(data)
+        setMessageCount(allData.length)
+        //console.log(data)
+      }
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
     <>
       <List messageCount={messageCount} />
+      <Styled.SLayout ref={containerRef}>
+        {messages.map((message) => (
+          <ListCard
+            key={uuid()}
+            color="#FFC44F"
+            name={message.writer}
+            date={message.createdAt}
+            message={message.contents}
+          />
+        ))}
+        {loading && <p>Loading...</p>}
+        {!loading && messages.length === messageCount && <p>모든 덕담리스트를 확인했습니다.</p>}
+      </Styled.SLayout>
+      {/*<BtnArea
+        onClick={() => {
+          routeTo(`/writemessage/${user.uid}`)
+        }}
+        title="덕담 쓰기"
+        isDisabled={false}
+      />*/}
     </>
-  );
+  )
 }
 
-export default MessageList;
+export default MessageList
