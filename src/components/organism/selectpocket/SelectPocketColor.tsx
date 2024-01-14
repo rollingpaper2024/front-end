@@ -17,13 +17,16 @@ import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid';
 import { useAtom } from 'jotai';
 import { userAtom } from '@/store/user'
+import { getUserMessages } from '@/api'
+import { useRouter } from "@/hooks/useRouter"
+
 
 type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
 function SelectPocket() {
-
+  const { routeTo } = useRouter()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [user, setUser] = useAtom(userAtom);
+  const [user] = useAtom(userAtom);
   const [selectedPocket, setSelectedPocket] = useState({ pocket: '', uid: '' })
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -43,6 +46,7 @@ function SelectPocket() {
           ...prev,
           uid: user.uid,
         }))
+         fetchPocket()
       } else {
         setSelectedPocket((prev) => ({
           ...prev,
@@ -51,7 +55,12 @@ function SelectPocket() {
       }
   }, [user])
 
-
+  async function fetchPocket() {
+    const pocketData = await getUserMessages('Pocket', user.uid)
+    if (pocketData && pocketData.length > 0) {
+      routeTo(`/main/${user.uid}`)
+    }
+  }
   function setColor({ color }: { color: string }) {
     setSelectedPocket((prev) => ({
       ...prev,
