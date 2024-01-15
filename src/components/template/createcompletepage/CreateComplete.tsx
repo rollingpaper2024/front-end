@@ -12,6 +12,7 @@ function index() {
     const { routeTo } = useRouter()
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [user] = useAtom(userAtom);
+ 
   return (
     <>
         <MainTitle
