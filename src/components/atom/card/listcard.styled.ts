@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import * as Font from '@/style/font'
 
 export const SList = styled.div`
-  width: 80%;
+  width: 86%;
   border: 2px solid ${Color.yellow[400]};
   height: 88px;
   background: ${Color.yellow[200]};
@@ -11,6 +11,7 @@ export const SList = styled.div`
   display: flex;
   align-items: center;
   min-width: 334px;
+  margin: 10px auto;
 `
 export const ListWrapper = styled.div<{ color: string }>`
   display: flex;
