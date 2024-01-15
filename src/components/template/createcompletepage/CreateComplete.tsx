@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import MainItemLayout from '../layout/MainItemLayout'
 import MainTitle from '@/components/molecule/title/MainTitle'
 import PocketIcon from '@/components/atom/icon/pocket/PocketIcon'
@@ -6,13 +7,27 @@ import BtnArea from '@/components/molecule/layout/BtnArea'
 import { useRouter } from "@/hooks/useRouter"
 import { useAtom } from 'jotai';
 import { userAtom } from '@/store/user'
+import { getUserMessages } from '@/api'
+
 
 function index() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { routeTo } = useRouter()
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [user] = useAtom(userAtom);
- 
+
+  const [user] = useAtom(userAtom);
+  
+  useEffect(() => {
+    fetchPocket()
+  }, [user])
+  
+  async function fetchPocket() {
+    const pocketData = await getUserMessages('Pocket', user.uid)
+    if (pocketData && pocketData.length > 0) {
+      routeTo(`/main/${user.uid}`)
+    }
+  }
+
   return (
     <>
         <MainTitle
