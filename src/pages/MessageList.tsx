@@ -20,7 +20,10 @@ function MessageList() {
     const fetchMessageCount = async () => {
       const totalMessageData = await getUserMessages('Message', id)
       if (totalMessageData) {
-        setMessageCount(totalMessageData?.length)
+        const messageCount = Array.isArray(totalMessageData)
+          ? totalMessageData.length
+          : totalMessageData.messages.length
+        setMessageCount(messageCount)
       }
     }
 
@@ -48,9 +51,9 @@ function MessageList() {
     <>
       <List messageCount={messageCount} />
       <Styled.SLayout ref={containerRef} onScroll={handleScroll}>
-        {data?.pages.map((page, i) => (
+        {data?.pages.map((page: any, i: number) => (
           <React.Fragment key={i}>
-            {page.messages.map((message) => (
+            {page.messages.map((message: any) => (
               <ListCard
                 key={uuid()}
                 color="#FFC44F"
