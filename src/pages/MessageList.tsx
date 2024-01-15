@@ -1,38 +1,86 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import  { useEffect, useState } from 'react';
-import { getUserMessages } from '@/api';
-import List from '@/components/template/list/List';
-import { useAtom } from 'jotai';
+import React, { useRef, useEffect, useState } from 'react'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import ListCard from '@/components/atom/card/ListCard'
+import uuid from 'react-uuid'
+import * as Styled from '@/components/organism/list/Listlayer.styled'
+import { useParams } from 'react-router-dom'
+import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user'
+import { getUserMessages } from '@/api'
+import BtnArea from '@/components/molecule/layout/BtnArea'
+import { useRouter } from '@/hooks/useRouter'
+import List from '@/components/template/list/List'
 
 function MessageList() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [user] = useAtom(userAtom);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [messages, setMessages] = useState<any[]>([]);
-  const [messageCount, setMessageCount] = useState(0);
-
+  const [user] = useAtom(userAtom)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { id } = useParams()
+  const [messageCount, setMessageCount] = useState(0)
+  const { routeTo } = useRouter()
 
   useEffect(() => {
-    if (user) {
-      fetchMessages();
+    // 전체 메시지 개수를 가져오는 함수
+    const fetchMessageCount = async () => {
+      const totalMessageData = await getUserMessages('Message', id)
+      if (totalMessageData) {
+        const messageCount = Array.isArray(totalMessageData)
+          ? totalMessageData.length
+          : totalMessageData.messages.length
+        setMessageCount(messageCount)
+      }
     }
-  }, [user]);
 
-  async function fetchMessages() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const data = await getUserMessages('Message', user.uid);
-    if (data) {
-      setMessages(data);
-      setMessageCount(data.length);
+    if (user) {
+      fetchMessageCount()
+    }
+  }, [user, id])
+
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
+    queryKey: ['messages', id],
+    queryFn: ({ pageParam = null }) => getUserMessages('Message', id, pageParam, 6),
+    getNextPageParam: (lastPage) => lastPage.lastVisible || undefined,
+  })
+
+  const handleScroll = () => {
+    if (containerRef.current) {
+      const { scrollHeight, scrollTop, clientHeight } = containerRef.current
+      if (scrollTop + clientHeight >= scrollHeight - 1 && hasNextPage && !isFetchingNextPage) {
+        fetchNextPage()
+      }
     }
   }
 
   return (
     <>
       <List messageCount={messageCount} />
+      <Styled.SLayout ref={containerRef} onScroll={handleScroll}>
+        {data?.pages.map((page: any, i: number) => (
+          <React.Fragment key={i}>
+            {page.messages.map((message: any) => (
+              <ListCard
+                key={uuid()}
+                color="#FFC44F"
+                name={message.writer}
+                date={message.date}
+                message={message.contents}
+              />
+            ))}
+          </React.Fragment>
+        ))}
+        {isFetchingNextPage && <p>Loading more...</p>}
+        {!hasNextPage && <p>모든 덕담리스트를 확인했습니다.</p>}
+      </Styled.SLayout>
+      {
+        <BtnArea
+          onClick={() => {
+            routeTo(`/writemessage/${user.uid}`)
+          }}
+          title="덕담 쓰기"
+          isDisabled={false}
+        />
+      }
     </>
-  );
+  )
 }
 
-export default MessageList;
+export default MessageList
