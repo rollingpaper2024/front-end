@@ -30,14 +30,14 @@ export const ListWrapper = styled.div<{ color: string }>`
 export const ListTitle = styled.div`
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Bold};
-  width: 80%;
+  width: 70%;
   z-index: 1;
 `
 
 export const ListDate = styled.div`
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Medium};
-  width: 20%;
+  width: 30%;
   text-align: right;
 `
 

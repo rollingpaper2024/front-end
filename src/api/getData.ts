@@ -13,6 +13,8 @@ interface messageType {
   writer: string
   contents: string
   uid: string
+  color: string
+  date: string
   createdAt: string
   pocket: string
 }

@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user'
 import { getUserMessages } from '@/api'
+import BtnArea from '@/components/molecule/layout/BtnArea'
+import { useRouter } from '@/hooks/useRouter'
 import List from '@/components/template/list/List'
 
 function MessageList() {
@@ -14,6 +16,7 @@ function MessageList() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { id } = useParams()
   const [messageCount, setMessageCount] = useState(0)
+  const { routeTo } = useRouter()
 
   useEffect(() => {
     // 전체 메시지 개수를 가져오는 함수
@@ -58,7 +61,7 @@ function MessageList() {
                 key={uuid()}
                 color="#FFC44F"
                 name={message.writer}
-                date={message.createdAt}
+                date={message.date}
                 message={message.contents}
               />
             ))}
@@ -67,6 +70,15 @@ function MessageList() {
         {isFetchingNextPage && <p>Loading more...</p>}
         {!hasNextPage && <p>모든 덕담리스트를 확인했습니다.</p>}
       </Styled.SLayout>
+      {
+        <BtnArea
+          onClick={() => {
+            routeTo(`/writemessage/${user.uid}`)
+          }}
+          title="덕담 쓰기"
+          isDisabled={false}
+        />
+      }
     </>
   )
 }
