@@ -1,4 +1,4 @@
-import * as Styled from './List.styled'
+import * as Styled from './list.styled'
 import MainTitle from '@/components/molecule/title/MainTitle'
 
 function List({ messageCount }: { messageCount: number }) {
