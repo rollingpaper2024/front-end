@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import MainItemLayout from '../layout/MainItemLayout'
 import MainTitle from '@/components/molecule/title/MainTitle'
 import PocketIcon from '@/components/atom/icon/pocket/PocketIcon'
-import Pocket from '../assets/복주머니.webp'
+import Pocket from '@/assets/복주머니.webp'
 import BtnArea from '@/components/molecule/layout/BtnArea'
 import { useRouter } from "@/hooks/useRouter"
 import { useAtom } from 'jotai';
