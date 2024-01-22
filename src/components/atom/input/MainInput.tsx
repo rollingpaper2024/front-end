@@ -1,8 +1,10 @@
-import React from 'react'
+import * as Styled from './maininput.styled'
 
 function Input() {
   return (
-    <div>Input</div>
+    <div>
+      <Styled.SWrapper type="text" placeholder="이름을 입력하세요." />
+    </div>
   )
 }
 
