@@ -7,6 +7,7 @@ import '@toast-ui/editor/toastui-editor.css'
 import BtnArea from '@/components/molecule/layout/BtnArea'
 import Input from '@/components/atom/input/MainInput'
 import * as Styled from './writemessage.styled'
+import SelectCoinBtn from '@/components/atom/buttons/SelectCoinBtn'
 
 //toast editor
 type Props = {
@@ -20,6 +21,12 @@ const toolbar = [['heading', 'bold', 'italic', 'strike'], ['hr', 'quote', 'ul', 
 function WriteMessage({ content, editorRef, imageHandler }: Props) {
   const auth = getAuth(app)
   const [userId, setUserId] = useState('')
+  const [selectedCoinColor, setSelectedCoinColor] = useState('')
+
+  const handleColorSelected = (color: string) => {
+    setSelectedCoinColor(color)
+    console.log('color', color)
+  }
 
   useEffect(() => {
     // 현재 로그인한 사용자 확인
@@ -41,7 +48,7 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
       writer: '날짜 테스트',
       contents: '갑진년 새해복 많이 받아',
       uid: userId,
-      color: '금',
+      color: selectedCoinColor,
       date: new Date().toString(),
     })
   }
@@ -66,15 +73,16 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
         height="500px"
         hooks={{ addImageBlobHook: imageHandler }}
       />
-      {
+      <SelectCoinBtn onColorSelected={handleColorSelected} />
+      {/**
         <BtnArea
           onClick={() => {
             routeTo(`/writemessage/${user.uid}`)
           }}
-          title="덕담"
+          title="덕담 보내기"
           isDisabled={false}
         />
-      }
+        **/}
     </Styled.SLayout>
   )
 }
