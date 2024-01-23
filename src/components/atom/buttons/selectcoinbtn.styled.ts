@@ -7,11 +7,12 @@ export const Swrapper = styled.div`
   height: auto;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 `
 
 export const Sbutton = styled.button`
   width: 30%;
-  height: auto;
+  height: 120px;
   border: 2px solid ${Color.gray[400]};
   display: flex;
   justify-content: center;
@@ -27,5 +28,7 @@ export const Sbutton = styled.button`
   }
 `
 export const Stext = styled.p`
+  margin-top: 10px;
   font-size: ${Font.Fontsize.Small};
+  font-weight: ${Font.Fontweight.Medium};
 `

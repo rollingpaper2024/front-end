@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { postData } from '@/api'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { app } from '@/database'
@@ -9,7 +9,6 @@ import Input from '@/components/atom/input/MainInput'
 import * as Styled from './writemessage.styled'
 import SelectCoinBtn from '@/components/atom/buttons/SelectCoinBtn'
 
-//toast editor
 type Props = {
   editorRef: React.RefObject<Editor> | null
   imageHandler: (blob: File, callback: typeof Function) => void
@@ -22,10 +21,15 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
   const auth = getAuth(app)
   const [userId, setUserId] = useState('')
   const [selectedCoinColor, setSelectedCoinColor] = useState('')
+  const [editorContent, setEditorContent] = useState(content ?? '')
 
   const handleColorSelected = (color: string) => {
     setSelectedCoinColor(color)
     console.log('color', color)
+  }
+
+  const handleEditorChange = (value: string) => {
+    setEditorContent(value)
   }
 
   useEffect(() => {
@@ -46,7 +50,7 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
   function test() {
     postData('Message', {
       writer: '날짜 테스트',
-      contents: '갑진년 새해복 많이 받아',
+      contents: editorContent,
       uid: userId,
       color: selectedCoinColor,
       date: new Date().toString(),
@@ -64,25 +68,17 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
       </button>
       <Input />
       <Editor
-        initialValue={content ?? ' '}
+        initialValue={editorContent}
         initialEditType="wysiwyg"
         autofocus={false}
         ref={editorRef}
         toolbarItems={toolbar}
         hideModeSwitch
         height="500px"
+        onChange={(value) => handleEditorChange(value)}
         hooks={{ addImageBlobHook: imageHandler }}
       />
       <SelectCoinBtn onColorSelected={handleColorSelected} />
-      {/**
-        <BtnArea
-          onClick={() => {
-            routeTo(`/writemessage/${user.uid}`)
-          }}
-          title="덕담 보내기"
-          isDisabled={false}
-        />
-        **/}
     </Styled.SLayout>
   )
 }
