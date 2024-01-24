@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, ChangeEvent } from 'react'
 import { postData } from '@/api'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { app } from '@/database'
@@ -21,13 +21,19 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
   const auth = getAuth(app)
   const [userId, setUserId] = useState('')
   const [selectedCoinColor, setSelectedCoinColor] = useState('')
+  const [writerInput, setWriterInput] = useState('')
   const [editorContent, setEditorContent] = useState(content ?? '')
 
+  //코인 색상
   const handleColorSelected = (color: string) => {
     setSelectedCoinColor(color)
     console.log('color', color)
   }
-
+  //이름
+  const handleWriterInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setWriterInput(event.target.value)
+  }
+  //에디터 컨텐츠
   const handleEditorChange = (value: string) => {
     setEditorContent(value)
   }
@@ -48,12 +54,18 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
   console.log('test', userId)
 
   function test() {
+    var TodayDate = new Date()
+    var formattedDate = TodayDate.toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    })
     postData('Message', {
-      writer: '날짜 테스트',
+      writer: writerInput,
       contents: editorContent,
       uid: userId,
       color: selectedCoinColor,
-      date: new Date().toString(),
+      date: formattedDate,
     })
   }
 
@@ -66,7 +78,7 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
       >
         test
       </button>
-      <Input />
+      <Input value={writerInput} onChange={handleWriterInputChange} />
       <Editor
         initialValue={editorContent}
         initialEditType="wysiwyg"

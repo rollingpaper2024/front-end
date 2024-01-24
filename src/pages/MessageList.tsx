@@ -59,7 +59,7 @@ function MessageList() {
             {page.messages.map((message: any) => (
               <ListCard
                 key={uuid()}
-                color="#FFC44F"
+                color={message.color}
                 name={message.writer}
                 date={message.date}
                 message={message.contents}
