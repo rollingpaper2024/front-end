@@ -6,5 +6,6 @@ export const SLayout = styled.section`
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 14vh;
+  bottom: 8vh;
+  padding: 0 12px;
 `

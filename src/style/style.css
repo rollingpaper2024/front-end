@@ -3,3 +3,6 @@
 .toastui-editor-toolbar {
   display: none;
 }
+.toastui-editor-defaultUI {
+  margin-top: 20px;
+}

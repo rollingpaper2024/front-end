@@ -7,7 +7,7 @@ interface MainBtnProps {
   onClick?: () => void
 }
 
-function MainBtn({ title, isDisabled, onClick  }: MainBtnProps) {
+function MainBtn({ title, isDisabled, onClick }: MainBtnProps) {
   return (
     <>
       <Styled.SBtn $isDisabled={isDisabled} onClick={onClick}>

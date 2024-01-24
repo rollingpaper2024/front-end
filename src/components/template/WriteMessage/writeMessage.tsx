@@ -22,6 +22,7 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
   const [userId, setUserId] = useState('')
   const [selectedCoinColor, setSelectedCoinColor] = useState('')
   const [writerInput, setWriterInput] = useState('')
+  const [error, setError] = useState('')
   const [editorContent, setEditorContent] = useState(content ?? '')
 
   //코인 색상
@@ -30,12 +31,28 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
     console.log('color', color)
   }
   //이름
+  const maxInputLength = 13
   const handleWriterInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setWriterInput(event.target.value)
+    const inputValue = event.target.value
+
+    if (inputValue.length <= maxInputLength) {
+      setWriterInput(inputValue)
+      setError('')
+    } else {
+      setError(`최대 ${maxInputLength}글자까지 입력 가능합니다.`)
+    }
+    if (inputValue.length === 0) {
+      setError('이름을 입력해주세요.')
+    }
   }
+
   //에디터 컨텐츠
   const handleEditorChange = (value: string) => {
     setEditorContent(value)
+
+    if (value.length === 0) {
+      setError('내용을 입력해주세요.')
+    }
   }
 
   useEffect(() => {
@@ -53,7 +70,15 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
 
   console.log('test', userId)
 
-  function test() {
+  function postUpload() {
+    if (writerInput.length > maxInputLength) {
+      setError(`최대 ${maxInputLength}글자까지 입력 가능합니다.`)
+      return
+    } else if (writerInput.length === 0) {
+      setError('이름을 입력해주세요.')
+      return
+    }
+
     var TodayDate = new Date()
     var formattedDate = TodayDate.toLocaleDateString('ko-KR', {
       year: 'numeric',
@@ -70,28 +95,26 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
   }
 
   return (
-    <Styled.SLayout>
-      <button
-        onClick={() => {
-          test()
-        }}
-      >
-        test
-      </button>
-      <Input value={writerInput} onChange={handleWriterInputChange} />
-      <Editor
-        initialValue={editorContent}
-        initialEditType="wysiwyg"
-        autofocus={false}
-        ref={editorRef}
-        toolbarItems={toolbar}
-        hideModeSwitch
-        height="500px"
-        onChange={(value) => handleEditorChange(value)}
-        hooks={{ addImageBlobHook: imageHandler }}
-      />
-      <SelectCoinBtn onColorSelected={handleColorSelected} />
-    </Styled.SLayout>
+    <>
+      <Styled.SLayout>
+        <SelectCoinBtn onColorSelected={handleColorSelected} />
+        <Input value={writerInput} onChange={handleWriterInputChange} />
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <Editor
+          initialValue={editorContent}
+          initialEditType="wysiwyg"
+          autofocus={false}
+          ref={editorRef}
+          toolbarItems={toolbar}
+          hideModeSwitch
+          height="40vh"
+          onChange={(value) => handleEditorChange(value)}
+          hooks={{ addImageBlobHook: imageHandler }}
+        />
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </Styled.SLayout>
+      <BtnArea title={'덕담 작성하기'} isDisabled={false} onClick={postUpload} />
+    </>
   )
 }
 

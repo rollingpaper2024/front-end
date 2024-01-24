@@ -12,7 +12,7 @@ export const Swrapper = styled.div`
 
 export const Sbutton = styled.button`
   width: 30%;
-  height: 120px;
+  height: 140px;
   border: 2px solid ${Color.gray[400]};
   display: flex;
   justify-content: center;

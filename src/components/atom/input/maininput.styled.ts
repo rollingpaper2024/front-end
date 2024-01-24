@@ -6,8 +6,9 @@ export const SWrapper = styled.input`
   height: 64px;
   width: 100%;
   box-shadow: 0px 0px 11.2px 0px rgba(0, 0, 0, 0.05);
-  margin-bottom: 24px;
   border: none;
+  margin-top: 20px;
+  padding: 0 10px;
 `
 
 export const SDesc = styled.p`
