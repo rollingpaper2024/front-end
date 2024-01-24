@@ -4,7 +4,6 @@ function Writemessage() {
   return (
     <>
       <WriteMessage
-        editorRef={null}
         imageHandler={function (blob: File, callback: FunctionConstructor): void {
           throw new Error('Function not implemented.')
         }}

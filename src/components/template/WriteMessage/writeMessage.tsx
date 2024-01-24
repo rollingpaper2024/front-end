@@ -1,9 +1,9 @@
-import { useEffect, useState, ChangeEvent } from 'react'
+import { useEffect, useState, ChangeEvent,useRef  } from 'react'
 import { postData } from '@/api'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { app } from '@/database'
 import { Editor } from '@toast-ui/react-editor'
-import '@toast-ui/editor/toastui-editor.css'
+// import '@toast-ui/editor/toastui-editor.css'
 import BtnArea from '@/components/molecule/layout/BtnArea'
 import Input from '@/components/atom/input/MainInput'
 import * as Styled from './writemessage.styled'
@@ -17,14 +17,14 @@ type Props = {
 
 const toolbar = [['heading', 'bold', 'italic', 'strike'], ['hr', 'quote', 'ul', 'ol'], ['image']]
 
-function WriteMessage({ content, editorRef, imageHandler }: Props) {
+function WriteMessage({ content, imageHandler }: Props) {
   const auth = getAuth(app)
   const [userId, setUserId] = useState('')
   const [selectedCoinColor, setSelectedCoinColor] = useState('')
   const [writerInput, setWriterInput] = useState('')
   const [error, setError] = useState('')
   const [editorContent, setEditorContent] = useState(content ?? '')
-
+  const editorRef = useRef<Editor | null>(null);
   //코인 색상
   const handleColorSelected = (color: string) => {
     setSelectedCoinColor(color)
@@ -45,16 +45,16 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
       setError('이름을 입력해주세요.')
     }
   }
-
+  console.log("editorContent",editorContent)
   //에디터 컨텐츠
   const handleEditorChange = (value: string) => {
-    setEditorContent(value)
+    setEditorContent(editorRef.current.getInstance().getHTML())
 
     if (value.length === 0) {
       setError('내용을 입력해주세요.')
     }
   }
-
+ console.log("content",editorContent)
   useEffect(() => {
     // 현재 로그인한 사용자 확인
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -69,6 +69,14 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
   }, [])
 
   console.log('test', userId)
+
+  let htmlContent = `<html>
+    <head>
+    <link rel="icon" href="/favicon.ico">
+    <body>
+    ${editorContent}
+    </body>
+    </html>`;
 
   function postUpload() {
     if (writerInput.length > maxInputLength) {
@@ -87,17 +95,16 @@ function WriteMessage({ content, editorRef, imageHandler }: Props) {
     })
     postData('Message', {
       writer: writerInput,
-      contents: editorContent,
+      contents: htmlContent,
       uid: userId,
       color: selectedCoinColor,
       date: formattedDate,
     })
   }
-
   return (
     <>
       <Styled.SLayout>
-        <SelectCoinBtn onColorSelected={handleColorSelected} />
+        <SelectCoinBtn selectedCoinColor={selectedCoinColor} setSelectedCoinColor={setSelectedCoinColor}onColorSelected={handleColorSelected} />
         <Input value={writerInput} onChange={handleWriterInputChange} />
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <Editor

@@ -7,37 +7,33 @@ import Color from '@/style/Color'
 import RadioBtn from '@/components/atom/radio/RadioBtn'
 
 interface SelectCoinBtnProps {
-  onColorSelected: (color: string) => void
+  onColorSelected: (color: string) => void;
+  selectedCoinColor:string;
+  setSelectedCoinColor:React.Dispatch<React.SetStateAction<string>>;
 }
 
-function SelectCoinBtn({ onColorSelected }: SelectCoinBtnProps) {
-  const [selectedColor, setSelectedColor] = useState('')
-
-  useEffect(() => {
-    handleBtnClick(`${Color.cashColor[400]}`)
-  }, [])
+function SelectCoinBtn({ onColorSelected ,setSelectedCoinColor,selectedCoinColor}: SelectCoinBtnProps) {
 
   const handleBtnClick = (color: string) => {
     onColorSelected(color)
-    setSelectedColor(color)
+    setSelectedCoinColor(color)
   }
 
   return (
     <>
       <Styled.Swrapper>
-        <Styled.Sbutton onClick={() => handleBtnClick(`${Color.cashColor[400]}`)}>
-          <RadioBtn checked={selectedColor === `${Color.cashColor[400]}`} />
-
+        <Styled.Sbutton checked={selectedCoinColor === `${Color.cashColor[400]}`}  onClick={() => handleBtnClick(`${Color.cashColor[400]}`)}>
+          <RadioBtn id={`${Color.cashColor[400]}`} checked={selectedCoinColor === `${Color.cashColor[400]}`}   />
           <GoldCoinIcn />
           <Styled.Stext>금화</Styled.Stext>
         </Styled.Sbutton>
-        <Styled.Sbutton onClick={() => handleBtnClick(`${Color.cashColor[500]}`)}>
-          <RadioBtn checked={selectedColor === `${Color.cashColor[500]}`} />
+        <Styled.Sbutton  checked={selectedCoinColor === `${Color.cashColor[500]}`} onClick={() => handleBtnClick(`${Color.cashColor[500]}`)}>
+          <RadioBtn  id={`${Color.cashColor[500]}`}  checked={selectedCoinColor === `${Color.cashColor[500]}`} />
           <SilverCoinIcn />
           <Styled.Stext>은화</Styled.Stext>
         </Styled.Sbutton>
-        <Styled.Sbutton onClick={() => handleBtnClick(`${Color.cashColor[600]}`)}>
-          <RadioBtn checked={selectedColor === `${Color.cashColor[600]}`} />
+        <Styled.Sbutton checked={selectedCoinColor === `${Color.cashColor[600]}`} onClick={() => handleBtnClick(`${Color.cashColor[600]}`)}>
+          <RadioBtn id={`${Color.cashColor[600]}`}  checked={selectedCoinColor === `${Color.cashColor[600]}`}  />
           <BronzeCoinIcn />
           <Styled.Stext>동화</Styled.Stext>
         </Styled.Sbutton>
