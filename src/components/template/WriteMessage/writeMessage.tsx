@@ -1,4 +1,4 @@
-import { useEffect, useState, ChangeEvent,useRef  } from 'react'
+import { useEffect, useState } from 'react'
 import { postData } from '@/api'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { app } from '@/database'
@@ -8,27 +8,31 @@ import BtnArea from '@/components/molecule/layout/BtnArea'
 import Input from '@/components/atom/input/MainInput'
 import * as Styled from './writemessage.styled'
 import SelectCoinBtn from '@/components/atom/buttons/SelectCoinBtn'
+import TextArea from '@/components/atom/text/TextArea'
 
 type Props = {
   editorRef: React.RefObject<Editor> | null
-  imageHandler: (blob: File, callback: typeof Function) => void
   content?: string
 }
 
-const toolbar = [['heading', 'bold', 'italic', 'strike'], ['hr', 'quote', 'ul', 'ol'], ['image']]
-
-function WriteMessage({ content, imageHandler }: Props) {
+function WriteMessage({ content }: Props) {
   const auth = getAuth(app)
   const [userId, setUserId] = useState('')
   const [selectedCoinColor, setSelectedCoinColor] = useState('')
   const [writerInput, setWriterInput] = useState('')
   const [error, setError] = useState('')
+  const [texterror, setTextError] = useState('')
+  const [colorerror, setColorError] = useState('')
   const [editorContent, setEditorContent] = useState(content ?? '')
-  const editorRef = useRef<Editor | null>(null);
+
   //코인 색상
   const handleColorSelected = (color: string) => {
     setSelectedCoinColor(color)
-    console.log('color', color)
+    if (color === '') {
+      setColorError('코인 색상을 선택해주세요.')
+    } else {
+      setColorError('')
+    }
   }
   //이름
   const maxInputLength = 13
@@ -45,16 +49,21 @@ function WriteMessage({ content, imageHandler }: Props) {
       setError('이름을 입력해주세요.')
     }
   }
-  console.log("editorContent",editorContent)
+  console.log('editorContent', editorContent)
   //에디터 컨텐츠
-  const handleEditorChange = (value: string) => {
-    setEditorContent(editorRef.current.getInstance().getHTML())
+  const handleEditorChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputValue = event.target.value
+    setEditorContent(inputValue)
+    console.log('inputValue', inputValue)
 
-    if (value.length === 0) {
-      setError('내용을 입력해주세요.')
+    if (inputValue.length === 0) {
+      setTextError('내용을 입력해주세요.')
+    } else {
+      setTextError('')
     }
   }
- console.log("content",editorContent)
+  console.log('content', editorContent)
+
   useEffect(() => {
     // 현재 로그인한 사용자 확인
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -70,20 +79,21 @@ function WriteMessage({ content, imageHandler }: Props) {
 
   console.log('test', userId)
 
-  let htmlContent = `<html>
-    <head>
-    <link rel="icon" href="/favicon.ico">
-    <body>
-    ${editorContent}
-    </body>
-    </html>`;
-
   function postUpload() {
+    if (selectedCoinColor === '') {
+      setColorError('코인 색상을 선택해주세요.')
+      return
+    }
     if (writerInput.length > maxInputLength) {
       setError(`최대 ${maxInputLength}글자까지 입력 가능합니다.`)
       return
     } else if (writerInput.length === 0) {
       setError('이름을 입력해주세요.')
+      return
+    }
+
+    if (editorContent.length === 0) {
+      setTextError('내용을 입력해주세요.')
       return
     }
 
@@ -95,7 +105,7 @@ function WriteMessage({ content, imageHandler }: Props) {
     })
     postData('Message', {
       writer: writerInput,
-      contents: htmlContent,
+      contents: editorContent,
       uid: userId,
       color: selectedCoinColor,
       date: formattedDate,
@@ -104,21 +114,16 @@ function WriteMessage({ content, imageHandler }: Props) {
   return (
     <>
       <Styled.SLayout>
-        <SelectCoinBtn selectedCoinColor={selectedCoinColor} setSelectedCoinColor={setSelectedCoinColor}onColorSelected={handleColorSelected} />
+        <SelectCoinBtn
+          selectedCoinColor={selectedCoinColor}
+          setSelectedCoinColor={setSelectedCoinColor}
+          onColorSelected={handleColorSelected}
+        />
+        {colorerror && <p style={{ color: 'red' }}>{colorerror}</p>}
         <Input value={writerInput} onChange={handleWriterInputChange} />
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <Editor
-          initialValue={editorContent}
-          initialEditType="wysiwyg"
-          autofocus={false}
-          ref={editorRef}
-          toolbarItems={toolbar}
-          hideModeSwitch
-          height="40vh"
-          onChange={(value) => handleEditorChange(value)}
-          hooks={{ addImageBlobHook: imageHandler }}
-        />
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <TextArea value={editorContent} onChange={handleEditorChange} />
+        {texterror && <p style={{ color: 'red' }}>{texterror}</p>}
       </Styled.SLayout>
       <BtnArea title={'덕담 작성하기'} isDisabled={false} onClick={postUpload} />
     </>

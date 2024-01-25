@@ -44,8 +44,12 @@ export const LeftBtn = styled.div`
 
 export const RightBtn = styled.div`
   transform: rotate(180deg);
-  top: -52px;
+  top: -70px;
   position: relative;
+
+  @media ${Devices.mobileL} {
+    top: -52px;
+  }
 `
 
 export const BtnText = styled.div`
