@@ -9,6 +9,7 @@ import Input from '@/components/atom/input/MainInput'
 import * as Styled from './writemessage.styled'
 import SelectCoinBtn from '@/components/atom/buttons/SelectCoinBtn'
 import TextArea from '@/components/atom/text/TextArea'
+import { useRouter } from '@/hooks/useRouter'
 
 type Props = {
   editorRef: React.RefObject<Editor> | null
@@ -16,6 +17,8 @@ type Props = {
 }
 
 function WriteMessage({ content }: Props) {
+  const { routeTo } = useRouter()
+
   const auth = getAuth(app)
   const [userId, setUserId] = useState('')
   const [selectedCoinColor, setSelectedCoinColor] = useState('')
@@ -34,6 +37,7 @@ function WriteMessage({ content }: Props) {
       setColorError('')
     }
   }
+
   //이름
   const maxInputLength = 13
   const handleWriterInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,6 +54,7 @@ function WriteMessage({ content }: Props) {
     }
   }
   console.log('editorContent', editorContent)
+
   //에디터 컨텐츠
   const handleEditorChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const inputValue = event.target.value
@@ -110,7 +115,14 @@ function WriteMessage({ content }: Props) {
       color: selectedCoinColor,
       date: formattedDate,
     })
+    routeTo(`/completemessage`)
   }
+
+  // 모든 필드가 입력되었는지 확인
+  const isFormValid = () => {
+    return selectedCoinColor !== '' && writerInput !== '' && editorContent !== ''
+  }
+
   return (
     <>
       <Styled.SLayout>
@@ -125,7 +137,14 @@ function WriteMessage({ content }: Props) {
         <TextArea value={editorContent} onChange={handleEditorChange} />
         {texterror && <p style={{ color: 'red' }}>{texterror}</p>}
       </Styled.SLayout>
-      <BtnArea title={'덕담 작성하기'} isDisabled={false} onClick={postUpload} />
+      <BtnArea
+        title={'덕담 작성하기'}
+        isDisabled={!isFormValid()}
+        onClick={() => {
+          postUpload()
+          routeTo(`/completemessage`)
+        }}
+      />
     </>
   )
 }
