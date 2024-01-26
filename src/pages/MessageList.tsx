@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import ListCard from '@/components/atom/card/ListCard'
-import { v4 as uuidv4 } from 'uuid';
+import uuid from 'react-uuid'
 import * as Styled from '@/components/organism/list/Listlayer.styled'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
@@ -58,8 +58,8 @@ function MessageList() {
           <React.Fragment key={i}>
             {page.messages.map((message: any) => (
               <ListCard
-                key={uuidv4()}
-                color="#FFC44F"
+                key={uuid()}
+                color={message.color}
                 name={message.writer}
                 date={message.date}
                 message={message.contents}

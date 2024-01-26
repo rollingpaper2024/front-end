@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import * as Font from '@/style/font'
 
 export const SList = styled.div`
-  width: 86%;
+  width: 100%;
   border: 2px solid ${Color.yellow[400]};
   height: 88px;
   background: ${Color.yellow[200]};
@@ -11,7 +11,7 @@ export const SList = styled.div`
   display: flex;
   align-items: center;
   min-width: 334px;
-  margin: 10px auto;
+  margin: 8px auto;
 `
 export const ListWrapper = styled.div<{ color: string }>`
   display: flex;
@@ -30,14 +30,14 @@ export const ListWrapper = styled.div<{ color: string }>`
 export const ListTitle = styled.div`
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Bold};
-  width: 70%;
+  width: 69%;
   z-index: 1;
 `
 
 export const ListDate = styled.div`
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Medium};
-  width: 30%;
+  width: 31%;
   text-align: right;
 `
 

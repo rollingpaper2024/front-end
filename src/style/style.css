@@ -1,0 +1,8 @@
+/* Toast UI Editor 스타일 커스터마이징 */
+
+.toastui-editor-toolbar {
+  display: none;
+}
+.toastui-editor-defaultUI {
+  margin-top: 20px;
+}

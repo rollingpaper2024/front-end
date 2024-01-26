@@ -1,8 +1,21 @@
-import React from 'react'
+import * as Styled from './maininput.styled'
+import { ChangeEvent } from 'react'
 
-function Input() {
+interface InputProps {
+  value: string
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void
+}
+
+function Input({ value, onChange }: InputProps) {
   return (
-    <div>Input</div>
+    <div>
+      <Styled.SWrapper
+        type="text"
+        placeholder="이름을 입력하세요."
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   )
 }
 

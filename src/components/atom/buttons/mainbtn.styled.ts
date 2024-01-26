@@ -6,12 +6,11 @@ import { Devices } from '@/style/Device'
 export const SBtn = styled.button<{ $isDisabled: boolean }>`
   background-color: ${(props) => (props.$isDisabled ? Color.gray[500] : Color.gray[600])};
   height: 56px;
-  width: 80%;
+  width: 100%;
   color: ${Color.yellow[300]};
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Bold};
   border: 2px solid ${Color.gray[600]};
-  min-width: 180px;
   overflow: hidden;
 
   // 버튼이 비활성화 상태가 아닐 때 hover 및 active 스타일 적용
@@ -47,6 +46,10 @@ export const RightBtn = styled.div`
   transform: rotate(180deg);
   top: -70px;
   position: relative;
+
+  @media ${Devices.mobileL} {
+    top: -52px;
+  }
 `
 
 export const BtnText = styled.div`
