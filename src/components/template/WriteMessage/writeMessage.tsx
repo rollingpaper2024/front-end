@@ -57,11 +57,11 @@ function WriteMessage({ content }: Props) {
 
   //에디터 컨텐츠
   const handleEditorChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const inputValue = event.target.value
-    setEditorContent(inputValue)
-    console.log('inputValue', inputValue)
+    const editorValue = event.target.value
+    setEditorContent(editorValue)
+    console.log('editorValue', editorValue)
 
-    if (inputValue.length === 0) {
+    if (editorValue.length === 0) {
       setTextError('내용을 입력해주세요.')
     } else {
       setTextError('')

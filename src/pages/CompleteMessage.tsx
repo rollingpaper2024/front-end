@@ -1,5 +1,7 @@
+import Finish from '@/components/template/completemessage/Finish'
+
 function CompleteMessage() {
-  return <>finish</>
+  return <Finish />
 }
 
 export default CompleteMessage

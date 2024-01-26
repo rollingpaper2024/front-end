@@ -1,9 +1,10 @@
-import React from 'react'
 import Login from '@/components/template/login/Login'
 
 function LoginPage() {
   return (
-    <><Login/></>
+    <>
+      <Login />
+    </>
   )
 }
 
