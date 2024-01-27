@@ -23,7 +23,7 @@ function index() {
       setIsUser(false)
     }
   }, [user])
-  console.log('test', isDisableCoachmark)
+
   return (
     <Styled.SLayout>
       <SelectIcon isUser={isUser} isDisableCoachmark={isDisableCoachmark} path={targetPart} />

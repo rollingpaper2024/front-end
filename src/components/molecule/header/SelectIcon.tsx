@@ -32,6 +32,7 @@ function SelectIcon({
     document.body.appendChild(script)
     return () => document.body.removeChild(script)
   }, [])
+
   useEffect(() => {
     shareKaKaoLink({ title: 'rolling-paper', route: route })
   }, [isKakaoOpen])
@@ -61,7 +62,6 @@ function SelectIcon({
               <Styled.STooltipCloseDiv
                 onClick={() => {
                   setTooltipOpen(false)
-                  setKakaoOpen(true)
                 }}
               >
                 <TooltipClose />
@@ -74,6 +74,7 @@ function SelectIcon({
           <div
             id="kakao-link-btn"
             onClick={() => {
+              setKakaoOpen(true)
               shareKaKaoLink({ title: 'rolling-paper', route: route })
             }}
           >
