@@ -14,7 +14,7 @@ function index() {
   const pathParts = location.pathname.split('/')
   const targetPart = pathParts[1]
 
-  console.log(targetPart)
+  console.log(isDisableCoachmark)
 
   useEffect(() => {
     if (user.uid !== 'no-user') {

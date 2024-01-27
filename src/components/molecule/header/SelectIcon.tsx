@@ -36,6 +36,9 @@ function SelectIcon({
   // useEffect(() => {
   //   shareKaKaoLink({ title: 'rolling-paper', route: route })
   // }, [isKakaoOpen])
+  // useEffect(() => {
+  //   shareKaKaoLink({ title: 'rolling-paper', route: route })
+  // }, [isKakaoOpen])
 
   useEffect(() => {
     const location = window.location
