@@ -11,7 +11,8 @@ import { getUserMessages } from '@/api'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user.ts'
-
+import { coachMarkAtom } from '@/store/coachmark.ts'
+import CoachMark from '@/components/organism/coachmark'
 
 function SendMessage() {
   const { routeTo } = useRouter()
@@ -26,6 +27,23 @@ function SendMessage() {
   const [parameter, setParameter] = useState('')
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
+  const [isDisableCoachmark, setIsDisableCoachmark] = useAtom(coachMarkAtom)
+
+  useEffect(() => {
+    // 로컬 스토리지에서 값 확인
+    const hideCoachMark = localStorage.getItem('hideCoachMark')
+    if (!hideCoachMark) {
+      setIsDisableCoachmark(false)
+    }
+  }, [])
+
+  const handleHideCoachMark = () => {
+    // 로컬 스토리지에 값 저장
+    localStorage.setItem('hideCoachMark', 'true')
+    setIsDisableCoachmark(true)
+  }
+
+  console.log('test', isDisableCoachmark)
 
   const { id } = useParams()
 
@@ -39,7 +57,7 @@ function SendMessage() {
     } else {
       return
     }
-  }, [id,isPocket])
+  }, [id, isPocket])
 
   async function fetchMessages(userId: string) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,12 +67,11 @@ function SendMessage() {
     if (messageData) {
       setMessageCount(messageData.length)
     }
-    if (pocketData&&pocketData.length>0) {
-      
+    if (pocketData && pocketData.length > 0) {
       setIsPocket(true)
     }
   }
-  console.log("테스트",isPocket)
+  console.log('테스트', isPocket)
   const generateBtnText = () => {
     console.log('1')
     if (user.uid !== 'no-user') {
@@ -81,6 +98,8 @@ function SendMessage() {
           } else {
             console.log('6')
             // 타이틀 desc 아직 미정
+            setTitle(`${messageCount}개의 덕담 도착!`)
+            setDesc('test 덕담있을때')
             setBtnMessage('덕담 읽기')
             setParameter(`/messagelist/${id}`)
             setIsBtnDisabled(false)
@@ -112,6 +131,7 @@ function SendMessage() {
 
   return (
     <>
+      <CoachMark handleHideCoachMark={handleHideCoachMark} showCoachMark={!isDisableCoachmark} />
       <MainTitle title={title} desc={desc} />
       <MainItemLayout>
         <PocketIcon

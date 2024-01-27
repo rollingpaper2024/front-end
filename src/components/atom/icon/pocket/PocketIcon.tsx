@@ -6,9 +6,10 @@ interface PocketIconProps {
   }
 
 
-function PocketIcon({icon}:PocketIconProps) {
+function PocketIcon({ icon }: PocketIconProps) {
+  
   return (
-    <Styled.SLayout>
+    <Styled.SLayout >
       {typeof icon === 'string' ? <img src={icon} alt="Pocket Icon"/> : icon}
     </Styled.SLayout>
   )

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SLayout =styled.div`
 position: fixed;
 margin: auto;
-width: 100%;
+width: 500px;
 height: 100%;
 top: 0;
 left: 50%;
