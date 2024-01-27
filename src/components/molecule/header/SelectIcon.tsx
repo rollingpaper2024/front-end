@@ -33,9 +33,9 @@ function SelectIcon({
     return () => document.body.removeChild(script)
   }, [])
 
-  useEffect(() => {
-    shareKaKaoLink({ title: 'rolling-paper', route: route })
-  }, [isKakaoOpen])
+  // useEffect(() => {
+  //   shareKaKaoLink({ title: 'rolling-paper', route: route })
+  // }, [isKakaoOpen])
 
   useEffect(() => {
     const location = window.location
@@ -72,6 +72,7 @@ function SelectIcon({
       ) : (
         <>
           <div
+           style={isDisableCoachmark ? {} : { zIndex: 100001 }}
             id="kakao-link-btn"
             onClick={() => {
               setKakaoOpen(true)
