@@ -4,11 +4,17 @@ import SelectIcon from '@/components/molecule/header/SelectIcon'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user.ts'
 import { coachMarkAtom } from '@/store/coachmark'
+import { useLocation } from 'react-router-dom'
 
 function index() {
   const [user] = useAtom(userAtom)
   const [isDisableCoachmark] = useAtom(coachMarkAtom)
   const [isUser, setIsUser] = useState(false)
+  const location = useLocation()
+  const pathParts = location.pathname.split('/')
+  const targetPart = pathParts[1]
+
+  console.log(targetPart)
 
   useEffect(() => {
     if (user.uid !== 'no-user') {
@@ -20,7 +26,7 @@ function index() {
   console.log('test', isDisableCoachmark)
   return (
     <Styled.SLayout>
-      <SelectIcon isUser={isUser} isDisableCoachmark={isDisableCoachmark} />
+      <SelectIcon isUser={isUser} isDisableCoachmark={isDisableCoachmark} path={targetPart} />
     </Styled.SLayout>
   )
 }

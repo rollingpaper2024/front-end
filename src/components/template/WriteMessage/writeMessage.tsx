@@ -3,7 +3,6 @@ import { postData } from '@/api'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { app } from '@/database'
 import { Editor } from '@toast-ui/react-editor'
-// import '@toast-ui/editor/toastui-editor.css'
 import BtnArea from '@/components/molecule/layout/BtnArea'
 import Input from '@/components/atom/input/MainInput'
 import * as Styled from './writemessage.styled'
@@ -102,8 +101,8 @@ function WriteMessage({ content }: Props) {
       return
     }
 
-    var TodayDate = new Date()
-    var formattedDate = TodayDate.toLocaleDateString('ko-KR', {
+    const TodayDate = new Date()
+    const formattedDate = TodayDate.toLocaleDateString('ko-KR', {
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
