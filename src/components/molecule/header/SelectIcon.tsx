@@ -24,7 +24,6 @@ function SelectIcon({
   const [route, setRoute] = useState(null)
   const [isKakaoOpen, setKakaoOpen] = useState(false)
 
-  console.log(route)
   useEffect(() => {
     const script = document.createElement('script')
     script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
@@ -72,7 +71,7 @@ function SelectIcon({
       ) : (
         <>
           <div
-          style={{zIndex:"100001"}}
+            style={{ zIndex: '100001' }}
             id="kakao-link-btn"
             onClick={() => {
               setKakaoOpen(true)
