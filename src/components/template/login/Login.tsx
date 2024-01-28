@@ -15,8 +15,7 @@ import { app } from '@/database'
 import { onLoginWithKakao } from '@/api/onClickKakaologin'
 import { toast } from 'react-toastify'
 import * as Styled from './login.styled'
-import GoogleLogin from '@/assets/googlelogin.webp'
-import KaKaoLogin from '@/assets/kakaologin.webp'
+
 function Login() {
   const router = useNavigate()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -38,7 +37,6 @@ function Login() {
       await createUserWithEmailAndPassword(auth, data.profile.kakao_account.email, data.profile.id)
       toast.success('성공적으로 회원가입이 완료 되었습니다.')
     } catch (error: FirebaseError) {
-      console.log(error)
       const errorMessage = error?.message
       console.log('errorMessage', errorMessage)
       if (errorMessage.includes('(auth/email-already-in-use)')) {

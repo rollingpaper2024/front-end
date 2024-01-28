@@ -51,3 +51,7 @@ export const SSpan = styled.span`
     top: 9.2vh;
   }
 `
+export const SAlertDiv = styled.div`
+  position: absolute;
+  top: 6vh;
+`

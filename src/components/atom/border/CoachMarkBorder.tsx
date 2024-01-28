@@ -11,7 +11,6 @@ function CoachMarkBorder({ children, title, name }: GeneralLayoutProps) {
   if (name !== 'coach_mark') {
     return
   }
-  console.log('title', title)
   return <Styled.SLayout title={title}>{children}</Styled.SLayout>
 }
 

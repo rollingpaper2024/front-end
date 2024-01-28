@@ -43,11 +43,7 @@ function SendMessage() {
     setIsDisableCoachmark(true)
   }
 
-  console.log('test', isDisableCoachmark)
-
   const { id } = useParams()
-
-  console.log('id', id, btnMessage)
 
   useEffect(() => {
     generateBtnText()
@@ -71,7 +67,7 @@ function SendMessage() {
       setIsPocket(true)
     }
   }
-  console.log('테스트', isPocket)
+
   const generateBtnText = () => {
     console.log('1')
     if (user.uid !== 'no-user') {
