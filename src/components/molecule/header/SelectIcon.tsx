@@ -10,6 +10,8 @@ import TooltipClose from '@/img/TooltipClose'
 import { shareKaKaoLink } from '../../../utils/shareKaKaoLink'
 import Alert from '@/components/atom/alert/Alert'
 import { getUserMessages } from '@/api'
+import { userAtom } from '@/store/user'
+import { useAtom } from 'jotai'
 
 function SelectIcon({
   isUser,
@@ -27,6 +29,7 @@ function SelectIcon({
   const [isKakaoOpen, setKakaoOpen] = useState(false)
   const [messageData, setMessageData] = useState(0)
   const [isMessageAlert, setMessageAlert] = useState(false)
+  const [user, setUser] = useAtom(userAtom)
 
   useEffect(() => {
     const script = document.createElement('script')
@@ -50,7 +53,7 @@ function SelectIcon({
   const navigateMessageList = () => {
     console.log('rearaew')
     setMessageAlert(false)
-    routeTo(`/messagelist/${id}`)
+    routeTo(`/messagelist/${user}`)
   }
 
   return (
