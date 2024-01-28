@@ -1,6 +1,7 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
 import * as Font from '@/style/font'
+import { Devices } from '@/style/Device'
 
 export const Alert = styled.button`
   background-color: ${Color.gray[600]};
@@ -12,6 +13,12 @@ export const Alert = styled.button`
   border-radius: 8px;
   min-width: 334px;
   position: relative;
+  top: -1vh;
+  z-index: 100001;
+
+  @media ${Devices.tablet} {
+    top: -5vh;
+  }
 `
 export const AlertWrapper = styled.div`
   display: flex;

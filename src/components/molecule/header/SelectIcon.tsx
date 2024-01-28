@@ -8,6 +8,8 @@ import { useParams } from 'react-router-dom'
 import Tooltip from '@/img/Tooltip'
 import TooltipClose from '@/img/TooltipClose'
 import { shareKaKaoLink } from '../../../utils/shareKaKaoLink'
+import Alert from '@/components/atom/alert/Alert'
+import { getUserMessages } from '@/api'
 
 function SelectIcon({
   isUser,
@@ -23,8 +25,9 @@ function SelectIcon({
   const [isTooltipOpen, setTooltipOpen] = useState(true)
   const [route, setRoute] = useState(null)
   const [isKakaoOpen, setKakaoOpen] = useState(false)
+  const [messageData, setMessageData] = useState(0)
+  const [isMessageAlert, setMessageAlert] = useState(false)
 
-  console.log(route)
   useEffect(() => {
     const script = document.createElement('script')
     script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
@@ -33,18 +36,23 @@ function SelectIcon({
     return () => document.body.removeChild(script)
   }, [])
 
-  // useEffect(() => {
-  //   shareKaKaoLink({ title: 'rolling-paper', route: route })
-  // }, [isKakaoOpen])
-  // useEffect(() => {
-  //   shareKaKaoLink({ title: 'rolling-paper', route: route })
-  // }, [isKakaoOpen])
-
   useEffect(() => {
     const location = window.location
     const urlWithoutPathname = location.protocol + '//' + location.host
     setRoute(`${urlWithoutPathname}/main/${id}`)
+    fetchMessage()
   }, [])
+
+  const fetchMessage = async () => {
+    const messageData = await getUserMessages('Message', id)
+    setMessageData(messageData.length)
+  }
+  const navigateMessageList = () => {
+    console.log('rearaew')
+    setMessageAlert(false)
+    routeTo(`/messagelist/${id}`)
+  }
+
   return (
     <Styled.SLayout>
       {path === 'messagelist' ? (
@@ -75,7 +83,7 @@ function SelectIcon({
       ) : (
         <>
           <div
-           style={isDisableCoachmark ? {} : { zIndex: 100001 }}
+            style={{ zIndex: '100001' }}
             id="kakao-link-btn"
             onClick={() => {
               setKakaoOpen(true)
@@ -85,7 +93,24 @@ function SelectIcon({
             <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ActiveHeaderIcon />} />
           </div>
 
-          {isUser && <HeaderIcon icon={<ActiveHeaderIcon />} />}
+          {isUser && (
+            <div
+              onClick={() => {
+                setMessageAlert(true)
+              }}
+            >
+              <HeaderIcon icon={<ActiveHeaderIcon />} />{' '}
+            </div>
+          )}
+          <Styled.SAlertDiv
+            onClick={() => {
+              navigateMessageList()
+            }}
+          >
+            {isMessageAlert && (
+              <Alert number={messageData} navigateMessageList={navigateMessageList} />
+            )}
+          </Styled.SAlertDiv>
         </>
       )}
     </Styled.SLayout>

@@ -7,7 +7,6 @@ interface HeaderIconProps {
 }
 
 function HeaderIcon({ icon, isDisableCoachmark }: HeaderIconProps) {
-  console.log("왜안돼?",isDisableCoachmark)
   return <Styled.SIconDiv isDisableCoachmark={isDisableCoachmark}>{icon}</Styled.SIconDiv>
 }
 
