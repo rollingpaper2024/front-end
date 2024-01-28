@@ -14,7 +14,9 @@ import {
 import { app } from '@/database'
 import { onLoginWithKakao } from '@/api/onClickKakaologin'
 import { toast } from 'react-toastify'
-
+import * as Styled from './login.styled'
+import GoogleLogin from '@/assets/googlelogin.webp'
+import KaKaoLogin from '@/assets/kakaologin.webp'
 function Login() {
   const router = useNavigate()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -67,16 +69,26 @@ function Login() {
   return (
     <>
       <MainTitle title="회원가입 하기" desc="소셜 로그인 및 이메일로 간편 가입할 수 있어요." />
-      <button name="google" onClick={handleSocialLogin}>
-        google
-      </button>
-      <KakaoLogin
-        name="kakao"
-        onClick={onLoginWithKakao}
-        token={kakaoClientId}
-        onSuccess={kakaoOnSuccess}
-        onFail={kakaoOnFailure}
-      />
+      <Styled.SBtnLayout>
+        <KakaoLogin
+          style={{
+            width: '472px',
+            height: '52px',
+            backgroundColor: '#fee500',
+            fontSize: '12px',
+            fontWeight: '600',
+            borderRadius: '10px',
+          }}
+          name="kakao"
+          onClick={onLoginWithKakao}
+          token={kakaoClientId}
+          onSuccess={kakaoOnSuccess}
+          onFail={kakaoOnFailure}
+        />
+        <Styled.SBtn name="google" onClick={handleSocialLogin}>
+          <h3>Google 로그인</h3>
+        </Styled.SBtn>
+      </Styled.SBtnLayout>
     </>
   )
 }
