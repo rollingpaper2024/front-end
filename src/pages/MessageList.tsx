@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import ListCard from '@/components/atom/card/ListCard'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 import * as Styled from '@/components/organism/list/Listlayer.styled'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
