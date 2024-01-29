@@ -7,15 +7,22 @@ import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user'
 import { getUserMessages } from '@/api'
-import BtnArea from '@/components/molecule/layout/BtnArea'
 import { useRouter } from '@/hooks/useRouter'
 import List from '@/components/template/list/List'
+
+interface Message {
+  id: string
+  color: string
+  writer: string
+  date: string
+  contents: string
+}
 
 function MessageList() {
   const [user] = useAtom(userAtom)
   const containerRef = useRef<HTMLDivElement>(null)
-  const { id } = useParams()
-  const [messageCount, setMessageCount] = useState(0)
+  const { id } = useParams<{ id: string }>()
+  const [messageCount, setMessageCount] = useState<number>(0)
   const { routeTo } = useRouter()
 
   useEffect(() => {
@@ -54,19 +61,24 @@ function MessageList() {
     <>
       <List messageCount={messageCount} />
       <Styled.SLayout ref={containerRef} onScroll={handleScroll}>
-        {data?.pages.map((page: any, i: number) => (
-          <React.Fragment key={i}>
-            {page.messages.map((message: any) => (
-              <ListCard
-                key={uuid()}
-                color={message.color}
-                name={message.writer}
-                date={message.date}
-                message={message.contents}
-              />
-            ))}
-          </React.Fragment>
-        ))}
+        {data &&
+          data.pages.map((page: any, i: number) => (
+            <React.Fragment key={i}>
+              {page.messages.map((message: Message) => (
+                <ListCard
+                  key={uuid()}
+                  color={message.color}
+                  name={message.writer}
+                  date={message.date}
+                  message={message.contents}
+                  messageId={''}
+                  onClick={() => {
+                    routeTo(`/messagelist/${id}/${message.id}`)
+                  }}
+                />
+              ))}
+            </React.Fragment>
+          ))}
         {isFetchingNextPage && <p>Loading more...</p>}
         {!hasNextPage && <p>모든 덕담리스트를 확인했습니다.</p>}
       </Styled.SLayout>
