@@ -17,7 +17,7 @@ export const SIconDiv = styled.div<coachmarkProps>`
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
-  background-color: white;
+  background-color: ${(props) => (props.isDisableCoachmark === false ? 'white' : 'none')};
   border: ${(props) => (props.isDisableCoachmark === false ? '2px solid #ef961c' : 'none')};
   z-index: ${(props) => (props.isDisableCoachmark === false ? 1000001 : 1)};
 `

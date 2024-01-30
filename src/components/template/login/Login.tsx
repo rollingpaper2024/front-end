@@ -13,7 +13,6 @@ import {
 } from 'firebase/auth'
 import { app } from '@/database'
 import { onLoginWithKakao } from '@/api/onClickKakaologin'
-import { toast } from 'react-toastify'
 import * as Styled from './login.styled'
 
 function Login() {
@@ -35,14 +34,12 @@ function Login() {
   const kakaoOnSuccess = async (data: any) => {
     try {
       await createUserWithEmailAndPassword(auth, data.profile.kakao_account.email, data.profile.id)
-      toast.success('성공적으로 회원가입이 완료 되었습니다.')
     } catch (error: FirebaseError) {
       const errorMessage = error?.message
       console.log('errorMessage', errorMessage)
       if (errorMessage.includes('(auth/email-already-in-use)')) {
         try {
           await signInWithEmailAndPassword(auth, data.profile.kakao_account.email, data.profile.id)
-          toast.success('로그인이 완료 되었습니다.')
         } catch (loginError) {
           console.log(loginError)
           // 추가적인 오류 처리

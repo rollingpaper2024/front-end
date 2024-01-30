@@ -10,8 +10,10 @@ import TooltipClose from '@/img/TooltipClose'
 import { shareKaKaoLink } from '../../../utils/shareKaKaoLink'
 import Alert from '@/components/atom/alert/Alert'
 import { getUserMessages } from '@/api'
-import { userAtom } from '@/store/user'
-import { useAtom } from 'jotai'
+import ShareIcon from '@/img/ShareIcon'
+import DefaultAlarm from '@/img/DefaultAlarm'
+import ActiveAlarm from '@/img/ActiveAlarm'
+
 
 function SelectIcon({
   isUser,
@@ -55,7 +57,7 @@ function SelectIcon({
     setMessageAlert(false)
     routeTo(`/messagelist/${user}`)
   }
-
+  console.log('messageData', messageData)
   return (
     <Styled.SLayout>
       {path === 'messagelist' ? (
@@ -68,7 +70,7 @@ function SelectIcon({
             <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
           </div>
           {isTooltipOpen && (
-            <>
+            <Styled.STooltipLayout>
               <Styled.STooltipDiv>
                 <Tooltip />
               </Styled.STooltipDiv>
@@ -80,7 +82,7 @@ function SelectIcon({
               >
                 <TooltipClose />
               </Styled.STooltipCloseDiv>
-            </>
+            </Styled.STooltipLayout>
           )}
         </>
       ) : (
@@ -93,18 +95,19 @@ function SelectIcon({
               shareKaKaoLink({ title: 'rolling-paper', route: route })
             }}
           >
-            <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ActiveHeaderIcon />} />
+            <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
           </div>
 
-          {isUser && (
-            <div
-              onClick={() => {
-                setMessageAlert(true)
-              }}
-            >
-              <HeaderIcon icon={<ActiveHeaderIcon />} />{' '}
-            </div>
-          )}
+          {isUser &&
+            (messageData > 0 ? (
+              <div onClick={() => setMessageAlert(true)}>
+                <HeaderIcon icon={<ActiveAlarm />} />
+              </div>
+            ) : messageData === 0 ? (
+              <div onClick={() => setMessageAlert(true)}>
+                <HeaderIcon icon={<DefaultAlarm />} />{' '}
+              </div>
+            ) : null)}
           <Styled.SAlertDiv
             onClick={() => {
               navigateMessageList()
