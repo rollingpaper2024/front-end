@@ -43,6 +43,7 @@ ${normalize}
   svg {
     display: block;
     max-width: 100%;
+    width:100%;
   }
 
   button {

@@ -14,4 +14,8 @@ export const SLayout = styled.main`
   overflow: hidden;
   position: relative;
   margin: 0 auto;
+
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+  }
 `

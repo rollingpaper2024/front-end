@@ -60,6 +60,10 @@ function MessageList() {
                 name={message.writer}
                 date={message.date}
                 message={message.contents}
+                messageId={message.id}
+                onClick={() => {
+                  routeTo(`/messagelist/${id}/${message.id}`)
+                }}
               />
             ))}
           </React.Fragment>

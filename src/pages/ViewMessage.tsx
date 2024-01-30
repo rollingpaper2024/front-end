@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getMessage } from '@/api'
+import MessageView from '@/components/template/messageview/index'
 
 function ViewMessage() {
   const { messageId } = useParams<{ messageId: string }>()
@@ -26,8 +27,7 @@ function ViewMessage() {
 
   return (
     <div>
-      <h1>{message.writer}</h1>
-      <p>{message.contents}</p>
+      <MessageView name={message.writer} content={message.contents} color={message.color} />
     </div>
   )
 }
