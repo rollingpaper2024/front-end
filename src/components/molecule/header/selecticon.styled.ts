@@ -17,22 +17,20 @@ export const SLayout = styled.div`
 export const STooltipDiv = styled.div`
   width: 100%;
   position: absolute;
-  top: 9vh;
+  /* top: 9vh; */
+  top: -5px;
+  right: 0px;
   display: flex;
   justify-content: flex-end;
 
-  @media ${Devices.tablet} {
+  /* @media ${Devices.tablet} {
     top: 7vh;
-  }
+  } */
 `
 export const STooltipCloseDiv = styled.div`
   position: absolute;
-  top: 10.7vh;
-  /* left: translateX(-60%); */
-  transform: translateX(-75%);
-  @media ${Devices.tablet} {
-    top: 9vh;
-  }
+  top: 12px;
+  right: 12px;
 `
 export const SSpan = styled.span`
   color: #fffefc;
@@ -45,13 +43,26 @@ export const SSpan = styled.span`
   letter-spacing: -0.14px;
   text-transform: capitalize;
   position: absolute;
-  top: 10.8vh;
-  transform: translateX(-28%);
+  top: 12px;
+  right: 32px;
+  /* transform: translateX(-1%); */
   @media ${Devices.tablet} {
-    top: 9.2vh;
+    /* top: 9.2vh; */
   }
 `
 export const SAlertDiv = styled.div`
   position: absolute;
   top: 6vh;
+`
+export const STooltipLayout = styled.div`
+  width: 161px;
+  height: 40px;
+  padding: 12px 10px;
+  position: absolute;
+  top: 9.5vh;
+  z-index: 100;
+
+  @media ${Devices.tablet} {
+    top: 6.8vh;
+  }
 `
