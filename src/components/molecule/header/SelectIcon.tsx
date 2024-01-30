@@ -13,7 +13,8 @@ import { getUserMessages } from '@/api'
 import ShareIcon from '@/img/ShareIcon'
 import DefaultAlarm from '@/img/DefaultAlarm'
 import ActiveAlarm from '@/img/ActiveAlarm'
-
+import { useAtom } from 'jotai'
+import { userAtom } from '@/store/user.ts'
 
 function SelectIcon({
   isUser,
