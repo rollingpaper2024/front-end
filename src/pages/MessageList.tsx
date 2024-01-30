@@ -1,28 +1,21 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import ListCard from '@/components/atom/card/ListCard'
-import uuid from 'react-uuid'
+import { v4 as uuidv4 } from 'uuid'
 import * as Styled from '@/components/organism/list/Listlayer.styled'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user'
 import { getUserMessages } from '@/api'
+import BtnArea from '@/components/molecule/layout/BtnArea'
 import { useRouter } from '@/hooks/useRouter'
 import List from '@/components/template/list/List'
-
-interface Message {
-  id: string
-  color: string
-  writer: string
-  date: string
-  contents: string
-}
 
 function MessageList() {
   const [user] = useAtom(userAtom)
   const containerRef = useRef<HTMLDivElement>(null)
-  const { id } = useParams<{ id: string }>()
-  const [messageCount, setMessageCount] = useState<number>(0)
+  const { id } = useParams()
+  const [messageCount, setMessageCount] = useState(0)
   const { routeTo } = useRouter()
 
   useEffect(() => {
@@ -30,10 +23,7 @@ function MessageList() {
     const fetchMessageCount = async () => {
       const totalMessageData = await getUserMessages('Message', id)
       if (totalMessageData) {
-        const messageCount = Array.isArray(totalMessageData)
-          ? totalMessageData.length
-          : totalMessageData.messages.length
-        setMessageCount(messageCount)
+        setMessageCount(totalMessageData.length)
       }
     }
 
@@ -61,27 +51,31 @@ function MessageList() {
     <>
       <List messageCount={messageCount} />
       <Styled.SLayout ref={containerRef} onScroll={handleScroll}>
-        {data &&
-          data.pages.map((page: any, i: number) => (
-            <React.Fragment key={i}>
-              {page.messages.map((message: Message) => (
-                <ListCard
-                  key={uuid()}
-                  color={message.color}
-                  name={message.writer}
-                  date={message.date}
-                  message={message.contents}
-                  messageId={''}
-                  onClick={() => {
-                    routeTo(`/messagelist/${id}/${message.id}`)
-                  }}
-                />
-              ))}
-            </React.Fragment>
-          ))}
+        {data?.pages.map((page: any, i: number) => (
+          <React.Fragment key={i}>
+            {page.map((message: any) => (
+              <ListCard
+                key={uuidv4()}
+                color={message.color}
+                name={message.writer}
+                date={message.date}
+                message={message.contents}
+              />
+            ))}
+          </React.Fragment>
+        ))}
         {isFetchingNextPage && <p>Loading more...</p>}
         {!hasNextPage && <p>모든 덕담리스트를 확인했습니다.</p>}
       </Styled.SLayout>
+      {
+        <BtnArea
+          onClick={() => {
+            routeTo(`/writemessage/${user.uid}`)
+          }}
+          title="덕담 쓰기"
+          isDisabled={false}
+        />
+      }
     </>
   )
 }
