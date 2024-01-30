@@ -1,3 +1,4 @@
+import React, { MouseEventHandler } from 'react'
 import * as Styled from './listcard.styled'
 import ListIcnLeft from '@/img/ListICNLeft'
 
@@ -6,11 +7,13 @@ interface ListCardProps {
   name: string
   date: string
   message: string
+  messageId: string
+  onClick?: MouseEventHandler<HTMLDivElement>
 }
 
-function ListCard({ color, name, date, message }: ListCardProps) {
+function ListCard({ color, name, date, message, onClick }: ListCardProps) {
   return (
-    <Styled.SList>
+    <Styled.SList onClick={onClick}>
       <Styled.ListWrapper color={color}>
         <Styled.ListTitle>{name}</Styled.ListTitle>
         <Styled.ListDate>{date}</Styled.ListDate>

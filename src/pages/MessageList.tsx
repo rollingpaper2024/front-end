@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import ListCard from '@/components/atom/card/ListCard'
-import uuid from 'react-uuid'
+import { v4 as uuidv4 } from 'uuid'
 import * as Styled from '@/components/organism/list/Listlayer.styled'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
@@ -23,10 +23,7 @@ function MessageList() {
     const fetchMessageCount = async () => {
       const totalMessageData = await getUserMessages('Message', id)
       if (totalMessageData) {
-        const messageCount = Array.isArray(totalMessageData)
-          ? totalMessageData.length
-          : totalMessageData.messages.length
-        setMessageCount(messageCount)
+        setMessageCount(totalMessageData.length)
       }
     }
 
@@ -56,9 +53,9 @@ function MessageList() {
       <Styled.SLayout ref={containerRef} onScroll={handleScroll}>
         {data?.pages.map((page: any, i: number) => (
           <React.Fragment key={i}>
-            {page.messages.map((message: any) => (
+            {page.map((message: any) => (
               <ListCard
-                key={uuid()}
+                key={uuidv4()}
                 color={message.color}
                 name={message.writer}
                 date={message.date}
@@ -70,6 +67,15 @@ function MessageList() {
         {isFetchingNextPage && <p>Loading more...</p>}
         {!hasNextPage && <p>모든 덕담리스트를 확인했습니다.</p>}
       </Styled.SLayout>
+      {
+        <BtnArea
+          onClick={() => {
+            routeTo(`/writemessage/${user.uid}`)
+          }}
+          title="덕담 쓰기"
+          isDisabled={false}
+        />
+      }
     </>
   )
 }
