@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import * as Font from '@/style/font'
 
 interface BtnProps {
-  checked: boolean;
+  checked: boolean
 }
 
 export const Swrapper = styled.div`
@@ -16,17 +16,18 @@ export const Swrapper = styled.div`
 
 export const Sbutton = styled.button<BtnProps>`
   width: 30%;
-  height: 140px;
+  height: 120px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
-  border: ${props => props.checked ? `2px solid ${Color.pointColor}` : `2px solid ${Color.gray[400]}`};
+  border: ${(props) =>
+    props.checked ? `2px solid ${Color.pointColor}` : `2px solid ${Color.gray[400]}`};
+  background-color: ${(props) => (props.checked ? `rgb(239, 150, 28, 0.2);` : `none`)};
   &:hover {
-    border: 2px solid ${Color.pointColor};
+    background-color: rgb(239, 150, 28, 0.2);
   }
-
 `
 export const Stext = styled.p`
   margin-top: 10px;

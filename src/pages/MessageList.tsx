@@ -71,7 +71,7 @@ function MessageList() {
         {isFetchingNextPage && <p>Loading more...</p>}
         {!hasNextPage && <p>모든 덕담리스트를 확인했습니다.</p>}
       </Styled.SLayout>
-      {
+      {/**
         <BtnArea
           onClick={() => {
             routeTo(`/writemessage/${user.uid}`)
@@ -79,7 +79,7 @@ function MessageList() {
           title="덕담 쓰기"
           isDisabled={false}
         />
-      }
+        **/}
     </>
   )
 }

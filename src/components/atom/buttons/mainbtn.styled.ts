@@ -43,7 +43,7 @@ export const SBtn = styled.button<{ $isDisabled: boolean; isDisableCoachmark?: b
 `
 export const LeftBtn = styled.div`
   position: relative;
-  right: 46.5%;
+  right: 47%;
 
   @media ${Devices.laptop} {
     right: 47%;
@@ -52,11 +52,16 @@ export const LeftBtn = styled.div`
 
 export const RightBtn = styled.div`
   transform: rotate(180deg);
-  top: -5.5vh;
+  top: -8vh;
   position: relative;
+  right: -47%;
 
   @media ${Devices.laptop} {
     right: -47%;
+    top: -6vh;
+  }
+
+  @media ${Devices.tablet} {
     top: -5.1vh;
   }
 
