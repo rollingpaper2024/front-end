@@ -13,7 +13,9 @@ export const SBtn = styled.button<{ $isDisabled: boolean; isDisableCoachmark?: b
   overflow: hidden;
   z-index: 1000001;
   border: ${(props) =>
-    props.isDisableCoachmark === false ? '2px solid #ef961c' : `2px solid ${Color.gray[600]}`};
+    props.isDisableCoachmark === false
+      ? `2px solid ${Color.gray[600]}`
+      : `2px solid ${Color.gray[600]}`};
   // 버튼이 비활성화 상태가 아닐 때 hover 및 active 스타일 적용
   &:hover {
     background-color: ${(props) => (!props.$isDisabled ? Color.gray[800] : Color.gray[500])};
@@ -41,15 +43,26 @@ export const SBtn = styled.button<{ $isDisabled: boolean; isDisableCoachmark?: b
 `
 export const LeftBtn = styled.div`
   position: relative;
+  right: 46.5%;
+
+  @media ${Devices.laptop} {
+    right: 47%;
+  }
 `
 
 export const RightBtn = styled.div`
   transform: rotate(180deg);
-  top: -70px;
+  top: -5.5vh;
   position: relative;
+
+  @media ${Devices.laptop} {
+    right: -47%;
+    top: -5.1vh;
+  }
 
   @media ${Devices.mobileL} {
     top: -52px;
+    right: -46%;
   }
 `
 
