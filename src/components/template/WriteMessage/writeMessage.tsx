@@ -9,6 +9,7 @@ import * as Styled from './writemessage.styled'
 import SelectCoinBtn from '@/components/atom/buttons/SelectCoinBtn'
 import TextArea from '@/components/atom/text/TextArea'
 import { useRouter } from '@/hooks/useRouter'
+import { useParams } from 'react-router-dom'
 
 type Props = {
   editorRef: React.RefObject<Editor> | null
@@ -26,7 +27,8 @@ function WriteMessage({ content }: Props) {
   const [texterror, setTextError] = useState('')
   const [colorerror, setColorError] = useState('')
   const [editorContent, setEditorContent] = useState(content ?? '')
-
+  const { id } = useParams()
+  console.log('id', id)
   //코인 색상
   const handleColorSelected = (color: string) => {
     setSelectedCoinColor(color)
@@ -110,11 +112,11 @@ function WriteMessage({ content }: Props) {
     postData('Message', {
       writer: writerInput,
       contents: editorContent,
-      uid: userId,
+      uid: id,
       color: selectedCoinColor,
       date: formattedDate,
     })
-    routeTo(`/completemessage`)
+    routeTo(`/completemessage/${id}`)
   }
 
   // 모든 필드가 입력되었는지 확인
@@ -141,7 +143,7 @@ function WriteMessage({ content }: Props) {
         isDisabled={!isFormValid()}
         onClick={() => {
           postUpload()
-          routeTo(`/completemessage`)
+          routeTo(`/completemessage/${id}`)
         }}
       />
     </>
