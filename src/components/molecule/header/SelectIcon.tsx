@@ -45,6 +45,7 @@ function SelectIcon({
   useEffect(() => {
     const location = window.location
     const urlWithoutPathname = location.protocol + '//' + location.host
+    console.log('urlWithoutPathname', urlWithoutPathname)
     setRoute(`${urlWithoutPathname}/main/${id}`)
     fetchMessage()
   }, [])
@@ -93,6 +94,7 @@ function SelectIcon({
             id="kakao-link-btn"
             onClick={() => {
               setKakaoOpen(true)
+              console.log('테스트')
               shareKaKaoLink({ title: 'rolling-paper', route: route })
             }}
           >

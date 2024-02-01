@@ -1,4 +1,4 @@
-import HomePageIcon from '@/assets/Icon_b.png'
+import HomePageIcon from '@/assets/Icon_B.png'
 const { VITE_APP_KAKAO_JAVASCRIPT_KEY } = import.meta.env
 
 export const shareKaKaoLink = ({ title, route }: { title: string; route: string }) => {
