@@ -7,6 +7,6 @@ export const Swrapper = styled.div`
   background-color: ${Color.yellow[200]};
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -10px;
   background: transparent;
 `
