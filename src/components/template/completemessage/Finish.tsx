@@ -46,7 +46,7 @@ function Finish() {
       routeTo(`/messagelist/${id}`)
     }
   }
-  console.log('테스트', isModalOpen)
+
   return (
     <>
       <FinishModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
