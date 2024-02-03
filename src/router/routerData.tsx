@@ -107,7 +107,7 @@ export const routerData: RouterElement[] = [
   },
   {
     id: 9,
-    path: '/completemessage/:id',
+    path: '/completemessage',
     element: (
       <Layout isUser={true}>
         <CompleteMessage />

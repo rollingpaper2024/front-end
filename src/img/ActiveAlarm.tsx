@@ -1,26 +1,27 @@
 const ActiveAlarm = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" fill="none">
-      <path d="M3 8C3 8.33333 2.9 9.5 2.5 11.5" stroke="#2F2F31" stroke-width="2" />
-      <path d="M13 8C13 8.33333 13.1 9.5 13.5 11.5" stroke="#2F2F31" stroke-width="2" />
+    <svg width="24" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 10C7 10.3333 6.9 11.5 6.5 13.5" stroke="#2F2F31" stroke-width="2" />
+      <path d="M17 10C17 10.3333 17.1 11.5 17.5 13.5" stroke="#2F2F31" stroke-width="2" />
       <path
-        d="M11 16C11 17.6569 9.65685 19 8 19C6.34315 19 5 17.6569 5 16"
+        d="M15 18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18"
         stroke="#2F2F31"
         stroke-width="2"
       />
       <path
-        d="M13 8C13 5.23858 10.7614 3 8 3C5.23858 3 3 5.23858 3 8"
+        d="M17 10C17 7.23858 14.7614 5 12 5C9.23858 5 7 7.23858 7 10"
         stroke="#2F2F31"
         stroke-width="2"
       />
       <path
-        d="M10 3C10 1.89543 9.10457 1 8 1C6.89543 1 6 1.89543 6 3"
+        d="M14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5"
         stroke="#2F2F31"
         stroke-width="2"
       />
-      <path d="M1 16L15 16" stroke="#2F2F31" stroke-width="2" stroke-linecap="round" />
-      <path d="M3 8C2.83333 10 2 15.5 1 16" stroke="#2F2F31" stroke-width="2" />
-      <path d="M13 8C13.1667 10 14 15.5 15 16" stroke="#2F2F31" stroke-width="2" />
+      <path d="M5 18L19 18" stroke="#2F2F31" stroke-width="2" stroke-linecap="round" />
+      <path d="M7 10C6.83333 12 6 17.5 5 18" stroke="#2F2F31" stroke-width="2" />
+      <path d="M17 10C17.1667 12 18 17.5 19 18" stroke="#2F2F31" stroke-width="2" />
+      <circle cx="16.5" cy="5.5" r="3.5" fill="#EF961C" />
     </svg>
   )
 }

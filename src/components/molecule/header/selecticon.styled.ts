@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import { Devices } from '@/style/Device'
 
-export const SLayout = styled.div`
-  width: 40%;
+interface Props {
+  isWriteMessage: boolean
+}
+
+export const SLayout = styled.div<Props>`
+  width: ${(props) => (props.isWriteMessage ? '100%' : '40%')};
   height: 100%;
   padding: 10px 20px;
   display: flex;
@@ -13,6 +17,20 @@ export const SLayout = styled.div`
     cursor: pointer;
   }
   position: relative;
+`
+export const SBackDiv = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 18px;
+`
+export const SCheckDiv = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 `
 export const STooltipDiv = styled.div`
   width: 100%;

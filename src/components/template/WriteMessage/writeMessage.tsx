@@ -116,7 +116,7 @@ function WriteMessage({ content }: Props) {
       color: selectedCoinColor,
       date: formattedDate,
     })
-    routeTo(`/completemessage/${id}`)
+    routeTo(`/completemessage`)
   }
 
   // 모든 필드가 입력되었는지 확인
@@ -143,7 +143,7 @@ function WriteMessage({ content }: Props) {
         isDisabled={!isFormValid()}
         onClick={() => {
           postUpload()
-          routeTo(`/completemessage/${id}`)
+          routeTo(`/completemessage`)
         }}
       />
     </>

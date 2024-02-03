@@ -95,7 +95,7 @@ function SendMessage() {
             console.log('6')
             // 타이틀 desc 아직 미정
             setTitle(`${messageCount}개의 덕담 도착!`)
-            setDesc('test 덕담있을때')
+            setDesc('')
             setBtnMessage('덕담 읽기')
             setParameter(`/messagelist/${id}`)
             setIsBtnDisabled(false)

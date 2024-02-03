@@ -8,15 +8,17 @@ import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user'
 import FinishModal from '@/components/organism/modal/FinishModal'
 import { useParams } from 'react-router-dom'
+import { getUserMessages } from '@/api'
 
 function Finish() {
   const likecontainer = useRef(null)
   const [user] = useAtom(userAtom)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isFirstClick, setIsFirstClick] = useState(true) // 처음 클릭 여부를 관리합니다.
-
+  const [isPockets, setIsPockets] = useState(false)
   const { id } = useParams()
 
+  console.log('user', user.uid)
   useEffect(() => {
     if (likecontainer.current) {
       lottie.loadAnimation({
@@ -28,22 +30,29 @@ function Finish() {
       })
     }
   }, [])
+  useEffect(() => {
+    fetchPocket()
+  }, [id])
 
   const { routeTo } = useRouter()
 
   const openModal = () => {
     setIsModalOpen(true)
   }
+  const fetchPocket = async () => {
+    const data = await getUserMessages('Pocket', user.uid)
+    setIsPockets(data.length > 0)
+  }
 
   const handleBtnClick = () => {
-    if (isFirstClick) {
+    if (isFirstClick && !isPockets) {
       openModal()
       console.log('1')
       setIsFirstClick(false) // 처음 클릭 이후에는 다음 클릭에서 모달을 열지 않음
     } else {
       // 다음 클릭에서는 페이지 이동 수행
       console.log('2')
-      routeTo(`/messagelist/${id}`)
+      routeTo(`/main/${user.uid}`)
     }
   }
 
@@ -54,8 +63,7 @@ function Finish() {
       <Styled.SWrapper ref={likecontainer}></Styled.SWrapper>
       <BtnArea
         onClick={handleBtnClick} // 클릭 이벤트를 handleBtnClick 함수로 변경
-        // title={isFirstClick ? '메세지 리스트로 가기' : '메인으로'} // 클릭 상태에 따라 버튼 텍스트 변경
-        title={'메세지 리스트로 가기'} // 클릭 상태에 따라 버튼 텍스트 변경
+        title={isFirstClick ? '메인으로' : '다시 메인으로'} // 클릭 상태에 따라 버튼 텍스트 변경
         isDisabled={false}
       />
     </>

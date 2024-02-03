@@ -1,8 +1,17 @@
 import HomePageIcon from '@/assets/Icon_B.png'
 const { VITE_APP_KAKAO_JAVASCRIPT_KEY } = import.meta.env
 
-export const shareKaKaoLink = ({ title, route }: { title: string; route: string }) => {
+export const shareKaKaoLink = ({
+  title,
+  route,
+  setKakaoOpen,
+}: {
+  title: string
+  route: string
+  setKakaoOpen: (value: boolean) => void
+}) => {
   if (window.Kakao) {
+    setKakaoOpen(false)
     const kakao = window.Kakao
 
     // 중복 initialization 방지
