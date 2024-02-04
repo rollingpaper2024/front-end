@@ -88,8 +88,8 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
           <Styled.SBackDiv onClick={() => routeTo(-1)}>
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>
-          <Styled.SCheckDiv>
-            <HeaderIcon icon={<CheckIcon />} />
+          <Styled.SCheckDiv id="kakao-link-btn" onClick={handleShareIconClick}>
+            <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
           </Styled.SCheckDiv>
         </>
       )}
