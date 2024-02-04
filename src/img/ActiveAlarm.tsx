@@ -1,6 +1,6 @@
 const ActiveAlarm = () => {
   return (
-    <svg width="24" height="24" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="40" height="40" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M7 10C7 10.3333 6.9 11.5 6.5 13.5" stroke="#2F2F31" stroke-width="2" />
       <path d="M17 10C17 10.3333 17.1 11.5 17.5 13.5" stroke="#2F2F31" stroke-width="2" />
       <path
