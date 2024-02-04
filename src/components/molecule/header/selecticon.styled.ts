@@ -12,7 +12,7 @@ export const SLayout = styled.div<Props>`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: 16px;
+  gap: 10px;
   svg {
     cursor: pointer;
   }
@@ -31,6 +31,7 @@ export const SCheckDiv = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  gap: 10px;
 `
 export const STooltipDiv = styled.div`
   width: 100%;

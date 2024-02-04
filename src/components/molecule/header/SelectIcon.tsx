@@ -50,7 +50,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   }, [isKakaoOpen, route])
 
   const fetchMessage = async () => {
-    const data = await getUserMessages('Message', id)
+    const data = await getUserMessages('Message', user.uid)
     setMessageData(data.length)
   }
 
@@ -62,7 +62,6 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   const handleShareIconClick = () => {
     setKakaoOpen(true) // 클릭 이벤트에서는 상태만 변경
   }
-  console.log('messageData', messageData)
   return (
     <Styled.SLayout isWriteMessage={path === 'writemessage'}>
       {path === 'messagelist' && (
@@ -88,8 +87,25 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
           <Styled.SBackDiv onClick={() => routeTo(-1)}>
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>
-          <Styled.SCheckDiv id="kakao-link-btn" onClick={handleShareIconClick}>
-            <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
+          <Styled.SCheckDiv>
+            <div style={{ zIndex: '100001' }} id="kakao-link-btn" onClick={handleShareIconClick}>
+              <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
+            </div>
+            {messageData === 0 && (
+              <div onClick={() => setMessageAlert(true)}>
+                <HeaderIcon icon={<DefaultAlarm />} />
+              </div>
+            )}
+            {isUser && messageData > 0 ? (
+              <div onClick={() => setMessageAlert(true)}>
+                <HeaderIcon icon={<ActiveAlarm />} />
+              </div>
+            ) : null}
+            {isMessageAlert && (
+              <Styled.SAlertDiv onClick={navigateMessageList}>
+                <Alert number={messageData} navigateMessageList={navigateMessageList} />
+              </Styled.SAlertDiv>
+            )}
           </Styled.SCheckDiv>
         </>
       )}
