@@ -9,7 +9,7 @@ export const SDesc = styled.p`
   font-size: ${Fontsize.Small};
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; 
+  line-height: 24px;
   letter-spacing: -0.16px;
   text-transform: capitalize;
   white-space: nowrap;
@@ -18,6 +18,5 @@ export const SDesc = styled.p`
 
   @media ${Devices.mobileS} {
     font-size: ${Fontsize.Tiny};
-    margin-left: 0px;
   }
 `

@@ -1,13 +1,11 @@
-import * as Styled from "./mainsubtext.styled"
+import * as Styled from './mainsubtext.styled'
 
 interface MainSubTextProps {
-  desc: string;
+  desc: string
 }
 
-function MainSubText({desc}:MainSubTextProps) {
-  return (
-      <Styled.SDesc>{desc}</Styled.SDesc>
-  )
+function MainSubText({ desc }: MainSubTextProps) {
+  return <Styled.SDesc>{desc}</Styled.SDesc>
 }
 
 export default MainSubText

@@ -19,6 +19,5 @@ export const STitleH1 = styled.h1`
 
   @media ${Devices.mobileS} {
     font-size: ${Fontsize.Small};
-    margin-left: 0px;
   }
 `

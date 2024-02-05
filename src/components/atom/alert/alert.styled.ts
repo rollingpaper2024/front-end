@@ -11,13 +11,17 @@ export const Alert = styled.button`
   font-size: ${Font.Fontsize.Small};
   font-weight: 600;
   border-radius: 8px;
-  min-width: 334px;
+  min-width: 220px;
   position: relative;
   top: -1vh;
   z-index: 100001;
 
   @media ${Devices.tablet} {
     top: -5vh;
+  }
+
+  @medai ${Devices.mobileS} {
+    width: 50%;
   }
 `
 export const AlertWrapper = styled.div`
@@ -50,11 +54,19 @@ export const AlertTitle = styled.div`
   position: relative;
   font-size: ${Font.Fontsize.Small};
   font-weight: 600;
+
+  @media ${Devices.mobileS} {
+    font-size: ${Font.Fontsize.XSmall};
+  }
 `
 export const AlertText = styled.div`
   position: relative;
   font-size: ${Font.Fontsize.Tiny};
   font-weight: 300;
+
+  @media ${Devices.mobileS} {
+    font-size: ${Font.Fontsize.XSmall};
+  }
 `
 
 export const ArrowWrapper = styled.div`
