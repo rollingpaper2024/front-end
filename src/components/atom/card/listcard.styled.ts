@@ -1,6 +1,7 @@
 import Color from '@/style/Color'
 import styled from 'styled-components'
 import * as Font from '@/style/font'
+import { Devices } from '@/style/Device'
 
 export const SList = styled.div`
   width: 100%;
@@ -10,7 +11,6 @@ export const SList = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 334px;
   margin: 8px auto;
 `
 export const ListWrapper = styled.div<{ color: string }>`
@@ -26,12 +26,20 @@ export const ListWrapper = styled.div<{ color: string }>`
   height: 70px;
   color: ${Color.gray[600]};
   border: 2px solid ${(props) => props.color};
+
+  @media ${Devices.mobileS} {
+    padding: 6px 18px;
+  }
 `
 export const ListTitle = styled.div`
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Bold};
   width: 69%;
   z-index: 1;
+
+  @media ${Devices.mobileS} {
+    font-size: ${Font.Fontsize.Tiny};
+  }
 `
 
 export const ListDate = styled.div`
@@ -39,6 +47,10 @@ export const ListDate = styled.div`
   font-weight: ${Font.Fontweight.Medium};
   width: 31%;
   text-align: right;
+
+  @media ${Devices.mobileS} {
+    font-size: ${Font.Fontsize.XSmall};
+  }
 `
 
 export const ListText = styled.div`
@@ -48,6 +60,10 @@ export const ListText = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+
+  @media ${Devices.mobileS} {
+    font-size: ${Font.Fontsize.XSmall};
+  }
 `
 
 export const ListIcnLeft = styled.div`

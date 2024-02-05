@@ -63,7 +63,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
     setKakaoOpen(true) // 클릭 이벤트에서는 상태만 변경
   }
   return (
-    <Styled.SLayout isWriteMessage={path === 'messagelist'}>
+    <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>
       {path === 'messagelist' && (
         <>
           <Styled.SBackDiv onClick={() => routeTo(-1)}>

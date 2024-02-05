@@ -57,6 +57,7 @@ function WriteMessage({ content }: Props) {
   console.log('editorContent', editorContent)
 
   //에디터 컨텐츠
+  const maxEditorLength = 154
   const handleEditorChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const editorValue = event.target.value
     setEditorContent(editorValue)
@@ -64,6 +65,8 @@ function WriteMessage({ content }: Props) {
 
     if (editorValue.length === 0) {
       setTextError('내용을 입력해주세요.')
+    } else if (editorValue.length > maxEditorLength) {
+      setTextError(`최대 ${maxEditorLength}글자까지 입력 가능합니다.`)
     } else {
       setTextError('')
     }

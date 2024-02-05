@@ -12,11 +12,14 @@ interface ListCardProps {
 }
 
 function ListCard({ color, name, date, message, onClick }: ListCardProps) {
+  const isSmallScreen = window.innerWidth <= 320
+  const formattedDate = isSmallScreen ? date.slice(5) : date
+
   return (
     <Styled.SList onClick={onClick}>
       <Styled.ListWrapper color={color}>
         <Styled.ListTitle>{name}</Styled.ListTitle>
-        <Styled.ListDate>{date}</Styled.ListDate>
+        <Styled.ListDate>{formattedDate}</Styled.ListDate>
         <Styled.ListText>{message}</Styled.ListText>
       </Styled.ListWrapper>
       <Styled.ListIcnLeft>

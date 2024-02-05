@@ -3,6 +3,7 @@ export const Fontsize = {
   Middle: '24px',
   Small: '16px',
   Tiny: '14px',
+  XSmall: '12px',
 }
 
 export const Fontweight = {
