@@ -63,12 +63,17 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
     setKakaoOpen(true) // 클릭 이벤트에서는 상태만 변경
   }
   return (
-    <Styled.SLayout isWriteMessage={path === 'writemessage'}>
+    <Styled.SLayout isWriteMessage={path === 'messagelist'}>
       {path === 'messagelist' && (
         <>
-          <div onClick={() => routeTo(`/writemessage/${id}`)}>
-            <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
-          </div>
+          <Styled.SBackDiv onClick={() => routeTo(-1)}>
+            <HeaderIcon icon={<BackIcon />} />
+          </Styled.SBackDiv>
+          <Styled.SCheckDiv>
+            <div onClick={() => routeTo(`/writemessage/${id}`)}>
+              <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
+            </div>
+          </Styled.SCheckDiv>
           {isTooltipOpen && (
             <Styled.STooltipLayout>
               <Styled.STooltipDiv>
