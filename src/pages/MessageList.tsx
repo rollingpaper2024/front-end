@@ -62,7 +62,12 @@ function MessageList() {
                 message={message.contents}
                 messageId={message.id}
                 onClick={() => {
-                  routeTo(`/messagelist/${id}/${message.id}`)
+                  if (user?.uid === message.uid) {
+                    routeTo(`/messagelist/${id}/${message.id}`)
+                  } else {
+                    //다른 사용자
+                    console.error('Permission denied: You cannot access this message.')
+                  }
                 }}
               />
             ))}
