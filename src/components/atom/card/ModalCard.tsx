@@ -4,10 +4,13 @@ import ModalBorder from '@/img/ModalBorder'
 import { useRouter } from '@/hooks/useRouter'
 
 interface ModalType {
-  setIsModalOpen?: (value: boolean | ((prevVal: boolean) => boolean)) => void;
-  PostPocket?: () => Promise<void>;
+  setIsModalOpen?: (value: boolean | ((prevVal: boolean) => boolean)) => void
+  PostPocket?: () => Promise<void>
+  title: string
+  desc1: string
+  desc2: string
 }
-function ModalCard({setIsModalOpen,PostPocket}:ModalType) {
+function ModalCard({ setIsModalOpen, PostPocket, title, desc1, desc2 }: ModalType) {
   const { routeTo } = useRouter()
 
   return (
@@ -18,23 +21,35 @@ function ModalCard({setIsModalOpen,PostPocket}:ModalType) {
       <Styled.ModalRightUp>
         <ModalBorder />
       </Styled.ModalRightUp>
-      <Styled.ModalTitle>잠깐!</Styled.ModalTitle>
+      <Styled.ModalTitle>{title}</Styled.ModalTitle>
       <Styled.ModalContent>
-        복주머니 색은 한번만 정할 수 있어요
+        {desc1}
         <br />
-        이대로 결정할까요?
+        {desc2}
       </Styled.ModalContent>
       <Styled.ModalBtnWrapper>
-        <ModalBtn title="네" isDisabled={true} onClick={()=>{  if (PostPocket) {
-            PostPocket();
-            routeTo('/completepocket')
-          }
-          if (setIsModalOpen) {
-            setIsModalOpen(true);
-          }}}/>
-        <ModalBtn title="아니오" isDisabled={false} onClick={()=>{if (setIsModalOpen) {
-            setIsModalOpen(false);
-          }}}/>
+        <ModalBtn
+          agree="네"
+          isDisabled={true}
+          onClick={() => {
+            if (PostPocket) {
+              PostPocket()
+              routeTo('/completepocket')
+            }
+            if (setIsModalOpen) {
+              setIsModalOpen(true)
+            }
+          }}
+        />
+        <ModalBtn
+          agree="아니오"
+          isDisabled={false}
+          onClick={() => {
+            if (setIsModalOpen) {
+              setIsModalOpen(false)
+            }
+          }}
+        />
       </Styled.ModalBtnWrapper>
       <Styled.ModalLeftDown>
         <ModalBorder />

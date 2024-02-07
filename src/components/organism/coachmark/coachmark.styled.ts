@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import Color from '@/style/Color'
+import * as Font from '@/style/font'
+import { Devices } from '@/style/Device'
 
 export const SHightLightFirstTextDiv = styled.div`
   height: 15px;
@@ -6,29 +9,13 @@ export const SHightLightFirstTextDiv = styled.div`
   display: flex;
   position: absolute;
   right: 15px;
-  span {
-    margin-right: 10px;
-    color: #fffefc;
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.16px;
-    text-transform: capitalize;
+  p {
+    font-size: ${Font.Fontsize.Small};
+    font-weight: ${Font.Fontweight.Medium};
+    color: ${Color.white};
   }
-  h1 {
-    all: initial;
-    color: #ef961c;
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.16px;
-    text-transform: capitalize;
-    margin-right: 0px;
-    display: inline-block;
+  span {
+    color: ${Color.pointColor};
   }
 `
 export const SHightLightSecondTextDiv = styled.div`
@@ -40,13 +27,17 @@ export const SHightLightSecondTextDiv = styled.div`
   z-index: 1000001;
   color: #fffefc;
   text-align: center;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px; /* 150% */
-  letter-spacing: -0.16px;
-  text-transform: capitalize;
+  p {
+    font-size: ${Font.Fontsize.Small};
+    font-weight: ${Font.Fontweight.Medium};
+    color: ${Color.white};
+  }
+
+  @media ${Devices.mobileS} {
+    p {
+      font-size: ${Font.Fontsize.Tiny};
+    }
+  }
 `
 
 export const SCloseDiv = styled.div`
@@ -55,9 +46,7 @@ export const SCloseDiv = styled.div`
   display: flex;
   color: #fffefc;
   font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
+  font-size: ${Font.Fontsize.Small};
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
   text-transform: capitalize;
