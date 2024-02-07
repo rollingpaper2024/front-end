@@ -64,6 +64,7 @@ function Finish() {
         title="잠깐"
         desc1="나의 복주머니를 생성하면"
         desc2="덕담을 받아볼 수 있어요."
+        route="/completepocket"
       />
       <MainTitle title="덕담 발송 완료!" desc="따뜻한 덕담이 발송되었어요" />
       <Styled.SWrapper ref={likecontainer}></Styled.SWrapper>

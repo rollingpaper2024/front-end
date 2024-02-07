@@ -15,7 +15,7 @@ import ActiveAlarm from '@/img/ActiveAlarm'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user.ts'
 import BackIcon from '@/img/BackIcon'
-import CheckIcon from '@/img/Check'
+import MainModal from '@/components/organism/modal/MainModal'
 
 function SelectIcon({ isUser, isDisableCoachmark, path }) {
   const { routeTo } = useRouter()
@@ -26,6 +26,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   const [messageData, setMessageData] = useState(0)
   const [isMessageAlert, setMessageAlert] = useState(false)
   const [user, setUser] = useAtom(userAtom)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const script = document.createElement('script')
@@ -66,6 +67,14 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
     <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>
       {path === 'messagelist' && (
         <>
+          <MainModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            title="잠깐"
+            desc1="5초도 안걸리는 회원가입하고"
+            desc2="마음을 담은 덕담을 주고 받아보아요."
+            route="/login"
+          />
           <Styled.SBackDiv onClick={() => routeTo(-1)}>
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>

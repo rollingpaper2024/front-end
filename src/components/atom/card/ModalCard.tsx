@@ -9,8 +9,9 @@ interface ModalType {
   title: string
   desc1: string
   desc2: string
+  route: string
 }
-function ModalCard({ setIsModalOpen, PostPocket, title, desc1, desc2 }: ModalType) {
+function ModalCard({ setIsModalOpen, PostPocket, title, desc1, desc2, route }: ModalType) {
   const { routeTo } = useRouter()
 
   return (
@@ -34,7 +35,7 @@ function ModalCard({ setIsModalOpen, PostPocket, title, desc1, desc2 }: ModalTyp
           onClick={() => {
             if (PostPocket) {
               PostPocket()
-              routeTo('/completepocket')
+              routeTo(route)
             }
             if (setIsModalOpen) {
               setIsModalOpen(true)
