@@ -6,7 +6,7 @@ import { Devices } from '@/style/Device'
 export const Alert = styled.button`
   background-color: ${Color.gray[600]};
   height: 68px;
-  width: 80%;
+  width: 18rem;
   color: ${Color.white};
   font-size: ${Font.Fontsize.Small};
   font-weight: 600;

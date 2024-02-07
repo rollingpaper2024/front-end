@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import * as Font from '@/style/font'
+import { Devices } from '@/style/Device'
 
 export const SLayout = styled.footer`
   width: 100%;
@@ -10,5 +11,7 @@ export const SLayout = styled.footer`
   flex-wrap: wrap;
   padding: 10px 10px;
   background: transparent;
-  justify-content
+  justify-content @media ${Devices.tablet} {
+    bottom: -1.5vh;
+  }
 `
