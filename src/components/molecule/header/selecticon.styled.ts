@@ -85,3 +85,13 @@ export const STooltipLayout = styled.div`
     top: 6.8vh;
   }
 `
+export const SMessageListDiv= styled.div`
+width:100%;
+display:flex;
+`
+export const SDeleteIconDiv =styled.div`
+display:flex;
+width:50%;
+justify-content: flex-end;
+padding-right: 18px;
+`

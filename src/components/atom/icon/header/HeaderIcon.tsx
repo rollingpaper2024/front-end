@@ -4,9 +4,10 @@ import * as Styled from './header.styled'
 interface HeaderIconProps {
   icon: React.ReactNode
   isDisableCoachmark?: boolean
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-function HeaderIcon({ icon, isDisableCoachmark }: HeaderIconProps) {
+function HeaderIcon({ icon, isDisableCoachmark,onClick }: HeaderIconProps) {
   return <Styled.SIconDiv isDisableCoachmark={isDisableCoachmark}>{icon}</Styled.SIconDiv>
 }
 
