@@ -101,6 +101,9 @@ function SelectPocket() {
         title="잠깐"
         desc1="복주머니 색은 한번만 정할 수 있어요"
         desc2="이대로 결정할까요?"
+        route="/completepocket"
+        agree1="네"
+        agree2="아니오"
       />
       <MainTitle
         title="복주머니 컬러를 선택하세요"

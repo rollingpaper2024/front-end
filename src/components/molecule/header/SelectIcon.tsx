@@ -74,6 +74,8 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
             desc1="5초도 안걸리는 회원가입하고"
             desc2="마음을 담은 덕담을 주고 받아보아요."
             route="/login"
+            agree1="네, 가입할래요"
+            agree2="나중에 할래요"
           />
           <Styled.SBackDiv onClick={() => routeTo(-1)}>
             <HeaderIcon icon={<BackIcon />} />

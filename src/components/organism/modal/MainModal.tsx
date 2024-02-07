@@ -10,6 +10,8 @@ interface ModalType {
   desc1: string
   desc2: string
   route: string
+  agree1: string
+  agree2: string
 }
 
 function MainModal({
@@ -20,6 +22,8 @@ function MainModal({
   desc1,
   desc2,
   route,
+  agree1,
+  agree2,
 }: ModalType) {
   const handlePostPocket = () => {
     return PostPocket ? PostPocket() : Promise.resolve()
@@ -35,6 +39,8 @@ function MainModal({
         setIsModalOpen={setIsModalOpen}
         PostPocket={handlePostPocket}
         route={route}
+        agree1={agree1}
+        agree2={agree2}
       />
     </BackGround>
   )

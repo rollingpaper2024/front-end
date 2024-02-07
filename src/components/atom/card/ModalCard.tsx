@@ -10,8 +10,19 @@ interface ModalType {
   desc1: string
   desc2: string
   route: string
+  agree1: string
+  agree2: string
 }
-function ModalCard({ setIsModalOpen, PostPocket, title, desc1, desc2, route }: ModalType) {
+function ModalCard({
+  setIsModalOpen,
+  PostPocket,
+  title,
+  desc1,
+  desc2,
+  route,
+  agree1,
+  agree2,
+}: ModalType) {
   const { routeTo } = useRouter()
 
   return (
@@ -30,7 +41,7 @@ function ModalCard({ setIsModalOpen, PostPocket, title, desc1, desc2, route }: M
       </Styled.ModalContent>
       <Styled.ModalBtnWrapper>
         <ModalBtn
-          agree="네"
+          agree={agree1}
           isDisabled={true}
           onClick={() => {
             if (PostPocket) {
@@ -43,7 +54,7 @@ function ModalCard({ setIsModalOpen, PostPocket, title, desc1, desc2, route }: M
           }}
         />
         <ModalBtn
-          agree="아니오"
+          agree={agree2}
           isDisabled={false}
           onClick={() => {
             if (setIsModalOpen) {
