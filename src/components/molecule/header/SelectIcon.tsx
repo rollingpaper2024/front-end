@@ -41,13 +41,10 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   useEffect(() => {
     const location = window.location
     const urlWithoutPathname = `${location.protocol}//${location.host}`
-    console.log("테스트",user.uid)
+    console.log("복주머니",user.uid,urlWithoutPathname,location.host)
     if(user.uid){
       console.log("테스트111")
       setRoute(`${urlWithoutPathname}/main/${user.uid}`)
-    }else{
-      console.log("테스트222")
-      setRoute(`${urlWithoutPathname}`)
     }
     fetchMessage()
   }, [user.uid, isMessageAlert,isKakaoOpen])
