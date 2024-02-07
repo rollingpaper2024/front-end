@@ -41,14 +41,11 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   useEffect(() => {
     const location = window.location
     const urlWithoutPathname = `${location.protocol}//${location.host}`
-    console.log("복주머니",user.uid,urlWithoutPathname,location.host)
-    if(user.uid){
-      console.log("테스트111")
+    if (user.uid) {
       setRoute(`${urlWithoutPathname}/main/${user.uid}`)
     }
     fetchMessage()
-  }, [user.uid, isMessageAlert,isKakaoOpen])
-
+  }, [user.uid, isMessageAlert, isKakaoOpen])
 
   useEffect(() => {
     if (isKakaoOpen) {
@@ -56,12 +53,11 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
       setKakaoOpen(false) // shareKaKaoLink 호출 후 바로 isKakaoOpen을 false로 설정
     }
   }, [isKakaoOpen, route])
-  
-  const fetchShareKakaoLink = async() =>{
-      await shareKaKaoLink({ title: 'rolling-paper', route, setKakaoOpen })
+
+  const fetchShareKakaoLink = async () => {
+    await shareKaKaoLink({ title: 'rolling-paper', route, setKakaoOpen })
   }
   const fetchMessage = async () => {
-    
     const data = await getUserMessages('Message', user.uid)
     setMessageData(data.length)
   }
@@ -72,16 +68,16 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   }
 
   const handleShareIconClick = () => {
-    console.log("테스트")
-    setKakaoOpen(true) 
+    console.log('테스트')
+    setKakaoOpen(true)
   }
   const deleteMessage = async () => {
-   const response= await deleteUserMessage('Message', messageId)
-   if(response){
-    routeTo(-1)
-   }
+    const response = await deleteUserMessage('Message', messageId)
+    if (response) {
+      routeTo(-1)
+    }
   }
-  console.log("test",route)
+  console.log('test', route)
 
   return (
     <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>
@@ -124,7 +120,10 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
           <Styled.SBackDiv onClick={() => routeTo(-1)}>
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>
-          <Styled.SDeleteIconDiv style={{ cursor: 'pointer',zIndex: '100001' }} onClick={deleteMessage}>
+          <Styled.SDeleteIconDiv
+            style={{ cursor: 'pointer', zIndex: '100001' }}
+            onClick={deleteMessage}
+          >
             <HeaderIcon icon={<Delete />} />
           </Styled.SDeleteIconDiv>
         </Styled.SMessageListDiv>

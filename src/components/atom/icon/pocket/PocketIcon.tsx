@@ -1,16 +1,14 @@
 import React from 'react'
-import * as Styled from "./pocket.styled"
+import * as Styled from './pocket.styled'
 
 interface PocketIconProps {
-    icon: React.ReactNode |string;
-  }
-
+  icon: React.ReactNode | string
+}
 
 function PocketIcon({ icon }: PocketIconProps) {
-  
   return (
-    <Styled.SLayout >
-      {typeof icon === 'string' ? <img src={icon} alt="Pocket Icon"/> : icon}
+    <Styled.SLayout>
+      {typeof icon === 'string' ? <img src={icon} alt="Pocket Icon" /> : icon}
     </Styled.SLayout>
   )
 }

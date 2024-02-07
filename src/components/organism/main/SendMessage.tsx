@@ -13,6 +13,7 @@ import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user.ts'
 import { coachMarkAtom } from '@/store/coachmark.ts'
 import CoachMark from '@/components/organism/coachmark'
+import { sharedParameterAtom } from '@/store/sharedParameter'
 
 function SendMessage() {
   const { routeTo } = useRouter()
@@ -21,13 +22,16 @@ function SendMessage() {
   const [isvalidUser, setIsValidUser] = useState(false)
   const [isPocket, setIsPocket] = useState(false)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [user, setUser] = useAtom(userAtom)
+  const [user] = useAtom(userAtom)
   const [isBtnDisabled, setIsBtnDisabled] = useState(false)
   const [btnMessage, setBtnMessage] = useState('')
   const [parameter, setParameter] = useState('')
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [isDisableCoachmark, setIsDisableCoachmark] = useAtom(coachMarkAtom)
+  const [sharedParameter] = useAtom(sharedParameterAtom)
+
+  console.log('sharedParameter', sharedParameter, user.uid)
 
   useEffect(() => {
     // 로컬 스토리지에서 값 확인

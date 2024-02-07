@@ -49,7 +49,7 @@ export const routerData: RouterElement[] = [
     id: 3,
     path: '/selectpocket',
     element: (
-      <Layout isUser={true}>
+      <Layout isUser={false}>
         <SelectPocket />
       </Layout>
     ),
