@@ -90,7 +90,6 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
     <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>
       {path === 'messagelist' && !messageId ? (
         <>
-
           <MainModal
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}

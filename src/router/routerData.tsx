@@ -29,7 +29,7 @@ export const routerData: RouterElement[] = [
     id: 1,
     path: '/main/:id',
     element: (
-      <Layout isUser={false}>
+      <Layout isUser={true}>
         <Main />
       </Layout>
     ),
