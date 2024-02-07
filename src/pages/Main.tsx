@@ -5,7 +5,6 @@ function main() {
   return (
     <>
       <Main />
-      <Footer />
     </>
   )
 }
