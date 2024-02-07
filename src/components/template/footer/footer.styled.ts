@@ -9,4 +9,5 @@ export const SLayout = styled.footer`
   display: flex;
   flex-wrap: wrap;
   padding: 10px 10px;
+  background: transparent;
 `

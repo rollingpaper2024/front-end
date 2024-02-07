@@ -2,7 +2,7 @@ import Styled from 'styled-components'
 
 export const SBtnLayout = Styled.div`
 width :100%;
-height:65vh;
+height:40vh;
 display:flex;
 justify-content: flex-end;
 flex-direction: column;
