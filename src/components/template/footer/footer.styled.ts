@@ -10,4 +10,5 @@ export const SLayout = styled.footer`
   flex-wrap: wrap;
   padding: 10px 10px;
   background: transparent;
+  justify-content
 `

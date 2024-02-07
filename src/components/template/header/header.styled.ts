@@ -5,7 +5,7 @@ export const SLayout = styled.div`
   width: 100%;
   height: 10%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 
   @media ${Devices.tablet} {
     height: 8vh;
