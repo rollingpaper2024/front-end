@@ -10,7 +10,7 @@ flex-direction: column;
 align-items: center;
 gap:1rem;
 @media ${Devices.tablet} {
-    height:63vh;
+    height:55vh;
 }
 `
 export const SBtn = Styled.button`
