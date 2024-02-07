@@ -41,24 +41,30 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   useEffect(() => {
     const location = window.location
     const urlWithoutPathname = `${location.protocol}//${location.host}`
-    console.log("테스트",id)
-    if(id){
-      setRoute(`${urlWithoutPathname}/main/${id}`)
+    console.log("테스트",user.uid)
+    if(user.uid){
+      console.log("테스트111")
+      setRoute(`${urlWithoutPathname}/main/${user.uid}`)
     }else{
+      console.log("테스트222")
       setRoute(`${urlWithoutPathname}`)
     }
- 
     fetchMessage()
-  }, [id, isMessageAlert,isKakaoOpen])
+  }, [user.uid, isMessageAlert,isKakaoOpen])
+
 
   useEffect(() => {
     if (isKakaoOpen) {
-      shareKaKaoLink({ title: 'rolling-paper', route, setKakaoOpen })
+      fetchShareKakaoLink()
       setKakaoOpen(false) // shareKaKaoLink 호출 후 바로 isKakaoOpen을 false로 설정
     }
   }, [isKakaoOpen, route])
-
+  
+  const fetchShareKakaoLink = async() =>{
+      await shareKaKaoLink({ title: 'rolling-paper', route, setKakaoOpen })
+  }
   const fetchMessage = async () => {
+    
     const data = await getUserMessages('Message', user.uid)
     setMessageData(data.length)
   }
@@ -69,7 +75,8 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   }
 
   const handleShareIconClick = () => {
-    setKakaoOpen(true) // 클릭 이벤트에서는 상태만 변경
+    console.log("테스트")
+    setKakaoOpen(true) 
   }
   const deleteMessage = async () => {
    const response= await deleteUserMessage('Message', messageId)
