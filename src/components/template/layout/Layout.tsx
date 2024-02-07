@@ -37,6 +37,7 @@ const Layout: React.FC<GeneralLayoutProps> = ({ children, isUser }) => {
     <Styled.SLayout>
       <Header />
       {children}
+      <Footer/>
     </Styled.SLayout>
   )
 }

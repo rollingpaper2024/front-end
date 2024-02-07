@@ -15,11 +15,12 @@ import ActiveAlarm from '@/img/ActiveAlarm'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user.ts'
 import BackIcon from '@/img/BackIcon'
-import CheckIcon from '@/img/Check'
+import Delete from '@/img/Delete'
+import { deleteUserMessage } from '@/api'
 
 function SelectIcon({ isUser, isDisableCoachmark, path }) {
   const { routeTo } = useRouter()
-  const { id } = useParams()
+  const { id, messageId } = useParams()
   const [isTooltipOpen, setTooltipOpen] = useState(true)
   const [route, setRoute] = useState('')
   const [isKakaoOpen, setKakaoOpen] = useState(false)
@@ -51,6 +52,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
 
   const fetchMessage = async () => {
     const data = await getUserMessages('Message', user.uid)
+    console.log('data', data)
     setMessageData(data.length)
   }
 
@@ -62,13 +64,17 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   const handleShareIconClick = () => {
     setKakaoOpen(true) // 클릭 이벤트에서는 상태만 변경
   }
+  const deleteMessage = async () => {
+   const response= await deleteUserMessage('Message', messageId)
+   if(response){
+    routeTo(-1)
+   }
+  }
+
   return (
     <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>
-      {path === 'messagelist' && (
+      {path === 'messagelist' && !messageId ? (
         <>
-          <Styled.SBackDiv onClick={() => routeTo(-1)}>
-            <HeaderIcon icon={<BackIcon />} />
-          </Styled.SBackDiv>
           <Styled.SCheckDiv>
             <div onClick={() => routeTo(`/writemessage/${id}`)}>
               <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
@@ -86,7 +92,23 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
             </Styled.STooltipLayout>
           )}
         </>
-      )}
+      ) : null}
+      {/* 메세지 리스트 페이지  */}
+      {path === 'messagelist' && messageId && user.uid === id ? (
+        <Styled.SMessageListDiv>
+          <Styled.SBackDiv onClick={() => routeTo(-1)}>
+            <HeaderIcon icon={<BackIcon />} />
+          </Styled.SBackDiv>
+          <Styled.SDeleteIconDiv style={{ cursor: 'pointer',zIndex: '100001' }} onClick={deleteMessage}>
+            <HeaderIcon icon={<Delete />} />
+          </Styled.SDeleteIconDiv>
+        </Styled.SMessageListDiv>
+      ) : path === 'messagelist' && messageId ? (
+        <Styled.SBackDiv onClick={() => routeTo(-1)}>
+          <HeaderIcon icon={<BackIcon />} />
+        </Styled.SBackDiv>
+      ) : null}
+      {/* 메시지 상세페이지 */}
       {path === 'writemessage' && (
         <>
           <Styled.SBackDiv onClick={() => routeTo(-1)}>
@@ -114,6 +136,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
           </Styled.SCheckDiv>
         </>
       )}
+      {/* 메세지 작성페이지 */}
       {path !== 'messagelist' && path !== 'writemessage' && (
         <>
           <div style={{ zIndex: '100001' }} id="kakao-link-btn" onClick={handleShareIconClick}>
@@ -136,6 +159,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
           )}
         </>
       )}
+      {/* 메세지 리스트, 메세지 작성페이지 아닐때 */}
     </Styled.SLayout>
   )
 }

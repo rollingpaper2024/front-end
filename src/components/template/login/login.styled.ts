@@ -1,4 +1,5 @@
 import Styled from 'styled-components'
+import { Devices } from '@/style/Device'
 
 export const SBtnLayout = Styled.div`
 width :100%;
@@ -8,7 +9,9 @@ justify-content: flex-end;
 flex-direction: column;
 align-items: center;
 gap:1rem;
-
+@media ${Devices.tablet} {
+    height:70%;
+}
 `
 export const SBtn = Styled.button`
 width:472px;
