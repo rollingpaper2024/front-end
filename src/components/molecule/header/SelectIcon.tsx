@@ -41,9 +41,15 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   useEffect(() => {
     const location = window.location
     const urlWithoutPathname = `${location.protocol}//${location.host}`
-    setRoute(`${urlWithoutPathname}/main/${id}`)
+    console.log("테스트",id)
+    if(id){
+      setRoute(`${urlWithoutPathname}/main/${id}`)
+    }else{
+      setRoute(`${urlWithoutPathname}`)
+    }
+ 
     fetchMessage()
-  }, [id, isMessageAlert])
+  }, [id, isMessageAlert,isKakaoOpen])
 
   useEffect(() => {
     if (isKakaoOpen) {
@@ -54,7 +60,6 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
 
   const fetchMessage = async () => {
     const data = await getUserMessages('Message', user.uid)
-    console.log('data', data)
     setMessageData(data.length)
   }
 
@@ -72,6 +77,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
     routeTo(-1)
    }
   }
+  console.log("test",route)
 
   return (
     <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>

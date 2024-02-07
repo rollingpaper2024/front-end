@@ -50,7 +50,7 @@ function Login() {
 
   useEffect(() => {
     if (user.uid && user.uid !== 'no-user') {
-      router(`/main/${user.uid}`)
+      router(-1)
     }
   }, [user, router])
 

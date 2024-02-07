@@ -56,16 +56,6 @@ export const routerData: RouterElement[] = [
     withAuth: true,
   },
   {
-    id: 4,
-    path: '/sharepage',
-    element: (
-      <Layout isUser={true}>
-        <SharePage />
-      </Layout>
-    ),
-    withAuth: true,
-  },
-  {
     id: 5,
     path: '/writemessage/:id',
     element: (

@@ -104,10 +104,11 @@ function SendMessage() {
       }
     } else {
       console.log('7')
-      setTitle('나만의 복주머니를 만들어보세요.')
-      setDesc('복주머니를 만들어 따뜻한 덕담을 주고 받아볼까요?')
-      setBtnMessage('시작하기')
-      setParameter('/selectpocket')
+      // setTitle('나만의 복주머니를 만들어보세요.')
+      // setDesc('복주머니를 만들어 따뜻한 덕담을 주고 받아볼까요?')
+      setBtnMessage('덕담 쓰기')
+      setParameter(`/writemessage/${id}`)
+      // 로그인 안했을떄 b유저가 a유저의 링크를 공유받았을때
     }
   }
 

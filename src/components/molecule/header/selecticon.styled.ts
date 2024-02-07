@@ -78,7 +78,7 @@ export const STooltipLayout = styled.div`
   height: 40px;
   padding: 12px 10px;
   position: absolute;
-  top: 9.5vh;
+  top: 7.5vh;
   z-index: 100;
 
   @media ${Devices.tablet} {
