@@ -14,25 +14,23 @@ import BlackPocketIcon from '@/img/BlackPocket'
 import Pocket from '@/assets/복주머니.webp'
 import MainModal from '../modal/MainModal'
 import { toast } from 'react-toastify'
-import { v4 as uuidv4 } from 'uuid';
-import { useAtom } from 'jotai';
+import { v4 as uuidv4 } from 'uuid'
+import { useAtom } from 'jotai'
 import { userAtom } from '@/store/user'
 import { getUserMessages } from '@/api'
-import { useRouter } from "@/hooks/useRouter"
-
+import { useRouter } from '@/hooks/useRouter'
 
 type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
 function SelectPocket() {
   const { routeTo } = useRouter()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [user] = useAtom(userAtom);
+  const [user] = useAtom(userAtom)
   const [selectedPocket, setSelectedPocket] = useState({ pocket: '', uid: '' })
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-
   const { pocket } = selectedPocket
- 
+
   const pocketArr = [
     { component: <BlackPocketIcon />, color: 'black' },
     { component: <PinkPocketIcon />, color: 'pink' },
@@ -41,18 +39,18 @@ function SelectPocket() {
   ]
 
   useEffect(() => {
-      if (user) {
-        setSelectedPocket((prev) => ({
-          ...prev,
-          uid: user.uid,
-        }))
-         fetchPocket()
-      } else {
-        setSelectedPocket((prev) => ({
-          ...prev,
-          uid: '',
-        }))
-      }
+    if (user) {
+      setSelectedPocket((prev) => ({
+        ...prev,
+        uid: user.uid,
+      }))
+      fetchPocket()
+    } else {
+      setSelectedPocket((prev) => ({
+        ...prev,
+        uid: '',
+      }))
+    }
   }, [user])
 
   async function fetchPocket() {
@@ -70,11 +68,11 @@ function SelectPocket() {
 
   const PostPocket = async () => {
     try {
-      await postData('Pocket', selectedPocket);
+      await postData('Pocket', selectedPocket)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  };
+  }
 
   const changePocket = () => {
     const mapper: { [key in PocketColor]: JSX.Element } = {
@@ -96,10 +94,16 @@ function SelectPocket() {
   }
   return (
     <>
-        <MainModal
+      <MainModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         PostPocket={PostPocket}
+        title="잠깐"
+        desc1="복주머니 색은 한번만 정할 수 있어요"
+        desc2="이대로 결정할까요?"
+        route="/completepocket"
+        agree1="네"
+        agree2="아니오"
       />
       <MainTitle
         title="복주머니 컬러를 선택하세요"
@@ -129,7 +133,6 @@ function SelectPocket() {
         title="선택 완료"
         isDisabled={pocket.length > 0 ? false : true}
       />
-
     </>
   )
 }

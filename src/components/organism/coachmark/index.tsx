@@ -16,14 +16,16 @@ function index({ handleHideCoachMark, showCoachMark }: IProps) {
     <>
       <CoachMarkBackground />
       <Styled.SHightLightFirstTextDiv>
-        <span>친구들에게 </span>
-        <h1>공유</h1>
-        <span> 하고 덕담을 받아봐요</span>
+        <p>
+          친구들에게 <span>공유</span>하고 덕담을 받아봐요
+        </p>
       </Styled.SHightLightFirstTextDiv>
-
       <Styled.SHightLightSecondTextDiv>
-        <div>친구들에게 온 덕담을 읽어봐요</div>
-        <div>덕담이 없는 상태에선 버튼이 활성화되지 않아요</div>
+        <p>
+          친구들에게 온 덕담을 읽어봐요
+          <br />
+          덕담이 없는 상태에선 버튼이 활성화되지 않아요
+        </p>
       </Styled.SHightLightSecondTextDiv>
       <Styled.SCloseDiv onClick={handleHideCoachMark}>
         <h6>다시보지 않기</h6>

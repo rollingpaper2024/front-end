@@ -1,15 +1,17 @@
 import * as Styled from './modalbtn.styled'
 
 interface ModalBtnProps {
-  title: string
+  agree: string
   isDisabled: boolean
   onClick?: () => void
 }
 
-function ModalBtn({ title, isDisabled,onClick }: ModalBtnProps) {
+function ModalBtn({ agree, isDisabled, onClick }: ModalBtnProps) {
   return (
     <>
-      <Styled.SBtn $isDisabled={isDisabled} onClick={onClick}>{title}</Styled.SBtn>
+      <Styled.SBtn $isDisabled={isDisabled} onClick={onClick}>
+        {agree}
+      </Styled.SBtn>
     </>
   )
 }

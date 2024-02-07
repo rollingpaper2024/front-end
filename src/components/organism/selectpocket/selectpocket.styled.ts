@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const SSelectLayout = styled.div`
-  width: 340px;
+  width: 100%;
   height: 10vh;
   margin-top: 24px;
   display: flex;
-  gap: 28px;
+  justify-content: center;
+  gap: 5%;
 `
 export const SSelectColorDiv = styled.div`
   width: 64px;

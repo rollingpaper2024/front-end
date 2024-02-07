@@ -8,4 +8,5 @@ export const SLayout = styled.section`
   position: absolute;
   bottom: 9vh;
   padding: 0 28px;
+  z-index: 100;
 `
