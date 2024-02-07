@@ -10,7 +10,9 @@ export const SLayout = styled.footer`
   display: flex;
   flex-wrap: wrap;
   padding: 10px 10px;
-  @media ${Devices.tablet} {
+  background: transparent;
+
+  justify-content @media ${Devices.tablet} {
     bottom: -1.5vh;
   }
 `
