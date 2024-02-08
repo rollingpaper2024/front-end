@@ -57,9 +57,9 @@ function SelectPocket() {
 
   async function fetchPocket() {
     const pocketData = await getUserMessages('Pocket', user.uid)
-    // if (pocketData && pocketData.length > 0) {
-    //   routeTo(`/main/${user.uid}`)
-    // }
+    if (pocketData && pocketData.length > 0) {
+      routeTo(`/main/${user.uid}`)
+    }
   }
   function setColor({ color }: { color: string }) {
     setSelectedPocket((prev) => ({

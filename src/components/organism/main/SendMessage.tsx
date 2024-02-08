@@ -14,6 +14,10 @@ import { userAtom } from '@/store/user.ts'
 import { coachMarkAtom } from '@/store/coachmark.ts'
 import CoachMark from '@/components/organism/coachmark'
 import { sharedParameterAtom } from '@/store/sharedParameter'
+import ActiveBluePocket from '@/assets/activebluepocket.webp'
+import BluePocket from '@/assets/bluePocket.webp'
+
+type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
 function SendMessage() {
   const { routeTo } = useRouter()
@@ -30,8 +34,9 @@ function SendMessage() {
   const [desc, setDesc] = useState('')
   const [isDisableCoachmark, setIsDisableCoachmark] = useAtom(coachMarkAtom)
   const [sharedParameter] = useAtom(sharedParameterAtom)
+  const [pocketName, setPocketName] = useState('')
 
-  console.log('sharedParameter', sharedParameter, user.uid)
+ 
 
   useEffect(() => {
     // 로컬 스토리지에서 값 확인
@@ -60,20 +65,18 @@ function SendMessage() {
   }, [id, isPocket])
 
   async function fetchMessages(userId: string) {
-    console.log('userId', userId)
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const messageData = await getUserMessages('Message', userId)
     const pocketData = await getUserMessages('Pocket', user.uid)
-    console.log('pocketData', pocketData,messageData)
     if (messageData) {
       setMessageCount(messageData.length)
     }
     if (pocketData && pocketData.length > 0) {
-      console.log("테스트",pocketData)
       setIsPocket(true)
+      setPocketName(pocketData[0].pocket)
     }
   }
- 
   const generateBtnText = () => {
     console.log('1')
     if (user.uid !== 'no-user') {
@@ -132,14 +135,42 @@ function SendMessage() {
   // jotai의 user의 id값이 no-user일때 (로그인 안되있을떄)
   // text = '시작하기'
 
+  const PocketRenderer = () => {
+    const mapper: { [key in PocketColor]: JSX.Element } = {
+      black: (
+        <PocketIcon
+          icon={isvalidUser === true && messageCount > 0 ? ActivePocketImg : PocketIconImg}
+        />
+      ),
+      blue: (
+        <PocketIcon
+          icon={isvalidUser === true && messageCount > 0 ? ActiveBluePocket : BluePocket}
+        />
+      ),
+      pink: (
+        <PocketIcon
+          icon={isvalidUser === true && messageCount > 0 ? ActivePocketImg : PocketIconImg}
+        />
+      ),
+      green: (
+        <PocketIcon
+          icon={isvalidUser === true && messageCount > 0 ? ActivePocketImg : PocketIconImg}
+        />
+      ),
+      '': <PocketIcon icon={PocketIconImg} />,
+    }
+    return mapper[pocketName as PocketColor]
+  }
+
   return (
     <>
       <CoachMark handleHideCoachMark={handleHideCoachMark} showCoachMark={!isDisableCoachmark} />
       <MainTitle title={title} desc={desc} />
       <MainItemLayout>
-        <PocketIcon
+        {PocketRenderer()}
+        {/* <PocketIcon
           icon={isvalidUser === true && messageCount > 0 ? ActivePocketImg : PocketIconImg}
-        />
+        /> */}
       </MainItemLayout>
       <BtnArea
         title={btnMessage}
