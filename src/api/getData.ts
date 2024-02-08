@@ -7,7 +7,6 @@ import {
   QueryDocumentSnapshot,
   startAfter,
   Firestore,
-  orderBy,
   doc,
   getDoc,
 } from 'firebase/firestore'
@@ -36,14 +35,14 @@ async function getUserMessages(collectionName: string, userId: string) {
     })
     messages = messages.sort((a, b) => {
       // Date 객체로 변환
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
+      const dateA = new Date(a.date)
+      const dateB = new Date(b.date)
 
       // 최신 날짜가 먼저 오도록 정렬
-      return dateB.getTime() - dateA.getTime();
-    });
+      return dateB.getTime() - dateA.getTime()
+    })
 
-    return messages;
+    return messages
   } catch (err) {
     console.error('Error getting documents: ', err)
     return []

@@ -5,14 +5,14 @@ const TooltipClose = () => {
       <path
         d="M5.25 5.25L8.75003 8.75003M5.25 5.25L8.75003 8.75003M5.25 5.25L8.75003 8.75003"
         stroke="#838383"
-        stroke-width="2"
-        stroke-linecap="square"
+        strokeWidth="2"
+        strokeLinecap="square"
       />
       <path
         d="M8.75 5.25L5.24997 8.75003M8.75 5.25L5.24997 8.75003M8.75 5.25L5.24997 8.75003"
         stroke="#838383"
-        stroke-width="2"
-        stroke-linecap="square"
+        strokeWidth="2"
+        strokeLinecap="square"
       />
     </svg>
   )
