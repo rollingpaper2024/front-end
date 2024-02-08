@@ -57,7 +57,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   }, [isKakaoOpen, route])
 
   const fetchShareKakaoLink = async () => {
-    await shareKaKaoLink({ title: 'rolling-paper', route, setKakaoOpen })
+    await shareKaKaoLink({ title: '너의 덕담이 보여', route, setKakaoOpen })
   }
   const fetchMessage = async () => {
     const data = await getUserMessages('Message', user.uid)
