@@ -5,7 +5,6 @@ import { getAuth, onAuthStateChanged, User } from 'firebase/auth'
 import { app } from '@/database'
 import Loader from '@/components/atom/loader/Loader'
 import Header from '@/components/template/header'
-import Footer from '@/components/template/footer'
 
 interface GeneralLayoutProps {
   children: React.ReactNode
@@ -25,6 +24,25 @@ const Layout: React.FC<GeneralLayoutProps> = ({ children, isUser }) => {
     })
     return () => unsubscribe()
   }, [auth])
+
+  //키보드 밀림 현상 방지
+  useEffect(() => {
+    const handleVisualViewportResize = () => {
+      const { visualViewport, document } = window
+      if (visualViewport) {
+        const { height } = visualViewport
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+        if (vh - height > 100) {
+          const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
+          const scrollTop = scrollHeight - vh
+          window.scrollTo(0, scrollTop)
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleVisualViewportResize)
+    return () => window.removeEventListener('resize', handleVisualViewportResize)
+  }, [])
 
   if (!init) return <Loader />
 

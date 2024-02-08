@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const SSelectLayout = styled.div`
   width: 100%;
   height: 10vh;
-  margin-top: 24px;
   display: flex;
   justify-content: center;
   gap: 5%;
@@ -14,7 +13,6 @@ export const SSelectColorDiv = styled.div`
   flex-shrink: 0;
   color: #fffefc;
   cursor: pointer;
-
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
