@@ -60,18 +60,20 @@ function SendMessage() {
   }, [id, isPocket])
 
   async function fetchMessages(userId: string) {
+    console.log('userId', userId)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const messageData = await getUserMessages('Message', userId)
-    const pocketData = await getUserMessages('Pocket', userId)
-    console.log('pocketData', pocketData)
+    const pocketData = await getUserMessages('Pocket', user.uid)
+    console.log('pocketData', pocketData,messageData)
     if (messageData) {
       setMessageCount(messageData.length)
     }
     if (pocketData && pocketData.length > 0) {
+      console.log("테스트",pocketData)
       setIsPocket(true)
     }
   }
-
+ 
   const generateBtnText = () => {
     console.log('1')
     if (user.uid !== 'no-user') {

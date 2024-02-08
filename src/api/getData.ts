@@ -28,14 +28,22 @@ async function getUserMessages(collectionName: string, userId: string) {
   try {
     const q = query(collection(db, collectionName), where('uid', '==', userId))
     const querySnapshot = await getDocs(q)
-    const messages: MessageType[] = []
+    let messages: MessageType[] = []
 
     querySnapshot.forEach((doc) => {
       const messageData = doc.data() as MessageType
       messages.push({ ...messageData, id: doc.id })
     })
+    messages = messages.sort((a, b) => {
+      // Date 객체로 변환
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
 
-    return messages
+      // 최신 날짜가 먼저 오도록 정렬
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    return messages;
   } catch (err) {
     console.error('Error getting documents: ', err)
     return []
