@@ -20,7 +20,7 @@ export const SWriter = styled.div`
 `
 export const SContents = styled.div`
   position: inherit;
-  top: 18vh;
+  top: 20vh;
   z-index: 1;
   left: 50%;
   transform: translateX(-50%);
