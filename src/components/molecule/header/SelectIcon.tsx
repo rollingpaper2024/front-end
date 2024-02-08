@@ -77,7 +77,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
       routeTo(-1)
     }
   }
-  console.log('test', route)
+  console.log('test', path)
 
   return (
     <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>
@@ -161,7 +161,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
         </>
       )}
       {/* 메세지 작성페이지 */}
-      {path !== 'messagelist' && path !== 'writemessage' && (
+      {path !== 'messagelist' && path !== 'writemessage' &&path !== ''&& (
         <>
           <div style={{ zIndex: '100001' }} id="kakao-link-btn" onClick={handleShareIconClick}>
             <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
