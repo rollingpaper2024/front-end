@@ -9,6 +9,7 @@ import { userAtom } from '@/store/user'
 import { getUserMessages } from '@/api'
 import { useRouter } from '@/hooks/useRouter'
 import List from '@/components/template/list/List'
+import { toast } from 'react-toastify'
 
 function MessageList() {
   const [user] = useAtom(userAtom)
@@ -66,6 +67,7 @@ function MessageList() {
                   } else {
                     //다른 사용자
                     console.error('Permission denied: You cannot access this message.')
+                    toast.error('해당 덕담에 대한 읽기 권한이 없습니다.')
                   }
                 }}
               />

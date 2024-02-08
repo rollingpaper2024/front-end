@@ -17,6 +17,8 @@ export const SWriter = styled.div`
   left: 50%;
   transform: translateX(-50%);
   font-size: ${Fontsize.Middle};
+  width: 100%;
+  text-align: center;
 `
 export const SContents = styled.div`
   position: inherit;
