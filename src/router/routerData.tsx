@@ -19,7 +19,7 @@ export const routerData: RouterElement[] = [
     id: 0,
     path: '/',
     element: (
-      <Layout isUser={false}>
+      <Layout isUser={true}>
         <LandingPage />
       </Layout>
     ),
