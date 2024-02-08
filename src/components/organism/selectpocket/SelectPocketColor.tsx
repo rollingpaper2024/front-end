@@ -20,6 +20,7 @@ import { userAtom } from '@/store/user'
 import { getUserMessages } from '@/api'
 import { useRouter } from '@/hooks/useRouter'
 import PreParePocketIcon from '@/assets/prepare_pocket.webp'
+import BluePocket from '@/assets/bluePocket.webp'
 
 type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
@@ -34,8 +35,8 @@ function SelectPocket() {
 
   const pocketArr = [
     { component: <BlackPocketIcon />, color: 'black' },
-    { component: <PinkPocketIcon />, color: 'pink' },
     { component: <BluePocketIcon />, color: 'blue' },
+    { component: <PinkPocketIcon />, color: 'pink' },
     { component: <GreenPocketIcon />, color: 'green' },
   ]
 
@@ -56,9 +57,9 @@ function SelectPocket() {
 
   async function fetchPocket() {
     const pocketData = await getUserMessages('Pocket', user.uid)
-    if (pocketData && pocketData.length > 0) {
-      routeTo(`/main/${user.uid}`)
-    }
+    // if (pocketData && pocketData.length > 0) {
+    //   routeTo(`/main/${user.uid}`)
+    // }
   }
   function setColor({ color }: { color: string }) {
     setSelectedPocket((prev) => ({
@@ -79,7 +80,7 @@ function SelectPocket() {
     const mapper: { [key in PocketColor]: JSX.Element } = {
       black: <PocketIcon icon={Pocket} />,
       pink: <PocketIcon icon={PreParePocketIcon} />,
-      blue: <PocketIcon icon={PreParePocketIcon} />,
+      blue: <PocketIcon icon={BluePocket} />,
       green: <PocketIcon icon={PreParePocketIcon} />,
       '': <PocketIcon icon={EmptyPocketIconImg} />,
     }
@@ -132,7 +133,7 @@ function SelectPocket() {
           selectPocket()
         }}
         title="선택 완료"
-        isDisabled={pocket.length > 0 && pocket == 'black' ? false : true}
+        isDisabled={!(pocket.length > 0 && (pocket === 'black' || pocket === 'blue'))}
       />
     </>
   )
