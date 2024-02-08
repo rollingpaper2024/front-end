@@ -7,6 +7,7 @@ import {
   QueryDocumentSnapshot,
   startAfter,
   Firestore,
+  orderBy,
   doc,
   getDoc,
 } from 'firebase/firestore'
@@ -25,12 +26,16 @@ interface MessageType {
 
 async function getUserMessages(collectionName: string, userId: string) {
   try {
-    const q = query(collection(db, collectionName), where('uid', '==', userId))
+    const q = query(
+      collection(db, collectionName),
+      where('uid', '==', userId),
+      orderBy('date', 'desc'),
+    )
     const querySnapshot = await getDocs(q)
-    const messages: messageType[] = []
+    const messages: MessageType[] = []
 
     querySnapshot.forEach((doc) => {
-      const messageData = doc.data() as messageType
+      const messageData = doc.data() as MessageType
       messages.push({ ...messageData, id: doc.id })
     })
 
