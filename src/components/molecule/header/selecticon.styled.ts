@@ -18,12 +18,12 @@ export const SLayout = styled.div<Props>`
   }
   position: relative;
 `
-export const SBackDiv = styled.div`
-  width: 50%;
+export const SBackDiv = styled.div<{ isUser: boolean }>`
+  width: ${(props) => (props.isUser ? '100%' : '50%')};
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 18px;
+  padding-left: ${(props) => (props.isUser ? '0' : '18px')};
 `
 export const SCheckDiv = styled.div`
   width: 50%;
@@ -85,13 +85,13 @@ export const STooltipLayout = styled.div`
     top: 6.8vh;
   }
 `
-export const SMessageListDiv= styled.div`
-width:100%;
-display:flex;
+export const SMessageListDiv = styled.div`
+  width: 100%;
+  display: flex;
 `
-export const SDeleteIconDiv =styled.div`
-display:flex;
-width:50%;
-justify-content: flex-end;
-padding-right: 18px;
+export const SDeleteIconDiv = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  padding-right: 18px;
 `

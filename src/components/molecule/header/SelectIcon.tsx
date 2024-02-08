@@ -93,15 +93,17 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
             agree1="네, 가입할래요"
             agree2="나중에 할래요"
           />
-          <Styled.SBackDiv onClick={() => routeTo(-1)}>
+          <Styled.SBackDiv isUser={user.uid === id} onClick={() => routeTo(-1)}>
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>
-          <Styled.SCheckDiv>
-            <div onClick={() => routeTo(`/writemessage/${id}`)}>
-              <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
-            </div>
-          </Styled.SCheckDiv>
-          {isTooltipOpen && (
+          {user.uid != id && (
+            <Styled.SCheckDiv>
+              <div onClick={() => routeTo(`/writemessage/${id}`)}>
+                <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
+              </div>
+            </Styled.SCheckDiv>
+          )}
+          {user.uid != id && isTooltipOpen && (
             <Styled.STooltipLayout>
               <Styled.STooltipDiv>
                 <Tooltip />
@@ -161,7 +163,7 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
         </>
       )}
       {/* 메세지 작성페이지 */}
-      {path !== 'messagelist' && path !== 'writemessage' &&path !== ''&& (
+      {path !== 'messagelist' && path !== 'writemessage' && path !== '' && (
         <>
           <div style={{ zIndex: '100001' }} id="kakao-link-btn" onClick={handleShareIconClick}>
             <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
