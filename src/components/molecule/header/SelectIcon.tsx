@@ -29,6 +29,8 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   const [isMessageAlert, setMessageAlert] = useState(false)
   const [user, setUser] = useAtom(userAtom)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  //덕담 작성 테스트용 계정 uid
+  const adminUser = 'k3rRTQHXdAN13FGa5HOmWDoSsT72'
 
   useEffect(() => {
     const script = document.createElement('script')
@@ -93,10 +95,13 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
             agree1="네, 가입할래요"
             agree2="나중에 할래요"
           />
-          <Styled.SBackDiv isUser={user.uid === id} onClick={() => routeTo(-1)}>
+          <Styled.SBackDiv
+            isUser={user.uid === id && user.uid != adminUser}
+            onClick={() => routeTo(-1)}
+          >
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>
-          {user.uid != id && (
+          {(user.uid === adminUser || user.uid !== id) && (
             <Styled.SCheckDiv>
               <div onClick={() => routeTo(`/writemessage/${id}`)}>
                 <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
