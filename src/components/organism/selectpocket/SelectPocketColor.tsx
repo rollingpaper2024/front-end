@@ -21,6 +21,8 @@ import { getUserMessages } from '@/api'
 import { useRouter } from '@/hooks/useRouter'
 import PreParePocketIcon from '@/assets/prepare_pocket.webp'
 import BluePocket from '@/assets/bluePocket.webp'
+import GreenPocket from '@/assets/greenPocket.webp'
+import PinkPocket from '@/assets/pinkPocket.webp'
 
 type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
@@ -79,9 +81,9 @@ function SelectPocket() {
   const changePocket = () => {
     const mapper: { [key in PocketColor]: JSX.Element } = {
       black: <PocketIcon icon={Pocket} />,
-      pink: <PocketIcon icon={PreParePocketIcon} />,
+      pink: <PocketIcon icon={PinkPocket} />,
       blue: <PocketIcon icon={BluePocket} />,
-      green: <PocketIcon icon={PreParePocketIcon} />,
+      green: <PocketIcon icon={GreenPocket} />,
       '': <PocketIcon icon={EmptyPocketIconImg} />,
     }
 
@@ -133,7 +135,7 @@ function SelectPocket() {
           selectPocket()
         }}
         title="선택 완료"
-        isDisabled={!(pocket.length > 0 && (pocket === 'black' || pocket === 'blue'))}
+        isDisabled={!(pocket.length > 0)}
       />
     </>
   )

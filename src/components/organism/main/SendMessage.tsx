@@ -17,6 +17,10 @@ import { sharedParameterAtom } from '@/store/sharedParameter'
 import ActiveBluePocket from '@/assets/activebluepocket.webp'
 import BluePocket from '@/assets/bluePocket.webp'
 import EmptyPocketImg from '@/assets/emptyPocket.webp'
+import ActiveGreenPocket from '@/assets/activeGreenPocket.webp'
+import GreenPocket from '@/assets/greenPocket.webp'
+import PinkPocket from '@/assets/pinkPocket.webp'
+import ActivePinkPocket from '@/assets/activePinkPocket.webp'
 
 type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
@@ -147,12 +151,12 @@ function SendMessage() {
       ),
       pink: (
         <PocketIcon
-          icon={isvalidUser === true && messageCount > 0 ? ActivePocketImg : PocketIconImg}
+          icon={isvalidUser === true && messageCount > 0 ? ActivePinkPocket : PinkPocket}
         />
       ),
       green: (
         <PocketIcon
-          icon={isvalidUser === true && messageCount > 0 ? ActivePocketImg : PocketIconImg}
+          icon={isvalidUser === true && messageCount > 0 ? ActiveGreenPocket : GreenPocket}
         />
       ),
       '': <PocketIcon icon={EmptyPocketImg} />,
