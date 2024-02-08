@@ -16,6 +16,7 @@ import CoachMark from '@/components/organism/coachmark'
 import { sharedParameterAtom } from '@/store/sharedParameter'
 import ActiveBluePocket from '@/assets/activebluepocket.webp'
 import BluePocket from '@/assets/bluePocket.webp'
+import EmptyPocketImg from '@/assets/emptyPocket.webp'
 
 type PocketColor = 'black' | 'pink' | 'blue' | 'green' | ''
 
@@ -35,8 +36,6 @@ function SendMessage() {
   const [isDisableCoachmark, setIsDisableCoachmark] = useAtom(coachMarkAtom)
   const [sharedParameter] = useAtom(sharedParameterAtom)
   const [pocketName, setPocketName] = useState('')
-
- 
 
   useEffect(() => {
     // 로컬 스토리지에서 값 확인
@@ -65,7 +64,6 @@ function SendMessage() {
   }, [id, isPocket])
 
   async function fetchMessages(userId: string) {
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const messageData = await getUserMessages('Message', userId)
     const pocketData = await getUserMessages('Pocket', user.uid)
@@ -157,7 +155,7 @@ function SendMessage() {
           icon={isvalidUser === true && messageCount > 0 ? ActivePocketImg : PocketIconImg}
         />
       ),
-      '': <PocketIcon icon={PocketIconImg} />,
+      '': <PocketIcon icon={EmptyPocketImg} />,
     }
     return mapper[pocketName as PocketColor]
   }
