@@ -26,11 +26,7 @@ interface MessageType {
 
 async function getUserMessages(collectionName: string, userId: string) {
   try {
-    const q = query(
-      collection(db, collectionName),
-      where('uid', '==', userId),
-      orderBy('date', 'desc'),
-    )
+    const q = query(collection(db, collectionName), where('uid', '==', userId))
     const querySnapshot = await getDocs(q)
     const messages: MessageType[] = []
 

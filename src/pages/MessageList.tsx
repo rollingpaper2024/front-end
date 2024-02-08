@@ -4,6 +4,7 @@ import ListCard from '@/components/atom/card/ListCard'
 import * as Styled from '@/components/organism/list/Listlayer.styled'
 import { useParams } from 'react-router-dom'
 import { useAtom } from 'jotai'
+import { v4 as uuidv4 } from 'uuid'
 import { userAtom } from '@/store/user'
 import { getUserMessages } from '@/api'
 import { useRouter } from '@/hooks/useRouter'
@@ -53,7 +54,7 @@ function MessageList() {
           <React.Fragment key={i}>
             {page.map((message: any) => (
               <ListCard
-                key={message.id}
+                key={uuidv4()}
                 color={message.color}
                 name={message.writer}
                 date={message.date}
