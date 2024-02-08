@@ -10,8 +10,9 @@ interface IProps {
 
 function index({ handleHideCoachMark, showCoachMark }: IProps) {
   if (!showCoachMark) {
-    return
+    return null
   }
+
   return (
     <>
       <CoachMarkBackground />
@@ -29,7 +30,7 @@ function index({ handleHideCoachMark, showCoachMark }: IProps) {
       </Styled.SHightLightSecondTextDiv>
       <Styled.SCloseDiv onClick={handleHideCoachMark}>
         <h6>다시보지 않기</h6>
-        <img src={CloseIcon}></img>
+        <img src={CloseIcon} alt="close-icon"></img>
       </Styled.SCloseDiv>
     </>
   )
