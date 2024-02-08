@@ -13,7 +13,7 @@ interface btnAreaType {
 function BtnArea({ title, isDisabled, onClick }: btnAreaType) {
   const [isDisableCoachmark] = useAtom(coachMarkAtom)
   return (
-    <Styled.SLayout>
+    <Styled.SLayout showCoachMark={!isDisableCoachmark}>
       <MainBtn
         title={title}
         isDisabled={isDisabled}
