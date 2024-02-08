@@ -4,9 +4,11 @@ import * as Font from '@/style/font'
 import { Devices } from '@/style/Device'
 
 export const SBtn = styled.button<{ $isDisabled: boolean; isDisableCoachmark?: boolean }>`
+  position: absolute;
+  bottom: 9vh;
   background-color: ${(props) => (props.$isDisabled ? Color.gray[500] : Color.gray[600])};
   height: 56px;
-  width: 100%;
+  width: 80%;
   color: ${Color.yellow[300]};
   font-size: ${Font.Fontsize.Small};
   font-weight: ${Font.Fontweight.Bold};
