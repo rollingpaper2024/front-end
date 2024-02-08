@@ -14,12 +14,13 @@ import {
 import { app } from '@/database'
 import { onLoginWithKakao } from '@/api/onClickKakaologin'
 import * as Styled from './login.styled'
+import { toast } from 'react-toastify';
+
 
 function Login() {
   const router = useNavigate()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [user, setUser] = useAtom(userAtom)
-
   const kakaoClientId = import.meta.env.VITE_APP_KAKAO_JAVASCRIPT_KEY
   const auth = getAuth(app)
   const kakaoOnFailure = (error: any) => {
@@ -55,12 +56,18 @@ function Login() {
   }, [user, router])
 
   const handleSocialLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    const result = await onClickSocialLogin(e)
-    if (result === false) {
-      console.log('테스트', user)
-      console.log('Login failed', result)
+    if(navigator.userAgent.includes('KAKAO')){
+      toast.error("카카오 인앱브라우저에서는 구글로그인이 어렵습니다ㅠㅠ")
+    }else{
+      const result = await onClickSocialLogin(e)
+      if (result === false) {
+        console.log('테스트', user)
+        console.log('Login failed', result)
+      }
     }
+
   }
+  console.log(" navigator.userAgent", navigator.userAgent)
   return (
     <>
       <MainTitle title="회원가입 하기" desc="소셜 로그인 및 이메일로 간편 가입할 수 있어요." />

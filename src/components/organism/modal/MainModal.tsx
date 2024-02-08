@@ -8,10 +8,10 @@ interface ModalType {
   PostPocket?: () => Promise<void>
   title: string
   desc1: string
-  desc2: string
-  route: string
-  agree1: string
-  agree2: string
+  desc2?: string
+  route?: string
+  agree1?: string
+  agree2?: string
 }
 
 function MainModal({
