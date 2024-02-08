@@ -64,7 +64,7 @@ function Finish() {
         title="잠깐"
         desc1="나의 복주머니를 생성하면"
         desc2="덕담을 받아볼 수 있어요."
-        route="/main/:id'"
+        route="/"
         agree1="네, 만들래요!"
         agree2="관심없어요"
       />
