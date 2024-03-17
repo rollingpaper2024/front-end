@@ -18,7 +18,6 @@ function Finish() {
   const [isPockets, setIsPockets] = useState(false)
   const { id } = useParams()
 
-  console.log('user', user.uid)
   useEffect(() => {
     if (likecontainer.current) {
       lottie.loadAnimation({

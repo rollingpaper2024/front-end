@@ -8,7 +8,6 @@ interface AlertProps {
 
 // toastify 커스텀하기
 function Alert({ number }: AlertProps) {
-  console.log('number', number)
   return (
     <Styled.Alert>
       <Styled.AlertWrapper>

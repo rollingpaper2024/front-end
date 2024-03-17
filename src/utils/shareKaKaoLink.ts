@@ -13,15 +13,14 @@ export const shareKaKaoLink = ({
   if (window.Kakao) {
     setKakaoOpen(false)
     const kakao = window.Kakao
-    
+
     // 중복 initialization 방지
     if (!kakao.isInitialized()) {
       // 두번째 step 에서 가져온 javascript key 를 이용하여 initialize
       kakao.init(VITE_APP_KAKAO_JAVASCRIPT_KEY)
     }
-    console.log("route",route)
+
     return kakao.Link.createDefaultButton({
-      
       container: '#kakao-link-btn',
       objectType: 'feed',
       content: {

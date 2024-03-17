@@ -70,7 +70,6 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
   }
 
   const handleShareIconClick = () => {
-    console.log('테스트')
     setKakaoOpen(true)
   }
   const deleteMessage = async () => {
@@ -79,7 +78,6 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
       routeTo(-1)
     }
   }
-  console.log('test', path)
 
   return (
     <Styled.SLayout isWriteMessage={path === 'messagelist' || 'writemessage'}>
@@ -101,17 +99,18 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
           >
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>
-          {(adminUsers.includes(user.uid) || user.uid !== id) && (
+          {/* {(adminUsers.includes(user.uid) || user.uid !== id) && (
             <Styled.SCheckDiv>
               <div onClick={() => routeTo(`/writemessage/${id}`)}>
                 <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
               </div>
             </Styled.SCheckDiv>
-          )}
+          )} */}
           <Styled.SCheckDiv>
-            <div onClick={() => routeTo(`/writemessage/${id}`)}>
-              <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
-            </div>
+            <HeaderIcon
+              onClick={() => routeTo(`/writemessage/${id}`)}
+              icon={<img src={WriteIcon} alt="Write" />}
+            />
           </Styled.SCheckDiv>
           {isTooltipOpen && (
             <Styled.STooltipLayout>
@@ -151,18 +150,17 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
             <HeaderIcon icon={<BackIcon />} />
           </Styled.SBackDiv>
           <Styled.SCheckDiv>
-            <div style={{ zIndex: '100001' }} id="kakao-link-btn" onClick={handleShareIconClick}>
-              <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
-            </div>
+            <HeaderIcon
+              id="kakao-link-btn"
+              isDisableCoachmark={isDisableCoachmark}
+              icon={<ShareIcon />}
+              onClick={handleShareIconClick}
+            />
             {messageData === 0 && (
-              <div onClick={() => setMessageAlert(true)}>
-                <HeaderIcon icon={<DefaultAlarm />} />
-              </div>
+              <HeaderIcon onClick={() => setMessageAlert(true)} icon={<DefaultAlarm />} />
             )}
             {isUser && messageData > 0 ? (
-              <div onClick={() => setMessageAlert(true)}>
-                <HeaderIcon icon={<ActiveAlarm />} />
-              </div>
+              <HeaderIcon onClick={() => setMessageAlert(true)} icon={<ActiveAlarm />} />
             ) : null}
             {isMessageAlert && (
               <Styled.SAlertDiv onClick={navigateMessageList}>
@@ -175,18 +173,17 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
       {/* 메세지 작성페이지 */}
       {path !== 'messagelist' && path !== 'writemessage' && path !== '' && (
         <>
-          <div style={{ zIndex: '100001' }} id="kakao-link-btn" onClick={handleShareIconClick}>
-            <HeaderIcon isDisableCoachmark={isDisableCoachmark} icon={<ShareIcon />} />
-          </div>
+          <HeaderIcon
+            id="kakao-link-btn"
+            onClick={handleShareIconClick}
+            isDisableCoachmark={isDisableCoachmark}
+            icon={<ShareIcon />}
+          />
           {messageData === 0 && (
-            <div onClick={() => setMessageAlert(true)}>
-              <HeaderIcon icon={<DefaultAlarm />} />
-            </div>
+            <HeaderIcon onClick={() => setMessageAlert(true)} icon={<DefaultAlarm />} />
           )}
           {isUser && messageData > 0 ? (
-            <div onClick={() => setMessageAlert(true)}>
-              <HeaderIcon icon={<ActiveAlarm />} />
-            </div>
+            <HeaderIcon icon={<ActiveAlarm />} onClick={() => setMessageAlert(true)} />
           ) : null}
           {isMessageAlert && (
             <Styled.SAlertDiv onClick={navigateMessageList}>
