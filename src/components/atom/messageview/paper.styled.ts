@@ -1,4 +1,3 @@
-import Color from '@/style/Color'
 import styled from 'styled-components'
 
 export const Swrapper = styled.div`

@@ -108,7 +108,12 @@ function SelectIcon({ isUser, isDisableCoachmark, path }) {
               </div>
             </Styled.SCheckDiv>
           )}
-          {user.uid != id && isTooltipOpen && (
+          <Styled.SCheckDiv>
+            <div onClick={() => routeTo(`/writemessage/${id}`)}>
+              <HeaderIcon icon={<img src={WriteIcon} alt="Write" />} />
+            </div>
+          </Styled.SCheckDiv>
+          {isTooltipOpen && (
             <Styled.STooltipLayout>
               <Styled.STooltipDiv>
                 <Tooltip />

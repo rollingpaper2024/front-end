@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Color from '@/style/Color'
 
 interface coachmarkProps {
   isDisableCoachmark: boolean
@@ -18,6 +19,7 @@ export const SIconDiv = styled.div<coachmarkProps>`
   flex-shrink: 0;
   cursor: pointer;
   background-color: ${(props) => (props.isDisableCoachmark === false ? 'white' : 'none')};
-  border: ${(props) => (props.isDisableCoachmark === false ? '2px solid #ef961c' : 'none')};
+  border: ${(props) =>
+    props.isDisableCoachmark === false ? `2px solid ${Color.pointColor}` : 'none'};
   z-index: ${(props) => (props.isDisableCoachmark === false ? 1000001 : 1)};
 `
